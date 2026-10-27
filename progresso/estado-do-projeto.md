@@ -54,7 +54,7 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 
 - Pedido do usuário: commit e push direto em `main`, sem PR.
 - Restrição real desta sessão: a plataforma impõe o branch `claude/ansible-automation-platform-26-7e98tt` e proíbe push em outro branch sem permissão explícita na sessão. O trabalho foi commitado **localmente** nesse branch.
-- **Push da sessão 1 recusado (HTTP 403):** o Claude não tinha acesso de escrita ao repositório no GitHub (app do Claude não instalado/vinculado para a conta). O commit ficou apenas no container da sessão. Depois de corrigir o acesso, é preciso fazer o push (e a integração em `main`, a critério do usuário).
+- **Push da sessão 1:** inicialmente recusado (HTTP 403, Claude GitHub App sem acesso ao repositório). Após o usuário liberar o acesso, o push para `origin/claude/ansible-automation-platform-26-7e98tt` foi concluído em 2026-10-27. A integração em `main` fica a critério do usuário.
 
 ## Pendências e assuntos a retomar
 
