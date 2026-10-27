@@ -41,6 +41,9 @@ quando o Capítulo 9 (Comprehensive Review) for recebido.
 - [ ] Crio uma role com `ansible-galaxy role init`, com `defaults`, template, handler e dependência.
 - [ ] Instalo roles e collections por `requirements.yml` no diretório do projeto.
 - [ ] Uso uma role de collection pelo FQRN com variáveis em `group_vars`.
+- [ ] Aplico uma system role com variáveis em `group_vars` e trato reboot da role de SELinux.
+- [ ] Declaro repositório com chave GPG e instalo vários pacotes em uma transação.
+- [ ] Crio usuários e grupos, autorizo chaves e configuro sudo com `validate`.
 - [ ] ⏳ Demais itens com os próximos capítulos.
 
 ---

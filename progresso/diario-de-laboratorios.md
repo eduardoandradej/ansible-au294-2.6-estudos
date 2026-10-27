@@ -50,7 +50,10 @@ credenciais.
 | 7.6 | GE `roles-external` | | | | |
 | 7.8 | GE `roles-collections` | | | | |
 | 7.9 | Lab `roles-review` (grade) | | | | |
-| 8.x | ⏳ Aguardando PDF | | | | |
+| 8.2 | GE `system-roles` | | | | |
+| 8.4 | GE `system-software` | | | | |
+| 8.6 | GE `system-user` | | | | |
+| 8.8+ | ⏳ Aguardando PDF 08B | | | | |
 
 ## Entradas
 

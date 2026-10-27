@@ -1,0 +1,4 @@
+---
+# Só necessário para atualizar: o EE ee-supported-rhel9 já traz a collection.
+collections:
+  - name: redhat.rhel_system_roles

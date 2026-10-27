@@ -1,6 +1,6 @@
 # Módulos e collections
 
-Cobertura atual: **Capítulos 1 a 7**.
+Cobertura atual: **Capítulos 1 a 7** e parte A do Capítulo 8.
 
 ## Conceitos já vistos
 
@@ -24,7 +24,7 @@ Cobertura atual: **Capítulos 1 a 7**.
 | `ansible.builtin.file` | Permissões, dono, diretórios, links | 2.5 |
 | `ansible.builtin.lineinfile` | Garante (ou remove) uma linha em um arquivo | 2.5 |
 | `ansible.builtin.systemd_service` / `ansible.builtin.service` | Estado e habilitação de serviços | 2.3, 2.5 |
-| `ansible.builtin.user` | Contas de usuário | 2.3, 2.5 |
+| `ansible.builtin.user` | Contas de usuário (`groups` + `append`, `system`, `generate_ssh_key`) | 2.3, 2.5, 8.5 |
 | `ansible.builtin.uri` / `ansible.builtin.get_url` | Requisições HTTP / download de arquivos | 2.5 |
 | `ansible.builtin.wait_for` | Aguarda porta/arquivo/condição | exemplo do Cap. 2 |
 | `ansible.builtin.reboot` | Reinicia o host e espera voltar | 2.5 |
@@ -42,9 +42,29 @@ Cobertura atual: **Capítulos 1 a 7**.
 | `ansible.builtin.fail` | Falha a task com uma mensagem (com `when`) | 4.5 |
 | `ansible.builtin.meta` | Ações internas, como `flush_handlers` | 4.3 |
 | `ansible.builtin.service_facts` | Coleta o estado dos serviços em `ansible_facts['services']` | 4.1 |
-| `ansible.builtin.group` | Grupos locais | exemplos do Cap. 4 |
+| `ansible.builtin.group` | Grupos locais (`gid`, `system`) | exemplos do Cap. 4, 8.5 |
 | `ansible.posix.firewalld` | Regras do firewalld (`permanent`, `immediate`) | 2.3, 2.5 |
 | `ansible.posix.synchronize` | Sincroniza conteúdo com rsync | 2.5 |
+| `ansible.builtin.package_facts` | Pacotes instalados em `ansible_facts['packages']` (recoletar após instalar) | 8.3 |
+| `ansible.builtin.yum_repository` | Arquivo `.repo` em `/etc/yum.repos.d/` (`file`, `name`, `baseurl`, `gpgcheck`) | 8.3 |
+| `ansible.builtin.rpm_key` | Importa/remove chave GPG no banco RPM (`fingerprint`) | 8.3 |
+| `ansible.builtin.assert` | Valida condições (`that`, `success_msg`, `fail_msg`) | 8.3 |
+| `ansible.builtin.known_hosts` | Entradas de chaves de host em `known_hosts` | 8.5 |
+| `ansible.posix.authorized_key` | Chaves autorizadas para login em uma conta | 8.5 |
+
+## RHEL system roles (Cap. 8)
+
+Lição: [8.1](../capitulos/08-administracao-linux/8.1-usando-system-roles.md).
+
+| Item | Detalhe |
+|------|---------|
+| Collection | `redhat.rhel_system_roles` (já no EE `ee-supported-rhel9`); RPM `rhel-system-roles` para o ansible-core do RHEL |
+| Upstream sem suporte | `fedora.linux_system_roles` (Ansible Galaxy) |
+| Documentação (RPM) | `/usr/share/doc/rhel-system-roles/<role>/README.md` |
+| `timesync` | `timesync_ntp_servers` (`hostname`, `iburst`) |
+| `selinux` | `selinux_state`, `selinux_booleans`, `selinux_fcontexts`, `selinux_restore_dirs`, `selinux_ports`; não reinicia: `selinux_reboot_required` + `block`/`rescue` |
+| `rhc` | `rhc_state`, `rhc_auth` (Vault ou activation key), `rhc_repositories` |
+| Boa prática | Variáveis em `group_vars`/`host_vars`; play curto |
 
 ## Onde obter collections
 

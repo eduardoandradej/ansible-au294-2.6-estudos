@@ -47,7 +47,7 @@ flowchart LR
 | [Capítulo 5](capitulos/05-deploy-de-arquivos/README.md) | Developing Automation Content: Deploying Files | p. 292–339 | ✅ |
 | [Capítulo 6](capitulos/06-automacao-em-escala/README.md) | Developing Automation Content at Scale | p. 340–384 | ✅ |
 | [Capítulo 7](capitulos/07-roles-e-collections/README.md) | Reusing Code with Ansible Roles and Content Collections | p. 385–452 | ✅ |
-| [Capítulo 8](capitulos/08-administracao-linux/README.md) | Automating Linux Administration Tasks (partes A e B) | p. 453–569 | ⏳ |
+| [Capítulo 8](capitulos/08-administracao-linux/README.md) | Automating Linux Administration Tasks (partes A e B) | p. 453–569 | 🟡 parte A |
 | [Capítulo 9](capitulos/09-revisao-geral/README.md) | Comprehensive Review | p. 570–615 | ⏳ |
 
 Legenda: ✅ documentado e validado · 🟡 parcial · ⏳ aguardando PDF. Os capítulos são

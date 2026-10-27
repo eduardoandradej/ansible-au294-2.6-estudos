@@ -93,7 +93,12 @@ escrito) está em [estado-do-projeto.md](estado-do-projeto.md).
 - [ ] RESUMO.md
 
 ## Capítulo 8 — Automating Linux Administration Tasks
-- [ ] ⏳ Parte A (8.1–8.6) — aguardando PDF
+- [ ] 8.1 Using System Roles
+- [ ] 8.2 GE `system-roles`
+- [ ] 8.3 Automating Software and Subscription Tasks
+- [ ] 8.4 GE `system-software`
+- [ ] 8.5 Automating User Management and Authentication Tasks
+- [ ] 8.6 GE `system-user`
 - [ ] ⏳ Parte B (8.7–8.14) — aguardando PDF
 
 ## Capítulo 9 — Comprehensive Review

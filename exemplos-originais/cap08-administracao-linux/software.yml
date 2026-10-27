@@ -1,0 +1,52 @@
+---
+- name: Repositório interno e pacotes dos servidores de análise
+  hosts: analise
+  become: true
+  tasks:
+    - name: Importar a chave GPG do repositório interno
+      ansible.builtin.rpm_key:
+        key: https://repo.example.net/chaves/RPM-GPG-KEY-analise
+        state: present
+
+    - name: Declarar o repositório interno
+      ansible.builtin.yum_repository:
+        file: analise-interno
+        name: analise-interno
+        description: Repositório interno da equipe de análise
+        baseurl: https://repo.example.net/el10/analise/
+        enabled: true
+        gpgcheck: true
+        state: present
+
+    - name: Instalar as ferramentas em uma única transação
+      ansible.builtin.dnf:
+        name:
+          - postgresql
+          - sqlite
+          - jq
+        state: present
+
+    - name: Coletar os pacotes instalados
+      ansible.builtin.package_facts:
+        manager: auto
+
+    - name: Mostrar a versão do sqlite
+      ansible.builtin.debug:
+        msg: "sqlite {{ ansible_facts['packages']['sqlite'][0]['version'] }}"
+      when: ansible_facts['packages']['sqlite'] is defined
+
+    - name: Instalar extensões do PostgreSQL só onde o cliente existe
+      ansible.builtin.dnf:
+        name: postgresql-contrib
+        state: present
+      when:
+        - ansible_facts['packages']['postgresql'] is defined
+        - ansible_facts['packages']['postgresql-contrib'] is not defined
+
+    - name: Conferir que as ferramentas estão presentes
+      ansible.builtin.assert:
+        that:
+          - ansible_facts['packages']['jq'] is defined
+          - ansible_facts['packages']['sqlite'] is defined
+        success_msg: Ferramentas de análise presentes
+        fail_msg: Faltam ferramentas de análise

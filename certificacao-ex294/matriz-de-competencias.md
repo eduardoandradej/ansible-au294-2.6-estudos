@@ -29,7 +29,10 @@ verificados ([ver status](objetivos-publicos-verificados.md)).
 | Criar roles (estrutura, `defaults`/`vars`, handlers, templates, dependências) e usá-las em plays | 7 | [7.1](../capitulos/07-roles-e-collections/7.1-definindo-a-estrutura-de-roles.md), [7.3](../capitulos/07-roles-e-collections/7.3-criando-roles.md) | ⏳ a verificar |
 | Instalar roles de fontes externas com `requirements.yml` e `ansible-galaxy` | 7 | [7.5](../capitulos/07-roles-e-collections/7.5-implantando-roles-de-fontes-externas.md) | ⏳ a verificar |
 | Instalar collections e usar módulos e roles por nome qualificado | 7 | [7.7](../capitulos/07-roles-e-collections/7.7-roles-e-modulos-de-collections.md) | ⏳ a verificar |
-| Administração de RHEL e system roles | 8 | ⏳ Aguardando PDF | ⏳ |
+| Usar RHEL system roles com variáveis no inventário | 8 | [8.1](../capitulos/08-administracao-linux/8.1-usando-system-roles.md) | ⏳ a verificar |
+| Gerenciar pacotes, repositórios, chaves GPG e registro | 8 | [8.3](../capitulos/08-administracao-linux/8.3-automatizando-software-e-assinaturas.md) | ⏳ a verificar |
+| Gerenciar usuários, grupos, chaves SSH e sudo | 8 | [8.5](../capitulos/08-administracao-linux/8.5-automatizando-usuarios-e-autenticacao.md) | ⏳ a verificar |
+| Boot, agendamentos, armazenamento e rede | 8 | ⏳ Aguardando PDF 08B | ⏳ |
 
 ---
 [← Objetivos públicos](objetivos-publicos-verificados.md) | [Índice geral](../README.md) | [Roteiro de revisão →](roteiro-de-revisao.md)

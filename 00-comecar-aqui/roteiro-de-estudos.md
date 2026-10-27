@@ -12,7 +12,7 @@ Estimativas autorais para quem já tem base de RHCSA. Ajuste ao seu ritmo.
 | 5 | [Capítulo 5](../capitulos/05-deploy-de-arquivos/README.md) — arquivos e templates Jinja2 | 4–6 h | ✅ |
 | 6 | [Capítulo 6](../capitulos/06-automacao-em-escala/README.md) — include/import e host patterns | 4–5 h | ✅ |
 | 7 | [Capítulo 7](../capitulos/07-roles-e-collections/README.md) — roles e collections | 6–8 h | ✅ |
-| 8 | Capítulo 8 — administração de RHEL com Ansible | 10–12 h | ⏳ |
+| 8 | [Capítulo 8](../capitulos/08-administracao-linux/README.md) — administração de RHEL com Ansible | 10–12 h | 🟡 parte A |
 | 9 | Capítulo 9 — revisão geral | 6–8 h | ⏳ |
 
 ## Rotina recomendada por capítulo

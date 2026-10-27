@@ -107,6 +107,29 @@ Cobertura: **estrutura de playbooks** (Capítulo 2) e **controle de tarefas**
     servico: chronyd
 ```
 
+## Pacotes, usuários e sudo (Cap. 8)
+
+```yaml
+- name: Vários pacotes em uma transação
+  ansible.builtin.dnf:
+    name: [postgresql, sqlite, jq]
+    state: present          # absent | latest; '@Grupo'; name: '*' + latest = atualizar tudo
+
+- name: Usuário sem perder grupos
+  ansible.builtin.user:
+    name: ana.souza
+    groups: analistas
+    append: true
+
+- name: Sudo para grupo, com validação
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers.d/analistas
+    line: "%analistas ALL=(ALL) NOPASSWD: ALL"
+    create: true
+    mode: '0440'
+    validate: /usr/sbin/visudo -cf %s
+```
+
 ## Executar e verificar
 
 | Tarefa | Opção de `ansible-navigator run` |

@@ -1,6 +1,6 @@
 # Comandos Ansible — consulta rápida
 
-Agrupados por tarefa. Cobertura atual: **Capítulos 1 a 7**. Ampliado a cada capítulo.
+Agrupados por tarefa. Cobertura atual: **Capítulos 1 a 7** e parte A do Capítulo 8. Ampliado a cada capítulo.
 
 ## Ferramentas e versões
 
@@ -84,6 +84,16 @@ Agrupados por tarefa. Cobertura atual: **Capítulos 1 a 7**. Ampliado a cada cap
 | Listar collections | `ansible-galaxy collection list` · `ansible-navigator collections list` |
 | Documentação no EE (TUI) | `ansible-navigator collections -m interactive` |
 | Montar diretório extra no EE | `ansible-navigator run <pb>.yml --volume <local>:<no-container>` |
+
+## Administração Linux (Cap. 8, parte A)
+
+| Tarefa | Comando |
+|--------|---------|
+| Instalar system roles (AAP) | `ansible-galaxy collection install -p collections/ -r collections/requirements.yml` |
+| Instalar system roles (RPM) | `sudo dnf install rhel-system-roles` |
+| Registrar (sem Ansible, RHEL 10 com SCA) | `sudo subscription-manager register` · `sudo subscription-manager attach --auto` |
+| Habilitar repositórios (sem Ansible) | `sudo subscription-manager repos --enable <repo>` |
+| Listar lookups | `ansible-navigator doc -l -t lookup` |
 
 ## ansible-core (local)
 

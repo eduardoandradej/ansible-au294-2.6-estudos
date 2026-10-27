@@ -1,0 +1,8 @@
+---
+# Equipe fictícia; as chaves públicas são publicadas em um servidor interno fictício.
+equipe_grupo: analistas
+equipe_usuarios:
+  - nome: ana.souza
+    comentario: Analista de dados
+  - nome: bruno.lima
+    comentario: Engenheiro de dados

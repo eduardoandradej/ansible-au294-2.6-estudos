@@ -65,5 +65,11 @@ Não são dificuldades registradas pelo aluno, mas armadilhas comuns para observ
 - `-p roles`/`-p collections` (ou `roles_path`/`collections_path`) para o EE enxergar o conteúdo.
 - Roles de collection com FQRN via `include_role`/`import_role`.
 
+## Pontos de atenção previstos pelo autor (Capítulo 8, parte A)
+
+- Role de SELinux não reinicia: `selinux_reboot_required` + `block`/`rescue`.
+- `ansible_facts['packages']` não se atualiza sozinho após instalar.
+- `groups` sem `append` substitui grupos; `%` no sudoers indica grupo; `validate` com `visudo`.
+
 ---
 [Início](../README.md) | [Diário de laboratórios](diario-de-laboratorios.md)

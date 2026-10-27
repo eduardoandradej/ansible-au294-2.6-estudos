@@ -1,0 +1,30 @@
+---
+- name: Aplicar a política SELinux dos servidores de relatórios
+  hosts: relatorios
+  become: true
+  tasks:
+    - name: Garantir o diretório publicado
+      ansible.builtin.file:
+        path: /srv/relatorios
+        state: directory
+        owner: root
+        group: root
+        mode: '0755'
+
+    - name: Aplicar a role de SELinux, reiniciando se ela exigir
+      block:
+        - name: Aplicar a role de SELinux
+          ansible.builtin.include_role:
+            name: redhat.rhel_system_roles.selinux
+      rescue:
+        - name: Falhar se o motivo não for reinicialização pendente
+          ansible.builtin.fail:
+            msg: A role de SELinux falhou por outro motivo
+          when: not selinux_reboot_required
+
+        - name: Reiniciar o host
+          ansible.builtin.reboot:
+
+        - name: Reaplicar a role para concluir as mudanças
+          ansible.builtin.include_role:
+            name: redhat.rhel_system_roles.selinux

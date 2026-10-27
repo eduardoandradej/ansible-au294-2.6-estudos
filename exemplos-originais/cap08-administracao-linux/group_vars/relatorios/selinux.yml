@@ -1,0 +1,18 @@
+---
+# Variáveis da role redhat.rhel_system_roles.selinux para o grupo relatorios
+selinux_state: enforcing
+selinux_booleans:
+  - name: httpd_can_network_connect
+    state: true
+    persistent: true
+selinux_fcontexts:
+  - target: '/srv/relatorios(/.*)?'
+    setype: httpd_sys_content_t
+    state: present
+selinux_restore_dirs:
+  - /srv/relatorios
+selinux_ports:
+  - ports: '8088'
+    setype: http_port_t
+    proto: tcp
+    state: present

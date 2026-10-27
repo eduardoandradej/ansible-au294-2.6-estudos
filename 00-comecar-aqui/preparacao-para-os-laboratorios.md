@@ -48,7 +48,8 @@ Cada atividade tem um nome único no curso. O comando aceita **Tab completion**:
 | 5 | `files-manage` (GE 5.2), `files-templates` (GE 5.4) — sem `lab grade`; `files-review` (Lab 5.5) — **com** `lab grade` |
 | 6 | `scale-files` (GE 6.2), `scale-hosts` (GE 6.4) — sem `lab grade`; `scale-review` (Lab 6.5) — **com** `lab grade` |
 | 7 | Quiz 7.2 (sem `lab`); `roles-create` (GE 7.4), `roles-external` (GE 7.6), `roles-collections` (GE 7.8) — sem `lab grade`; `roles-review` (Lab 7.9) — **com** `lab grade` |
-| 8–9 | ⏳ Aguardando PDF |
+| 8 (parte A) | `system-roles` (GE 8.2), `system-software` (GE 8.4), `system-user` (GE 8.6) — sem `lab grade` |
+| 8 (parte B)–9 | ⏳ Aguardando PDF |
 
 ---
 [← Ambiente oficial](ambiente-oficial.md) | [Índice](README.md) | [Próximo: Fundamentos essenciais →](../01-fundamentos-essenciais/README.md)

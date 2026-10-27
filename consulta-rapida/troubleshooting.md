@@ -1,6 +1,6 @@
 # Troubleshooting — sintoma → causa → verificação
 
-Cobertura atual: **Capítulos 1 a 7** (ambiente, configuração, inventário, playbooks, conexão). Ampliado a cada capítulo.
+Cobertura atual: **Capítulos 1 a 7 e parte A do Capítulo 8** (ambiente, configuração, inventário, playbooks, conexão). Ampliado a cada capítulo.
 
 ## Roteiro geral (do mais externo ao mais interno)
 
@@ -125,6 +125,18 @@ flowchart TD
 | Template/arquivo da role não encontrado | Fora de `templates/`/`files/` da role | Mover; `src` é relativo à role |
 | Playbook quebrou após reinstalar roles | Versão não fixada no requirements | `version` com tag ou commit |
 | Versão inesperada da collection | Ordem do `collections_path` | Projeto antes da imagem |
+
+## Administração Linux (Cap. 8, parte A)
+
+| Sintoma | Causa provável | Verificação / correção |
+|---------|----------------|------------------------|
+| Role de SELinux falha | Reboot pendente (`selinux_reboot_required`) | `block`/`rescue` com reboot e reaplicação |
+| System role ignora variável | Nome diferente do README da versão | Confira o README |
+| Falha de assinatura de pacote | Chave GPG não importada | `rpm_key` antes; `gpgcheck: true` |
+| Fact de pacote desatualizado | Coletado antes da instalação | Rode `package_facts` de novo |
+| Usuário perdeu grupos | `groups` sem `append: true` | Acrescente `append: true` |
+| Sudo não vale para o grupo | Faltou `%` | `%grupo ...` + `validate` |
+| Mudança no `sshd_config` sem efeito | `sshd` não reiniciado | Handler notificado |
 
 ## Development container e Git
 

@@ -1,11 +1,12 @@
 # Glossário
 
-Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 7** e fundamentos.
+Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 7**, parte A do Capítulo 8 e fundamentos.
 
 | Termo | Definição |
 |-------|-----------|
 | **`--limit` (`-l`)** | Opção que restringe os hosts atingidos em uma execução, sem editar o playbook |
 | **`--list-hosts`** | Opção que mostra os hosts casados por cada play, sem executar tasks |
+| **Activation key** | Chave da organização para registrar sistemas sem usuário e senha |
 | **Ad hoc command** | Execução de uma única task pela linha de comando (`ansible <padrão> -m <módulo>`), sem playbook |
 | **Agentless** | Arquitetura sem agente residente nos managed hosts; o control node conecta, envia o módulo, executa e remove |
 | **Ansible (pacote comunitário)** | `ansible-core` + seleção de collections da comunidade, com ciclo de release próprio |
@@ -67,6 +68,7 @@ Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 7** e fundamentos
 | **Inventory** | Lista de managed hosts e grupos; estática ou dinâmica |
 | **`item`** | Variável que guarda o valor da iteração atual de um loop |
 | **Jinja2** | Motor de templates usado pelo Ansible para avaliar `{{ }}`, filtros e lógica simples |
+| **Lookup** | Plug-in que busca dados no control node (ex.: `lookup('ansible.builtin.file', ...)`) |
 | **`loop`** | Palavra-chave de task que itera sobre uma lista |
 | **`loop.index`** | Número da iteração atual de um `{% for %}` em um template (começa em 1) |
 | **Magic variables** | Variáveis definidas pelo Ansible (`inventory_hostname`, `group_names`, `groups`, `hostvars`); nomes reservados |
@@ -75,6 +77,7 @@ Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 7** e fundamentos
 | **Module** | Programa pequeno que garante um aspecto do estado de um host |
 | **`no_log`** | Palavra-chave que oculta argumentos e resultado de uma task na saída e nos logs |
 | **`notify`** | Palavra-chave de task que notifica handlers quando ela reporta `changed` |
+| **`package_facts`** | Módulo que coleta os pacotes instalados em `ansible_facts['packages']` |
 | **Play** | Associação entre um conjunto de hosts e uma lista ordenada de tasks |
 | **PLAY RECAP** | Resumo final por host: `ok`, `changed`, `unreachable`, `failed`, `skipped`, `rescued`, `ignored` |
 | **Playbook** | Arquivo YAML com um ou mais plays |
@@ -90,13 +93,18 @@ Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 7** e fundamentos
 | **`remote_user`** | Usuário da conexão SSH; definido no `ansible.cfg` ou no play |
 | **Replay** | `ansible-navigator replay <artefato>`: reexibe uma execução a partir do JSON do artefato |
 | **`requirements.yml`** | Manifesto de roles (`roles/`) ou collections (`collections/`) a instalar com `ansible-galaxy` |
+| **RHEL system roles** | Roles suportadas pela Red Hat (collection `redhat.rhel_system_roles`, RPM `rhel-system-roles`) que configuram componentes do RHEL de forma consistente entre versões |
 | **Role** | Unidade de reuso com estrutura padrão (`tasks`, `handlers`, `defaults`, `vars`, `files`, `templates`, `meta`) |
+| **`selinux_reboot_required`** | Variável que a role de SELinux define quando é preciso reiniciar; a role falha em vez de reiniciar |
 | **`set_fact`** | Módulo que cria variáveis por host durante a execução |
+| **Simple Content Access (SCA)** | Modo do Red Hat Subscription Management em que a assinatura é anexada sem informar pool ID |
 | **Snippet (`doc -s`)** | Esqueleto de task com todos os parâmetros de um módulo, gerado por `ansible-navigator doc -s` |
 | **Task** | Ação nomeada que chama um módulo com argumentos |
+| **Technology Preview (system role)** | Role testada e estável, mas sujeita a mudanças incompatíveis em versões futuras |
 | **Template** | Arquivo-modelo Jinja2 (normalmente `.j2`) renderizado por host pelo módulo `ansible.builtin.template` |
 | **Terraform** | Ferramenta de IaC focada em provisionar infraestrutura (Day 0), com *state file*; complementar ao Ansible |
 | **`UNREACHABLE` × `FAILED`** | Falha de conexão com o host × task executada que falhou |
+| **`validate` (módulos de arquivo)** | Comando que valida um arquivo temporário antes de colocá-lo no destino (ex.: `visudo -cf %s`) |
 | **`vars` / `vars_files`** | Variáveis definidas no play / carregadas de arquivos YAML externos pelo play |
 | **`vars/main.yml` (role)** | Arquivo de variáveis internas de uma role, com precedência alta |
 | **Vault ID** | Rótulo associado a uma senha do vault (`rotulo@origem`), gravado no cabeçalho do arquivo cifrado (formato 1.2) |
