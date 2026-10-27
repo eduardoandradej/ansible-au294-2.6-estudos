@@ -1,0 +1,24 @@
+---
+- name: Verificar o portal a partir do nó de apoio
+  hosts: apoio
+  gather_facts: false
+  tasks:
+    - name: Consultar cada servidor do portal
+      block:
+        - name: Pedir a página inicial
+          ansible.builtin.uri:
+            url: "http://{{ item }}:{{ hostvars[item]['portal_docs_porta'] }}/"
+            return_content: true
+            status_code: 200
+          loop: "{{ groups['portal'] }}"
+          register: respostas
+      rescue:
+        - name: Explicar a falha
+          ansible.builtin.fail:
+            msg: >-
+              Pelo menos um servidor do portal não respondeu com 200.
+              Confira serviço, firewall e SELinux.
+      always:
+        - name: Resumir o que foi testado
+          ansible.builtin.debug:
+            msg: "Servidores testados: {{ groups['portal'] | join(', ') }}"

@@ -1,0 +1,11 @@
+---
+galaxy_info:
+  author: Estudos AU294
+  description: Publica um portal estático de documentação com nginx em porta configurável.
+  license: MIT
+  min_ansible_version: "2.16"
+  platforms:
+    - name: EL
+      versions:
+        - "10"
+dependencies: []

@@ -1,0 +1,6 @@
+# {{ ansible_managed }}
+server {
+    listen {{ portal_docs_porta }};
+    server_name {{ ansible_facts['fqdn'] }};
+    root {{ portal_docs_raiz }};
+}

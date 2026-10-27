@@ -1,0 +1,8 @@
+---
+portal_docs_pacotes:
+  - nginx
+  - firewalld
+portal_docs_porta: 8080
+portal_docs_raiz: /srv/portal
+portal_docs_titulo: Portal de documentação
+portal_docs_secoes: []

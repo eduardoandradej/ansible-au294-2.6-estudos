@@ -12,6 +12,7 @@ Projetos pequenos, **autorais**, com hostnames fictícios (domínio reservado
 | [cap05-arquivos-e-templates](cap05-arquivos-e-templates/) | 5 | Módulos de arquivo, `ansible_managed`, templates com facts/`for`/`if` e filtros | ✅ ver o README do projeto |
 | [cap06-automacao-em-escala](cap06-automacao-em-escala/) | 6 | `import_playbook`, `import_tasks` com `vars`, `include_tasks` com `when`, host patterns | ✅ ver o README do projeto |
 | [cap07-roles-e-collections](cap07-roles-e-collections/) | 7 | Duas roles (defaults, vars, files, templates, handlers, dependência), `roles`/`include_role`, `pre_tasks`/`post_tasks`, requirements de roles e collections | ✅ ver o README do projeto |
+| [cap09-revisao-integrada](cap09-revisao-integrada/) | 9 | Projeto integrado: role com templates e handler, system role de SELinux, `block`/`rescue`/`always`, `hostvars`, `import_playbook` | ✅ ver o README do projeto |
 | [cap08-administracao-linux](cap08-administracao-linux/) | 8 | System roles (SELinux, storage, network), repositório e chave GPG, `package_facts`, usuários e sudo, cron/at/boot, montagens | ✅ ver o README do projeto |
 
 ## Como a validação é feita

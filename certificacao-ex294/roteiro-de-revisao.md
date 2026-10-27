@@ -1,7 +1,7 @@
 # Roteiro de revisão para o EX294
 
-Plano autoral. Será refinado quando os objetivos públicos forem verificados e
-quando o Capítulo 9 (Comprehensive Review) for recebido.
+Plano autoral. Será refinado quando os objetivos públicos forem verificados. O
+Capítulo 9 (Comprehensive Review) já está integrado: veja a etapa final abaixo.
 
 ## Princípios
 
@@ -47,7 +47,18 @@ quando o Capítulo 9 (Comprehensive Review) for recebido.
 - [ ] Crio e removo jobs cron e `at`; mudo o alvo de boot de forma idempotente.
 - [ ] Escrevo `storage_pools` com LVs, XFS, montagem e swap.
 - [ ] Escrevo `network_connections` com IP estático e DNS.
-- [ ] ⏳ Demais itens com os próximos capítulos.
+- [ ] Marco todo o [mapa de objetivos](../capitulos/09-revisao-geral/9.1-mapa-de-objetivos.md) sem consulta.
+- [ ] Concluo os quatro labs `comprehensive-review` com `lab grade` PASS dentro do tempo indicado.
+- [ ] Resolvo o [simulado autoral](../capitulos/09-revisao-geral/REVISAO.md) em até 90 minutos.
+
+## Etapa final (após o Capítulo 9)
+
+| Semana | Atividade |
+|--------|-----------|
+| 1 | Labs `comprehensive-review1` a `4` no tempo indicado; anotar no diário |
+| 2 | Refazer os labs de fim de capítulo (2.9, 3.7, 4.7, 5.5, 6.5, 7.9, 8.13) só pela especificação |
+| 3 | Simulado autoral; revisar [dificuldades-identificadas.md](../progresso/dificuldades-identificadas.md) |
+| 4 | Conferir os objetivos públicos atuais do EX294 e cobrir lacunas |
 
 ---
 [← Matriz de competências](matriz-de-competencias.md) | [Índice geral](../README.md)

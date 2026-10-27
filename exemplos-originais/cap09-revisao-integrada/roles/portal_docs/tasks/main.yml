@@ -1,0 +1,48 @@
+---
+- name: Garantir os pacotes do portal
+  ansible.builtin.dnf:
+    name: "{{ portal_docs_pacotes }}"
+    state: present
+
+- name: Garantir os serviços ativos e habilitados
+  ansible.builtin.systemd_service:
+    name: "{{ item }}"
+    state: started
+    enabled: true
+  loop:
+    - nginx
+    - firewalld
+
+- name: Garantir o diretório publicado
+  ansible.builtin.file:
+    path: "{{ portal_docs_raiz }}"
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+    setype: httpd_sys_content_t
+
+- name: Publicar a página inicial
+  ansible.builtin.template:
+    src: index.html.j2
+    dest: "{{ portal_docs_raiz }}/index.html"
+    owner: root
+    group: root
+    mode: '0644'
+    setype: httpd_sys_content_t
+
+- name: Publicar a configuração do site
+  ansible.builtin.template:
+    src: portal.conf.j2
+    dest: /etc/nginx/conf.d/portal.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Recarregar o nginx
+
+- name: Liberar a porta do portal no firewall
+  ansible.posix.firewalld:
+    port: "{{ portal_docs_porta }}/tcp"
+    permanent: true
+    immediate: true
+    state: enabled

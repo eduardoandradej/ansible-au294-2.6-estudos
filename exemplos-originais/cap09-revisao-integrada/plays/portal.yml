@@ -1,0 +1,27 @@
+---
+- name: Publicar o portal de documentação
+  hosts: portal
+  become: true
+  force_handlers: true
+  tasks:
+    - name: Rotular a porta no SELinux (reinicia e reaplica se a role exigir)
+      block:
+        - name: Aplicar a system role de SELinux
+          ansible.builtin.include_role:
+            name: redhat.rhel_system_roles.selinux
+      rescue:
+        - name: Falhar se o motivo não for reinicialização pendente
+          ansible.builtin.fail:
+            msg: A role de SELinux falhou por outro motivo
+          when: not selinux_reboot_required
+
+        - name: Reiniciar o host
+          ansible.builtin.reboot:
+
+        - name: Reaplicar a system role de SELinux
+          ansible.builtin.include_role:
+            name: redhat.rhel_system_roles.selinux
+
+    - name: Aplicar a role do portal
+      ansible.builtin.import_role:
+        name: portal_docs

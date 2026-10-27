@@ -110,7 +110,12 @@ escrito) está em [estado-do-projeto.md](estado-do-projeto.md).
 - [ ] RESUMO.md
 
 ## Capítulo 9 — Comprehensive Review
-- [ ] ⏳ Aguardando PDF
+- [ ] 9.1 Mapa de objetivos marcado
+- [ ] 9.2 Lab `comprehensive-review1` (`lab grade`, ≤ 25 min)
+- [ ] 9.3 Lab `comprehensive-review2` (`lab grade`, ≤ 25 min)
+- [ ] 9.4 Lab `comprehensive-review3` (`lab grade`, ≤ 40 min)
+- [ ] 9.5 Lab `comprehensive-review4` (`lab grade`, ≤ 25 min)
+- [ ] REVISAO.md (simulado autoral)
 
 ---
 [Início](../README.md) | [Diário de laboratórios](diario-de-laboratorios.md)

@@ -1,0 +1,17 @@
+<!-- {{ ansible_managed }} -->
+<html>
+  <head><title>{{ portal_docs_titulo }}</title></head>
+  <body>
+    <h1>{{ portal_docs_titulo }}</h1>
+    <p>Servidor: {{ ansible_facts['fqdn'] }} ({{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_version'] }})</p>
+{% if portal_docs_secoes | length > 0 %}
+    <ul>
+{% for secao in portal_docs_secoes %}
+      <li>{{ loop.index }}. {{ secao }}</li>
+{% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhuma seção publicada.</p>
+{% endif %}
+  </body>
+</html>

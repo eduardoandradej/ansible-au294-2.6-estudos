@@ -1,0 +1,6 @@
+---
+- name: Publicar o portal
+  ansible.builtin.import_playbook: plays/portal.yml
+
+- name: Verificar o portal
+  ansible.builtin.import_playbook: plays/verificacao.yml

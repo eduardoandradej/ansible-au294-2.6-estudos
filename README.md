@@ -48,7 +48,7 @@ flowchart LR
 | [Capítulo 6](capitulos/06-automacao-em-escala/README.md) | Developing Automation Content at Scale | p. 340–384 | ✅ |
 | [Capítulo 7](capitulos/07-roles-e-collections/README.md) | Reusing Code with Ansible Roles and Content Collections | p. 385–452 | ✅ |
 | [Capítulo 8](capitulos/08-administracao-linux/README.md) | Automating Linux Administration Tasks (partes A e B) | p. 453–569 | ✅ |
-| [Capítulo 9](capitulos/09-revisao-geral/README.md) | Comprehensive Review | p. 570–615 | ⏳ |
+| [Capítulo 9](capitulos/09-revisao-geral/README.md) | Comprehensive Review | p. 570–615 | ✅ |
 
 Legenda: ✅ documentado e validado · 🟡 parcial · ⏳ aguardando PDF. Os capítulos são
 desenvolvidos **um por vez**, à medida que o PDF de cada um é recebido.
@@ -83,7 +83,7 @@ desenvolvidos **um por vez**, à medida que o PDF de cada um é recebido.
 - [ ] Capítulo 6 — lições, guided exercises, lab `scale-review`, revisão
 - [ ] Capítulo 7 — lições, quiz, guided exercises, lab `roles-review`, revisão
 - [ ] Capítulo 8 — lições, guided exercises, lab `system-review`, revisão
-- [ ] Capítulo 9 — revisão integrada
+- [ ] Capítulo 9 — mapa de objetivos, quatro labs `comprehensive-review` no tempo, simulado
 
 > Marque aqui quando **você** concluir o estudo. O checklist detalhado está em
 > [progresso/checklist-geral.md](progresso/checklist-geral.md).

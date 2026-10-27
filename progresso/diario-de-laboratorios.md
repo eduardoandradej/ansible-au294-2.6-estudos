@@ -57,7 +57,10 @@ credenciais.
 | 8.10 | GE `system-storage` | | | | |
 | 8.12 | GE `system-network` | | | | |
 | 8.13 | Lab `system-review` (grade) | | | | |
-| 9.x | ⏳ Aguardando PDF | | | | |
+| 9.2 | Lab `comprehensive-review1` (grade, 25 min) | | | | |
+| 9.3 | Lab `comprehensive-review2` (grade, 25 min) | | | | |
+| 9.4 | Lab `comprehensive-review3` (grade, 40 min) | | | | |
+| 9.5 | Lab `comprehensive-review4` (grade, 25 min) | | | | |
 
 ## Entradas
 

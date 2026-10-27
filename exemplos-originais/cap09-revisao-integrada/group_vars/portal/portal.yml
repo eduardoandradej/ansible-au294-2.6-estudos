@@ -1,0 +1,14 @@
+---
+portal_docs_porta: 8081
+portal_docs_titulo: Portal de documentação interna
+portal_docs_secoes:
+  - Operação
+  - Segurança
+  - Rede
+
+# Variáveis da system role de SELinux: rotular a porta do portal
+selinux_ports:
+  - ports: "{{ portal_docs_porta }}"
+    proto: tcp
+    setype: http_port_t
+    state: present
