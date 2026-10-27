@@ -32,11 +32,11 @@ respostas.
 
 19. `name: {{ pacote }}` gera um erro que fala em aspas. Explique e corrija.
 20. `porta` vale `80` em `group_vars/all.yml`, mas um host recebe `9000` e você não sabe de onde vem. Como investigar?
-21. `{{ contas[0][nome] }}` falha com `'nome' is undefined`. Por quê?
+21. Você quer o `uid` do primeiro item da lista `contas`. Escreva a expressão como ela deve aparecer em um parâmetro de task.
 22. A task depois da publicação de um `.fact` não enxerga `ansible_local`. O que falta?
 23. O playbook falha com `Attempting to decrypt but no vault secrets found`. Liste três formas de resolver.
 24. A senha do banco apareceu na saída de uma task que falhou. O que faltou?
-25. Você cifrou o `ansible.cfg` para esconder um caminho e agora nada funciona. Explique.
+25. Você tem dois arquivos cifrados com o mesmo rótulo `prod`, mas com senhas diferentes por erro de digitação. O Ansible impede isso? Como corrigir?
 
 ---
 
@@ -45,7 +45,7 @@ respostas.
 
 1. Grupo no inventário < `group_vars` < host no inventário < `host_vars` < facts < `vars` do play < `vars` da task < `-e`.
 2. `vars`: poucas variáveis específicas do play. `vars_files`: muitas variáveis ou reaproveitadas entre playbooks (inclusive arquivos cifrados). `group_vars`: valores por grupo de hosts. `host_vars`: valores de um host específico.
-3. Porque a notação de ponto colide com métodos e atributos do Python (`items`, `keys`, `copy`...) e falha de formas difíceis de diagnosticar.
+3. Porque a notação de ponto colide com métodos e atributos do Python (`discard`, `copy`, `add`...) e falha de formas difíceis de diagnosticar.
 4. Uma variável com informação descoberta no managed host (SO, rede, hardware). É coletada pelo `ansible.builtin.setup`, por padrão no início de cada play (task `Gathering Facts`).
 5. O fact customizado mora no host (`/etc/ansible/facts.d/*.fact`) e persiste entre execuções; o `set_fact` cria uma variável por host que existe só durante a execução.
 6. Variáveis definidas pelo próprio Ansible, de nomes reservados: `inventory_hostname` (nome no inventário), `group_names` (grupos do host atual), `groups` (todos os grupos e hosts), `hostvars` (variáveis de todos os hosts).
@@ -106,11 +106,11 @@ respostas.
     ```
 19. Sem aspas, o YAML interpreta `{` no início do valor como dicionário. Corrija para `name: "{{ pacote }}"`.
 20. Percorra a escada de precedência de cima para baixo: `-e` na execução, `vars` de task e de play, facts, `host_vars`, variável de host no inventário, `group_vars` do grupo. Ferramentas: `ansible-navigator inventory -m stdout --host <h>` (variáveis de inventário) e `grep -Rw porta:` (definições no projeto).
-21. Sem aspas, `nome` é tratado como **variável**, que não existe. Use `contas[0]['nome']`.
+21. `uid: "{{ contas[0]['uid'] }}"`: aspas externas porque o valor começa com `{{`, e a chave entre aspas dentro dos colchetes.
 22. Recoletar facts depois de criar o arquivo (`ansible.builtin.setup`, por exemplo com `filter: ansible_local`).
 23. `--ask-vault-pass` (com `-m stdout --pae false`), `--vault-password-file=<arq>`, `--vault-id rotulo@origem`, `vault_password_file`/`vault_identity_list` no `ansible.cfg`, ou as variáveis `ANSIBLE_VAULT_PASSWORD_FILE`/`ANSIBLE_VAULT_IDENTITY_LIST`.
 24. `no_log: true` na task.
-25. O Ansible lê a configuração antes de ter acesso ao vault; um `ansible.cfg` cifrado não é interpretado (erro de seção ausente). Restaure o arquivo em texto puro.
+25. Não: o Ansible não garante que um rótulo use sempre a mesma senha. Corrija com `ansible-vault rekey` do arquivo divergente para a senha correta.
 
 </details>
 

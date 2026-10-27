@@ -6,7 +6,8 @@ Capítulo 6. Lição completa: [2.1](../capitulos/02-desenvolvendo-automacao/2.1
 ## Sintaxe INI
 
 ```ini
-solto.example.net                 # sem grupo: SEMPRE antes do primeiro [grupo]
+# host sem grupo (ungrouped)
+solto.example.net
 
 [web]
 web[01:04].example.net            # range (zeros à esquerda contam)
@@ -28,10 +29,10 @@ ansible_user=dba
 
 | Elemento | Regra |
 |----------|-------|
-| Comentário | `#` no início ou no fim da linha. **`;` inline não funciona** no inventário |
+| Comentário | Linha iniciada por `#` |
 | Grupos implícitos | `all` (todos) e `ungrouped` (sem outro grupo) |
 | Host × grupo | Não podem ter o mesmo nome |
-| `[x:vars]` | Só linhas `chave=valor`; um host ali quebra o arquivo |
+| `[x:vars]` | Variáveis `chave=valor` para o grupo inteiro |
 | `[x]` + `[x:children]` | Hosts próprios e herdados se somam |
 
 ## Variáveis de conexão

@@ -42,15 +42,6 @@ flowchart LR
 
 O capítulo não tem quiz. Só o lab 3.7 aceita `lab grade`.
 
-## Correções ao PDF registradas nas lições
-
-| Página | No PDF | Verificado (ansible-core 2.16.19) |
-|--------|--------|-----------------------------------|
-| p. 152 | Explicação usa `local_users[0][name]` sem aspas | Sem aspas, `name` é tratado como variável e falha; use `['name']` |
-| p. 172 | Fact injetado teria precedência sobre variáveis de playbook e de inventário | Vence o inventário, mas **perde** para `vars` do play |
-| p. 188 | `ansible.cfg` citado como arquivo cifrável | `ansible.cfg` cifrado não é lido; inventário cifrado funciona |
-| p. 197 | Exemplo com `ansible.builtin.postgresql_user` | Não existe; o módulo é `community.postgresql.postgresql_user` |
-
 ## Arquivos do capítulo
 
 - [PRATICA-OFICIAL.md](PRATICA-OFICIAL.md): ponte com os três guided exercises e o lab.

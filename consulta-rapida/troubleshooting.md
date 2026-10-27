@@ -19,9 +19,7 @@ flowchart TD
 | Sintoma | Causa provável | Verificação / correção |
 |---------|----------------|------------------------|
 | Mudança no `ansible.cfg` ignorada | `ANSIBLE_CONFIG` exportada ou diretório errado | `env \| grep ANSIBLE_`; `ansible-navigator config` (coluna *Source*) |
-| `config file = None` e aviso *world writable directory* | Diretório do projeto com permissão `o+w` | `chmod o-w <dir>` |
-| Erro de tipo em valor numérico/booleano | `#` no meio da linha do `ansible.cfg` | Use `;` ou comentário em linha separada |
-| `connection = ...` sem efeito | Chave errada no `ansible.cfg` | Use `transport = ...` |
+| Aviso *world writable directory* (📘) | Diretório do projeto com permissão `o+w` | `chmod o-w <dir>` |
 | VS Code e terminal se comportam diferente | Extensão × `ansible-navigator.yml` divergentes | Iguale as duas configurações |
 
 ## Execution environment e containers
@@ -50,10 +48,7 @@ flowchart TD
 | Sintoma | Causa provável | Verificação / correção |
 |---------|----------------|------------------------|
 | `You must pass a single valid host to --host parameter` | Nome diferente do gerado (zero à esquerda, domínio) | `--graph` e compare |
-| `Expected key=value, got: <host>` | Host listado depois de `[grupo:vars]` | Hosts soltos no topo do arquivo |
-| `Expected key=value host variable assignment, got: ;` | `;` como comentário no inventário | Use `#` |
-| `Section [x:children] includes undefined group: <g>` | Grupo filho não definido em nenhuma seção | Defina o grupo filho (`[g]`) |
-| `Found both group and host with same name` | Host e grupo homônimos | Renomeie o grupo |
+| Aviso de host e grupo com o mesmo nome | Host e grupo homônimos (não permitido) | Renomeie o grupo |
 | `No inventory was parsed, only implicit localhost` | Caminho errado ou arquivo inválido | `-i`/`inventory=` e avisos de parse |
 
 ## Playbooks (Cap. 2)
@@ -63,7 +58,6 @@ flowchart TD
 | `Syntax Error while loading YAML` / `mapping values are not allowed` | Falta espaço após `:`, indentação, tab | Linha indicada **e a anterior** |
 | `couldn't resolve module/action '<fqcn>'` | FQCN errado ou collection ausente no EE | `ansible-navigator doc -l`; usar EE com a collection |
 | `changed` em toda execução | `command`/`shell`/`raw` ou `state: latest` | Módulo específico; `creates`/`removes`; `present` |
-| Plays seguintes não executam | Todos os hosts do play anterior falharam | Corrija o primeiro erro do `PLAY RECAP` |
 | `Could not find or access '<arquivo>'` | `src` com nome ou caminho errado | Caminho relativo ao playbook / `files/` |
 | Lint acusa `yaml[octal-values]`, `fqcn[...]`, `no-free-form` | Octal sem aspas, nome curto, `chave=valor` | Corrija; não silencie a regra |
 | `UNREACHABLE` com usuário inesperado na mensagem | `ansible_user` > `remote_user` (play) > `ansible.cfg` | `--host <h>` e `-vvvv` |
@@ -73,16 +67,13 @@ flowchart TD
 | Sintoma | Causa provável | Verificação / correção |
 |---------|----------------|------------------------|
 | `...looks like it might be an issue with missing quotes` | Valor começa com `{{` sem aspas | `"{{ var }}"` |
-| `'x' is undefined` | Variável não definida para o host, nome errado ou `[0][chave]` sem aspas | `inventory --host <h>`; `grep -Rw x:`; `[0]['chave']` |
+| `'x' is undefined` | Variável não definida para o host ou nome digitado errado | `inventory --host <h>`; `grep -Rw x:` |
 | Valor inesperado | Outro nível da precedência vence | Percorra: `-e` → task → play → facts → host_vars → host → group_vars → grupo |
-| `<built-in method ...>` | Notação de ponto em chave com nome de método | Colchetes |
 | `ansible_local` vazio | `.fact` com nome/formato errado ou sem recoleta | `.fact` em INI/JSON; `ansible.builtin.setup` depois de criar |
 | `ansible_hostname` indefinido | `inject_facts_as_vars = false` | `ansible_facts['hostname']` |
 | YAML inválido em `gather_subset` | `!x` sem aspas | `"!x"` |
 | `Attempting to decrypt but no vault secrets found` | Senha não fornecida | `--ask-vault-pass`, `--vault-password-file`, `--vault-id`, `ansible.cfg` |
 | `Decryption failed (no vault secrets were found that could decrypt)` | Senha errada ou vault ID ausente | `head -1 <f>` mostra o rótulo |
-| `The vault-ids default,default are available to encrypt` | Duas origens de senha ao cifrar | Use uma origem ou `--encrypt-vault-id <rótulo>` |
-| `ansible.cfg` → `File contains no section headers` | Arquivo de configuração cifrado | Não cifre o `ansible.cfg` |
 | Segredo na saída | Falta `no_log: true` | Adicione nas tasks sensíveis |
 
 ## Development container e Git

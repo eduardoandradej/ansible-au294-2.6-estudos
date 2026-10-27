@@ -5,7 +5,7 @@
 > [CLAUDE.md](../CLAUDE.md). Este arquivo registra **documentação produzida**, não
 > aprendizagem do aluno (essa fica no [checklist](checklist-geral.md) e no [diário](diario-de-laboratorios.md)).
 
-**Última atualização:** 2026-10-27 (sessão 3: Capítulo 3)
+**Última atualização:** 2026-10-27 (sessão 4: alinhamento dos Caps. 1–3 ao PDF + Capítulo 4)
 
 ## Situação por módulo
 
@@ -35,25 +35,15 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 - Imagens citadas: development tools `ansible-automation-platform-26/ansible-dev-tools-rhel9`; EE `ansible-automation-platform-26/ee-supported-rhel9` (no curso, espelhadas em um registry local em `utility`).
 - Repositório RPM citado: `ansible-automation-platform-2.6-for-rhel-10-x86_64-rpms`; pacote `ansible-dev-tools`.
 - Capítulo 2 (p. 62–140): abertura p. 62; 2.1 (p. 63–69); 2.2 GE `develop-inventory` (p. 70–75); 2.3 (p. 76–85); 2.4 GE `develop-singleplay` (p. 86–93); 2.5 (p. 94–102); 2.6 GE `develop-multiplay` (p. 103–109); 2.7 (p. 110–118); 2.8 GE `develop-troubleshoot` (p. 119–126); 2.9 Lab `develop-review` (p. 127–139, **com** `lab grade`); 2.10 Summary (p. 140). Sem quiz. GEs sem `lab grade`.
-- A abertura do Capítulo 2 (p. 62) repete o objetivo do Capítulo 1 (provável erro editorial); o README do capítulo usa um objetivo reescrito a partir das seções e do resumo.
 - Capítulo 3 (p. 141–225): 3.1 (p. 142–155); 3.2 GE `variables-vars` (p. 156–168); 3.3 (p. 169–178); 3.4 GE `variables-facts` (p. 179–187); 3.5 (p. 188–198); 3.6 GE `variables-vault` (p. 199–208); 3.7 Lab `variables-review` (p. 209–224, **com** `lab grade`); 3.8 Summary (p. 225). Sem quiz.
 - O curso afirma que, com `ansible-navigator`, o usuário padrão de conexão é `root` (o usuário do processo no EE), e que esse `root` usa as chaves SSH do usuário da workstation.
 
-## Correções e complementos (marcados nas lições)
+## Diretriz de fidelidade ao material (decisão do usuário, 2026-10-27)
 
-- **Chave `transport`:** o PDF (p. 49) apresenta o plug-in de conexão do `ansible.cfg` como `connection`; no ansible-core 2.16 a chave INI é `transport` (`DEFAULT_TRANSPORT`). Verificado localmente: `connection = local` é ignorado.
-- **Comentário inline:** em `ansible.cfg`, `;` comenta inline; `#` só no início da linha (verificado: `timeout = 30 # x` gera erro de tipo).
-- **Diretório gravável por todos:** `ansible.cfg` ignorado (verificado localmente; fonte externa).
-- **`remote_user` vazio:** curso diz `root` no EE; documentação descreve o padrão do plug-in de conexão. Ambos registrados.
-- **Inventário INI × `ansible.cfg` (Cap. 2, verificado):** no inventário, `#` comenta também no fim da linha e `;` inline **quebra** o parse; no `ansible.cfg` é o contrário. Host listado depois de `[grupo:vars]` invalida o arquivo inteiro; grupo filho inexistente em `:children` gera `includes undefined group`.
-- **Usuário de conexão (Cap. 2, verificado com `-vvv`):** `ansible_user` > `remote_user` do play > `remote_user` do `ansible.cfg`.
-- **Plays seguintes (Cap. 2, verificado):** se todos os hosts de um play falham, os plays seguintes não rodam.
-- **`doc -s` (Cap. 2, verificado):** funciona antes (`ansible-navigator -s doc <m>`, forma do curso) e depois do módulo.
-- **IDs de regras do ansible-lint 26.10.1 (Cap. 2, verificado):** `yaml[trailing-spaces]`, `fqcn[action-core]`, `no-free-form`, `yaml[octal-values]`, `yaml[empty-lines]`, `no-changed-when`; `skip_list`/`warn_list` no `.ansible-lint` funcionam como descrito; o navigator aceita `ansible-lint.config`.
-- **Precedência de variáveis (Cap. 3, verificado):** os 8 níveis da versão do curso, testados um a um com `connection: local`.
-- **Correções ao PDF do Cap. 3 (verificadas):** p. 152 `local_users[0][name]` sem aspas falha (`'name' is undefined`); p. 172 fact injetado vence o inventário mas perde para `vars` do play; p. 188 `ansible.cfg` cifrado não é lido (inventário cifrado funciona); p. 197 `ansible.builtin.postgresql_user` não existe (`community.postgresql.postgresql_user`).
-- **Outros comportamentos verificados (Cap. 3):** notação de ponto em chave `items` retorna método Python; `"!hardware"` sem aspas quebra o YAML; `.fact` INI gera strings; `inject_facts_as_vars = false` torna `ansible_*` indefinido; cabeçalhos 1.1/1.2; `vault_identity_list`; `decrypt: true/false`; `rekey --new-vault-id`; `decrypt --output` preserva o original; erro `vault-ids default,default` ao duplicar a origem da senha; `inventory --host` mostra valores decifrados.
-- Fontes externas marcadas com 📘: `visudo -cf`, `ansible-config dump/list`, `ansible-inventory --graph`, chaves de `settings.json` das extensões, pull policy `tag`, repasse de variáveis `ANSIBLE_*` ao EE (verificado no código do navigator 26.10.0), nome padrão dos artefatos e do log do navigator.
+- O PDF é a referência definitiva. Não há testes locais nem "correções ao PDF" nas lições.
+- Nos Capítulos 1–3, as notas de correção e os trechos "verificado localmente" foram removidos e o texto foi alinhado ao material oficial.
+- Validação mantida: apenas checagens estáticas dos exemplos autorais (YAML, `--syntax-check`, `ansible-lint`) e de links/âncoras. Nada é executado.
+- Fontes externas continuam permitidas e marcadas com 📘, sem contradizer o curso.
 
 ## Validação do Capítulo 1
 
@@ -61,7 +51,7 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 - [x] Identificadores `intro-devenv` e `intro-configure` conferidos; nenhum `lab grade`.
 - [x] Quiz 1.2 sem respostas reproduzidas; guided exercises sem passos nem arquivos de solução.
 - [x] Sem senhas do laboratório, IPs da sala de aula, e-mail/nome da marca d'água.
-- [x] Exemplos validados com ansible-core 2.16.19, ansible-lint 26.10.1 (perfil *production*), ansible-navigator 26.10.0 e yamllint 1.38.0. **Não executados contra hosts.**
+- [x] Exemplos com YAML, `--syntax-check` e `ansible-lint` (perfil *production*) sem erros. **Não executados contra hosts.**
 - [x] YAML embutido nos Markdown validado por parser; links relativos e âncoras verificados por script.
 
 ## Validação do Capítulo 2
@@ -70,8 +60,7 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 - [x] Identificadores `develop-inventory`, `develop-singleplay`, `develop-multiplay`, `develop-troubleshoot` e `develop-review` conferidos; `lab grade` só no 2.9.
 - [x] Guided exercises e lab sem passos, arquivos de solução ou conteúdo esperado; exemplos com cenários próprios (NTP, banco), diferentes do serviço web dos exercícios.
 - [x] Sem senhas do laboratório, IPs da sala de aula, e-mail/nome da marca d'água. IPs de exemplo apenas de documentação (RFC 5737).
-- [x] `cap02-inventario-e-playbooks` validado: yamllint, `ansible-inventory --graph/--host`, `--syntax-check`, `--list-hosts`, `ansible-lint` (perfil *production*) com a collection `ansible.posix` (pacote comunitário `ansible` 9, pois o Galaxy está bloqueado no ambiente da sessão). **Não executado contra hosts.**
-- [x] Todos os blocos INI dos Markdown do capítulo testados com `ansible-inventory` (o fragmento incremental do Passo 3 de 2.1 está rotulado como continuação).
+- [x] `cap02-inventario-e-playbooks`: YAML, `--syntax-check` e `ansible-lint` (perfil *production*) sem erros. **Não executado contra hosts.**
 - [x] YAML embutido validado por parser; links e âncoras verificados por script.
 
 ## Validação do Capítulo 3
@@ -80,7 +69,7 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 - [x] Identificadores `variables-vars`, `variables-facts`, `variables-vault` e `variables-review` conferidos; `lab grade` só no 3.7.
 - [x] GEs e lab sem passos, valores (variáveis, senhas, rótulos) ou soluções; exemplos com cenário próprio (aplicação de estoque).
 - [x] Sem senhas do laboratório, IPs da sala de aula, e-mail/nome da marca d'água; a senha do vault do exemplo é fictícia, documentada, e o arquivo de senha está no `.gitignore` (padrão `.vault-*` adicionado nesta sessão).
-- [x] `cap03-variaveis-fatos-vault` validado: yamllint, `ansible-inventory --host`, `--syntax-check` (3 playbooks, com decifração), `ansible-lint` (perfil *production*); play de `hostvars` executado localmente. **Demais plays não executados contra hosts.**
+- [x] `cap03-variaveis-fatos-vault`: YAML, `--syntax-check` e `ansible-lint` (perfil *production*) sem erros. **Não executado contra hosts.**
 - [x] YAML embutido validado por parser; links e âncoras verificados por script.
 
 ## Fluxo de publicação

@@ -27,9 +27,6 @@ ansible-navigator run site.yml --check
 
 ## Status
 
-✅ Validado com ansible-core 2.16.19, ansible-lint 26.10.1 (perfil *production*) e
-a collection `ansible.posix` (do pacote comunitário `ansible` 9): YAML, grafo e
-variáveis do inventário, `--syntax-check`, `--list-hosts` (play 1: 2 hosts;
-play 2: 5 hosts) e lint.
+✅ Validado: YAML, `--syntax-check` e `ansible-lint` (perfil *production*).
 ⚠️ Não executado contra hosts: os nomes são fictícios e os IPs são de documentação
 (RFC 5737).

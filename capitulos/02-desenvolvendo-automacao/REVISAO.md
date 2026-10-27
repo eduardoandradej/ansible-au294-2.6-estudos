@@ -30,11 +30,11 @@ respostas.
 ## Parte 3 — Diagnóstico
 
 18. `--host web1.example.net` falha, mas o inventário tem `web[01:06].example.net`. Explique.
-19. Depois de acrescentar um host no fim do inventário, abaixo de `[db:vars]`, nenhum comando enxerga mais o inventário. Por quê?
+19. `ansible-navigator inventory --graph ungrouped` lista `proxy.example.net`, mas `--graph datacenter` não. Por quê?
 20. A saída mostra `fatal: [db1.example.net]: UNREACHABLE! ... monitor@db1.example.net: Permission denied (publickey...)`. Liste duas causas possíveis.
 21. Uma task falha com `Missing sudo password`. A conexão funcionou? O que verificar?
 22. Um playbook com `ansible.builtin.shell: echo "x" >> /etc/arquivo` mostra `changed` toda vez e o arquivo cresce. Proponha uma correção.
-23. Um playbook roda bem no seu ambiente, mas no de um colega falha já no `--syntax-check` com `couldn't resolve module/action 'community.general.timezone'`. O que aconteceu?
+23. Um playbook roda bem no seu ambiente, mas no de um colega falha com `couldn't resolve module/action 'community.general.timezone'`. O que aconteceu?
 
 ---
 
@@ -107,7 +107,7 @@ respostas.
       - yaml[empty-lines]
     ```
 18. O range tem zero à esquerda: gerou `web01`…`web06`. `web1` não existe.
-19. Em `[db:vars]` cada linha deve ser `chave=valor`. O parser INI rejeita o host e o arquivo inteiro não é carregado. Coloque o host sob um grupo ou no topo do arquivo.
+19. `proxy.example.net` não pertence a nenhum grupo (por isso está em `ungrouped`), e `datacenter` só contém os grupos `web` e `db`.
 20. (a) O usuário está errado: era para conectar com outro usuário, e `monitor` veio de `ansible_user` ou de `remote_user`. (b) O usuário está certo, mas a chave pública não está no `authorized_keys` de `monitor` em `db1`.
 21. Sim, a conexão funcionou (é `FAILED`, não `UNREACHABLE`). Verifique o `sudo` do usuário remoto no host (`NOPASSWD` ou não), `become`/`become_user` e, se a senha for exigida, forneça-a (`become_ask_pass`/`-K`, com `-m stdout --pae false`).
 22. Trocar por um módulo idempotente: `ansible.builtin.lineinfile` para garantir uma linha (Capítulo 5), ou `ansible.builtin.copy` com `content:` se o arquivo inteiro é gerenciado.

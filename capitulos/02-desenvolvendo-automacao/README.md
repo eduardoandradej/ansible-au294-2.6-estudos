@@ -9,10 +9,6 @@
 Construir inventários estáticos, escrever e executar playbooks com um ou vários
 plays e diagnosticar problemas nos playbooks e nos managed hosts.
 
-> Nota: a página de abertura do capítulo no PDF (p. 62) repete o objetivo do
-> Capítulo 1. O objetivo acima foi reescrito a partir das seções e do resumo do
-> próprio Capítulo 2 (p. 140).
-
 ## Por que este capítulo importa
 
 É aqui que o Ansible começa a **fazer** algo. O Capítulo 1 montou o ambiente; o

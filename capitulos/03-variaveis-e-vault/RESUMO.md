@@ -105,13 +105,11 @@ vault_identity_list = dev@.vault-dev,prod@.vault-prod
 ## Alertas operacionais
 
 - ⚠️ Valor que começa com `{{` precisa de aspas.
-- ⚠️ `x[0][chave]` sem aspas procura uma variável chamada `chave`.
-- ⚠️ Notação de ponto colide com métodos Python (`items`, `keys`...).
-- ⚠️ Facts injetados vencem o inventário, mas perdem para `vars` do play.
+- ⚠️ Em listas de dicionários, a chave vai entre aspas: `x[0]['chave']`.
+- ⚠️ Notação de ponto colide com métodos Python (`discard`, `copy`, `add`...).
+- ⚠️ Facts injetados (`ansible_*`) têm precedência alta e podem colidir com suas variáveis: prefira `ansible_facts[...]`.
 - ⚠️ `"!hardware"` em `gather_subset` precisa de aspas.
 - ⚠️ Arquivos de senha do vault: texto puro, `chmod 600`, fora do Git.
-- ⚠️ `ansible.cfg` não pode ser cifrado; o inventário pode.
-- ⚠️ `inventory --host` mostra valores decifrados quando a senha está disponível.
 - ⚠️ Segredos em uso: `no_log: true` e artefatos desligados.
 
 ## Ligação com o próximo capítulo

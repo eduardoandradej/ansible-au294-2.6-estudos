@@ -23,6 +23,5 @@ Se aparecer `unreachable`, siga o
 
 ## Status
 
-✅ Validado: YAML, leitura do `ansible.cfg`, inventário, `--syntax-check`,
-`ansible-lint` (perfil *production*) e configuração do navigator.
+✅ Validado: YAML, `--syntax-check` e `ansible-lint` (perfil *production*).
 ⚠️ Não executado contra hosts.

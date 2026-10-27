@@ -29,7 +29,6 @@ Cobertura atual: **Capítulos 1 a 3**. O Capítulo 7 aprofunda collections.
 | `ansible.builtin.wait_for` | Aguarda porta/arquivo/condição | exemplo do Cap. 2 |
 | `ansible.builtin.reboot` | Reinicia o host e espera voltar | 2.5 |
 | `ansible.builtin.command` / `shell` / `raw` | Comandos arbitrários (evitar; `creates`/`removes`) | 2.5 |
-| `community.postgresql.postgresql_user` | Usuários do PostgreSQL (collection da comunidade; o PDF o cita como `ansible.builtin`) | 3.5 |
 | `ansible.posix.firewalld` | Regras do firewalld (`permanent`, `immediate`) | 2.3, 2.5 |
 | `ansible.posix.synchronize` | Sincroniza conteúdo com rsync | 2.5 |
 
@@ -48,7 +47,7 @@ Cobertura atual: **Capítulos 1 a 3**. O Capítulo 7 aprofunda collections.
 ```bash
 ansible-navigator doc -l -m stdout                       # lista
 ansible-navigator doc ansible.builtin.user -m stdout     # documentação + EXAMPLES
-ansible-navigator doc ansible.builtin.user -s -m stdout  # snippet de task
+ansible-navigator -s doc ansible.builtin.user           # snippet de task
 ansible-navigator collections                            # TUI por collection
 ```
 

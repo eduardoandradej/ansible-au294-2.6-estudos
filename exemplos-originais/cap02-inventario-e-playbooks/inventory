@@ -1,7 +1,7 @@
 # Inventário estático fictício (INI) — AU294 Cap. 2
 # Domínio reservado example.net: nenhum destes nomes resolve na internet.
 
-# Host sem grupo: precisa vir ANTES do primeiro cabeçalho [grupo]
+# Host sem grupo (vai para o grupo implícito ungrouped)
 bastiao.example.net
 
 # --- Por função -------------------------------------------------------

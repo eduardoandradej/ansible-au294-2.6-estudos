@@ -11,19 +11,14 @@ Projetos pequenos, **autorais**, com hostnames fictícios (domínio reservado
 
 ## Como a validação é feita
 
-Com `ansible-core` 2.16.19, `ansible-lint` 26.10.1, `ansible-navigator` 26.10.0 e
-`yamllint` 1.38.0, em ambiente isolado (sem hosts reais). Collections fora de
-`ansible.builtin` (ex.: `ansible.posix`) vêm do pacote comunitário `ansible` 9,
-baseado no ansible-core 2.16, apontado por `ANSIBLE_COLLECTIONS_PATH`:
+Apenas checagens estáticas, que não executam nada: sintaxe YAML, verificação de
+sintaxe do playbook e `ansible-lint` (ansible-core 2.16):
 
 ```bash
 cd exemplos-originais/cap01-projeto-base
 yamllint -d relaxed ansible-navigator.yml verificar-conectividade.yml
-ansible-config dump --only-changed          # o ansible.cfg do projeto é lido?
-ansible-inventory --graph                   # o inventário resolve os grupos?
 ansible-playbook --syntax-check verificar-conectividade.yml
 ansible-lint verificar-conectividade.yml    # perfil production
-ansible-navigator settings --effective --ee false -m stdout   # o ansible-navigator.yml é aceito?
 ```
 
 ⚠️ **Nenhum exemplo foi executado contra hosts.** Os nomes não resolvem na internet,

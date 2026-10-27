@@ -66,7 +66,7 @@ mindmap
 | Listar tasks | `ansible-navigator run <pb>.yml --list-tasks` |
 | Rever execução | `ansible-navigator replay <pb>-artifact-<data>.json` |
 | Módulos do EE | `ansible-navigator doc -l -m stdout` |
-| Documentação / snippet | `ansible-navigator doc <fqcn> -m stdout` · `... -s` |
+| Documentação / snippet | `ansible-navigator doc <fqcn> -m stdout` · `ansible-navigator -s doc <fqcn>` |
 | Collections do EE | `ansible-navigator collections` |
 | Lint | `ansible-lint <pb>.yml` |
 | Ad hoc | `ansible <padrão> -m <fqcn> [-a '<args>'] [-i <inv>]` |
@@ -75,7 +75,8 @@ mindmap
 
 ```ini
 # inventory
-solto.example.net            # hosts sem grupo no topo
+# hosts sem grupo (ungrouped)
+solto.example.net
 
 [web]
 web[01:04].example.net
@@ -113,15 +114,12 @@ db
 
 ## Alertas operacionais
 
-- ⚠️ Hosts listados depois de `[grupo:vars]` quebram o parse do inventário inteiro.
 - ⚠️ Zeros à esquerda fazem parte do nome gerado pelo range.
-- ⚠️ No inventário INI, comentário é `#`; um `;` no meio da linha quebra o parse (no `ansible.cfg` é o contrário).
 - ⚠️ Host e grupo não podem ter o mesmo nome.
 - ⚠️ `command`/`shell`/`raw` não são idempotentes: use `creates`/`removes` ou um módulo.
 - ⚠️ `--start-at-task` pula as tasks anteriores; `--check` é uma simulação, não uma garantia.
 - ⚠️ Prompts (`--step`, senhas) exigem `-m stdout --pae false`.
 - ⚠️ `ansible_user` no inventário vence o `remote_user` do play.
-- ⚠️ Se todos os hosts de um play falham, os plays seguintes não rodam.
 
 ## Ligação com o próximo capítulo
 

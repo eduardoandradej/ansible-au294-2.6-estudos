@@ -4,7 +4,7 @@ Cobertura: **Capítulo 3**. Lições: [3.1](../capitulos/03-variaveis-e-vault/3.
 [3.3](../capitulos/03-variaveis-e-vault/3.3-coletando-informacoes-com-facts.md),
 [3.5](../capitulos/03-variaveis-e-vault/3.5-protegendo-dados-com-ansible-vault.md).
 
-## Precedência (versão do curso, verificada localmente)
+## Precedência (versão do curso)
 
 | # (menor → maior) | Onde |
 |---|------|
@@ -27,7 +27,7 @@ Cobertura: **Capítulo 3**. Lições: [3.1](../capitulos/03-variaveis-e-vault/3.
 | Nome | `[A-Za-z_][A-Za-z0-9_]*`, sem palavras reservadas |
 | Valor que começa com variável | `"{{ var }}"` (aspas obrigatórias) |
 | Dicionário | `d['chave']['sub']` (evite `d.chave`) |
-| Lista de dicionários | `l[0]['chave']` (aspas na chave!) |
+| Lista de dicionários | `l[0]['chave']` |
 | Variável composta | `destino: "{{ base }}/arquivo"` |
 | Guardar resultado | `register: resultado` |
 | Mostrar | `debug: msg: "..."` · `debug: var: nome` |

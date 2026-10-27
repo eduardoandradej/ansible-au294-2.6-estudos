@@ -26,7 +26,7 @@ Agrupados por tarefa. Cobertura atual: **Capítulos 1 a 3**. Ampliado a cada cap
 | Configuração efetiva | `ansible-navigator config` · na TUI: `:f <texto>`, número da linha, `Esc`, `:q` |
 | Gerar `ansible.cfg` de referência | `ansible-navigator config init --disabled --eei <img> --pp never --mode stdout > ansible.cfg` |
 | Documentação de módulo | `ansible-navigator doc <fqcn> -m stdout` |
-| Snippet de task com todos os parâmetros | `ansible-navigator doc <fqcn> -s -m stdout` (ou `ansible-navigator -s doc <fqcn>`) |
+| Snippet de task com todos os parâmetros | `ansible-navigator -s doc <fqcn>` |
 | Listar módulos do EE | `ansible-navigator doc -l -m stdout` |
 | Explorar collections do EE | `ansible-navigator collections` |
 | Ver configurações do próprio navigator (📘) | `ansible-navigator settings --effective -m stdout` |

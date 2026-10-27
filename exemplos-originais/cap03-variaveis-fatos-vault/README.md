@@ -46,9 +46,6 @@ ansible-navigator run variaveis.yml -e porta_banco=6000            # extra var v
 
 ## Status
 
-✅ Validado com ansible-core 2.16.19 e ansible-lint 26.10.1 (perfil *production*):
-YAML, `ansible-inventory --host` (precedência `host_vars` > `group_vars/all` e
-decifração do vault), `--syntax-check` dos três playbooks e lint.
-✅ O segundo play de `fatos.yml` (`hostvars`/`group_names`) foi executado localmente
-com conexão `local`.
-⚠️ Os demais plays não foram executados contra hosts (nomes fictícios).
+✅ Validado: YAML, `--syntax-check` dos três playbooks e `ansible-lint` (perfil
+*production*).
+⚠️ Não executado contra hosts (nomes fictícios).

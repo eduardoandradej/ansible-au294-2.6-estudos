@@ -24,7 +24,7 @@ Referência condensada da [seção 1.5](../capitulos/01-introducao-ansible/1.5-c
 | `[defaults]` | `timeout` | `10` | `ANSIBLE_TIMEOUT` |
 | `[defaults]` | `log_path` | desligado | `ANSIBLE_LOG_PATH` |
 | `[defaults]` | `private_key_file` | — | `ANSIBLE_PRIVATE_KEY_FILE` |
-| `[defaults]` | `transport` (o PDF chama de `connection`) | `ssh` | `ANSIBLE_TRANSPORT` |
+| `[defaults]` | `connection` | `ssh` | — |
 | `[privilege_escalation]` | `become` | `false` | `ANSIBLE_BECOME` |
 | `[privilege_escalation]` | `become_method` | `sudo` | `ANSIBLE_BECOME_METHOD` |
 | `[privilege_escalation]` | `become_user` | `root` | `ANSIBLE_BECOME_USER` |

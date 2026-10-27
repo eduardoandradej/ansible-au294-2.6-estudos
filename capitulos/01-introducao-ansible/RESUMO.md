@@ -107,7 +107,7 @@ ansible-navigator:
 - ⚠️ `NOPASSWD: ALL` torna a chave SSH da conta de automação equivalente a `root`.
 - ⚠️ Prompt de senha exige `mode: stdout` e artefatos desligados.
 - ⚠️ `ansible.cfg` em diretório gravável por todos é ignorado.
-- ⚠️ No `ansible.cfg`, `#` no meio da linha não comenta; use `;`. A chave do plug-in de conexão é `transport`.
+- ⚠️ No `ansible.cfg`, use `;` para comentar no fim de uma linha.
 - ⚠️ `log_path` e artefatos podem guardar dados sensíveis: não versione.
 - ⚠️ `commit` não publica nada: só o `push` envia ao remoto.
 

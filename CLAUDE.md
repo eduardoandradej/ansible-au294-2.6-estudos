@@ -39,8 +39,13 @@ em 2026-10-27), adaptada ao Ansible.
 - Conteúdo obtido de documentação pública é marcado como **📘 Fonte externa**.
 - Não tratar ansible-core, pacote comunitário `ansible` e Red Hat Ansible Automation
   Platform como produtos equivalentes.
-- Diferenciar exemplos **validados** (YAML/sintaxe/lint executados) de não validados.
-  Nunca executar playbooks contra hosts reais ou contra o ambiente oficial.
+- **Fidelidade ao material (decisão do usuário, 2026-10-27):** o PDF é a referência
+  definitiva para conteúdo, atividades e labs. Não fazer testes locais de
+  comportamento, não registrar "correções ao PDF" e não acrescentar resultados
+  "verificados localmente" às lições.
+- Validação permitida: apenas checagens estáticas dos exemplos autorais (parser YAML,
+  `ansible-playbook --syntax-check`, `ansible-lint`) e de links/âncoras. Nunca executar
+  playbooks, nem localmente nem contra hosts reais ou o ambiente oficial.
 - Regra central: **simplificar a explicação, nunca simplificar incorretamente a tecnologia.**
 
 ## 3. Formato das lições
@@ -73,8 +78,8 @@ Capítulos sem PDF recebido têm só um `README.md` marcado **⏳ Aguardando PDF
 2. Extrair texto do PDF **apenas no scratchpad**, nunca dentro do repositório.
 3. Confirmar seções, páginas e identificadores `lab`.
 4. Produzir as lições seção por seção; depois PRATICA-OFICIAL, REVISAO, RESUMO.
-5. Validar: YAML com parser, `ansible-playbook --syntax-check` e `ansible-lint` nos
-   exemplos; links e âncoras por script; busca por segredos, e-mail e IPs.
+5. Validar (só estático): YAML com parser, `ansible-playbook --syntax-check` e
+   `ansible-lint` nos exemplos; links e âncoras por script; busca por segredos, e-mail e IPs.
 6. Atualizar `progresso/` (estado, checklist, diário), README geral, README do
    capítulo, `consulta-rapida/` e `certificacao-ex294/`.
 7. Commit descritivo e push. **Parar** e aguardar o próximo PDF.
