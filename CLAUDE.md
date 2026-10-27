@@ -86,11 +86,13 @@ O PDF 00 (p. 1–11) alimenta `00-comecar-aqui/`.
 ## 6. Publicação (branch)
 
 - Decisão do usuário: entregar diretamente em `main`, sem Pull Request, sem force push.
-- **Restrição da plataforma (registrada em 2026-10-27):** a sessão do Claude Code na
-  nuvem impõe o branch de trabalho `claude/ansible-automation-platform-26-7e98tt` e
-  proíbe push em outro branch sem permissão explícita na sessão. Nesse caso, o
-  commit vai para esse branch e o relatório informa que a integração em `main`
-  depende do usuário (merge manual ou permissão explícita na sessão).
+- **Autorização explícita (2026-10-27):** o usuário autorizou na sessão "tudo para
+  `main` a partir de agora". Todo trabalho futuro é commitado e enviado para
+  `origin/main` (antes, `git fetch origin main` e integração sem reescrever histórico).
+- Histórico: na sessão 1 a plataforma impôs o branch
+  `claude/ansible-automation-platform-26-7e98tt`; seu conteúdo foi integrado em `main`
+  por fast-forward. Se uma sessão futura voltar a impor outro branch sem permitir
+  push em `main`, registre a restrição e informe o usuário no relatório.
 - Nunca `reset --hard`, `push --force` ou rebase arbitrário.
 
 ## 7. Estado do projeto

@@ -53,15 +53,15 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 ## Fluxo de publicação
 
 - Pedido do usuário: commit e push direto em `main`, sem PR.
-- Restrição real desta sessão: a plataforma impõe o branch `claude/ansible-automation-platform-26-7e98tt` e proíbe push em outro branch sem permissão explícita na sessão. O trabalho foi commitado **localmente** nesse branch.
-- **Push da sessão 1:** inicialmente recusado (HTTP 403, Claude GitHub App sem acesso ao repositório). Após o usuário liberar o acesso, o push para `origin/claude/ansible-automation-platform-26-7e98tt` foi concluído em 2026-10-27. A integração em `main` fica a critério do usuário.
+- Sessão 1: a plataforma impôs o branch `claude/ansible-automation-platform-26-7e98tt`; o trabalho foi commitado nele.
+- **Push da sessão 1:** inicialmente recusado (HTTP 403, Claude GitHub App sem acesso ao repositório). Após o usuário liberar o acesso, o push para `origin/claude/ansible-automation-platform-26-7e98tt` foi concluído em 2026-10-27. Em seguida, com autorização explícita do usuário ("tudo para main a partir de agora"), o conteúdo foi integrado em `main` por fast-forward e enviado para `origin/main`.
+- **A partir de agora, todo trabalho vai direto para `main`.**
 
 ## Pendências e assuntos a retomar
 
 | Item | Quando |
 |------|--------|
 | Conferir objetivos públicos atuais do EX294 e preencher `certificacao-ex294/` | Assim que a página oficial estiver acessível |
-| Integrar o branch de trabalho em `main` | A critério do usuário |
 | Ad hoc commands (`ansible -m`), se o curso abordar | Ao receber o Cap. 2 |
 | Ampliar `consulta-rapida` com cada capítulo | A cada capítulo |
 | Capítulo 8 em duas partes: manter 🟡 após 08A | Caps. 8A/8B |
