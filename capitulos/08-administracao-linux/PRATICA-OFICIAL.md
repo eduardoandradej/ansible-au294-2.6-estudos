@@ -5,9 +5,6 @@
 > `workstation`, como `student`. As credenciais estão no enunciado de cada atividade
 > e **não** devem ser copiadas para este repositório.
 
-> 🟡 **Capítulo parcial:** esta página cobre a parte A (PDF 08A, seções 8.1–8.6). As
-> atividades 8.8, 8.10, 8.12 e o lab 8.13 entram com o PDF 08B.
-
 ## Visão geral
 
 | Seção | Tipo | Identificador `lab` | `lab grade` | PDF |
@@ -15,9 +12,12 @@
 | 8.2 | Guided Exercise | `system-roles` | Não | p. 463–470 |
 | 8.4 | Guided Exercise | `system-software` | Não | p. 484–492 |
 | 8.6 | Guided Exercise | `system-user` | Não | p. 500–508 |
-| 8.8–8.13 | ⏳ Aguardando PDF 08B | — | — | p. 509–569 |
+| 8.8 | Guided Exercise | `system-process` | Não | p. 516–524 |
+| 8.10 | Guided Exercise | `system-storage` | Não | p. 534–540 |
+| 8.12 | Guided Exercise | `system-network` | Não | p. 549–555 |
+| 8.13 | Lab | `system-review` | **Sim** | p. 556–568 |
 
-Identificadores verificados no PDF 08A. Cada atividade abre o projeto em um
+Identificadores verificados nos PDFs 08A e 08B. Cada atividade abre o projeto em um
 **development container** no VS Code.
 
 ---
@@ -119,6 +119,132 @@ playbook.
 
 ---
 
+## 8.8 Guided Exercise: Automating the Boot Process and Scheduled Processes
+
+| Campo | Valor |
+|-------|-------|
+| Seção | 8.8 |
+| Tipo | Guided Exercise |
+| Identificador `lab` | `system-process` |
+| Avaliação | Sem `lab grade` |
+| Referência | PDF p. 516–524 |
+
+**Competência praticada:** criar e remover um job cron em arquivo de sistema, agendar
+um comando único com `at`, mudar o alvo de boot padrão e reiniciar os managed hosts
+com o módulo próprio.
+
+**Domine antes:** [8.7](8.7-automatizando-boot-e-agendamentos.md).
+
+```bash
+lab start system-process
+lab finish system-process
+```
+
+**Pontos de atenção:**
+- Para remover um job cron, a task precisa identificar o mesmo job (`name`, `cron_file`, `user`) com `state: absent`.
+- Confira no host o arquivo em `/etc/cron.d/` e a fila do `at`.
+- O reboot faz o playbook esperar o host voltar: não interrompa.
+
+**Critério de prontidão:** você cria e remove o mesmo job sem duplicações.
+
+---
+
+## 8.10 Guided Exercise: Automating Storage Tasks
+
+| Campo | Valor |
+|-------|-------|
+| Seção | 8.10 |
+| Tipo | Guided Exercise |
+| Identificador `lab` | `system-storage` |
+| Avaliação | Sem `lab grade` |
+| Referência | PDF p. 534–540 |
+
+**Competência praticada:** usar a role de armazenamento para criar volume group,
+volumes lógicos com file systems e montagens persistentes, e conferir o resultado
+com um playbook de verificação fornecido.
+
+**Domine antes:** [8.9](8.9-automatizando-armazenamento.md).
+
+```bash
+lab start system-storage
+lab finish system-storage
+```
+
+**Pontos de atenção:**
+- Use os nomes, tamanhos e pontos de montagem exatos do enunciado; unidades em minúsculas.
+- `disks` aceita só dispositivos sem partição: confira qual é o disco certo.
+- Reexecute: a role deve ficar sem mudanças.
+
+**Critério de prontidão:** você escreve o `storage_pools` sem consultar a lição.
+
+---
+
+## 8.12 Guided Exercise: Automating Network Configuration Tasks
+
+| Campo | Valor |
+|-------|-------|
+| Seção | 8.12 |
+| Tipo | Guided Exercise |
+| Identificador `lab` | `system-network` |
+| Avaliação | Sem `lab grade` |
+| Referência | PDF p. 549–555 |
+
+**Competência praticada:** consultar a documentação da role de rede no
+`ansible-navigator`, definir as conexões em `group_vars` e aplicar a role para
+configurar uma interface, confirmando o endereço resultante.
+
+**Domine antes:** [8.11](8.11-automatizando-rede.md).
+
+```bash
+lab start system-network
+lab finish system-network
+```
+
+**Pontos de atenção:**
+- Identifique a interface correta antes (facts ou playbook fornecido); não mexa na interface de gerenciamento.
+- `network_provider: nm` e `state: up` para ativar na hora.
+- Use o endereço do enunciado; não o copie para este repositório.
+
+**Critério de prontidão:** você explica cada chave da conexão que escreveu.
+
+---
+
+## 8.13 Lab: Automating Linux Administration Tasks
+
+| Campo | Valor |
+|-------|-------|
+| Seção | 8.13 |
+| Tipo | Lab (fim de capítulo) |
+| Identificador `lab` | `system-review` |
+| Avaliação | **`lab grade system-review`** |
+| Referência | PDF p. 556–568 |
+
+**Competência avaliada:** combinar o capítulo em vários playbooks: repositório com
+chave GPG e instalação de pacote, grupo e usuários, volumes lógicos com a role de
+armazenamento, job cron em arquivo de sistema e configuração de interface com a role
+de rede, com variáveis de role em `group_vars`.
+
+**Domine antes:** todas as lições do capítulo.
+
+```bash
+lab start system-review
+# ... resolva no VS Code, dentro do development container ...
+lab grade system-review
+lab finish system-review
+```
+
+**Pontos de atenção (sem solução):**
+- Nomes de arquivos de playbook e de variáveis são avaliados: siga o enunciado exatamente.
+- Use os playbooks auxiliares fornecidos para descobrir o disco e a interface certos antes de escrever as variáveis.
+- Expressões de horário do cron (intervalos, passos, dias da semana) merecem atenção campo a campo.
+- Execute cada playbook e confira o efeito no host antes do `lab grade`.
+- Se o `lab grade` reportar FAIL, leia o critério, corrija e rode de novo; só então compare com `solutions`.
+
+**Critério de prontidão:** `lab grade` com todos os critérios PASS **sem** consultar
+a solução. Anote o tempo no diário.
+
+---
+
 ## Registro
 
 Ao terminar cada atividade, registre no
@@ -126,4 +252,4 @@ Ao terminar cada atividade, registre no
 [checklist geral](../../progresso/checklist-geral.md).
 
 ---
-[← 8.5 Usuários e autenticação](8.5-automatizando-usuarios-e-autenticacao.md) | [Índice do capítulo](README.md) | [Próximo: ⏳ 8.7 (PDF 08B)](README.md)
+[← 8.11 Rede](8.11-automatizando-rede.md) | [Índice do capítulo](README.md) | [Próximo: Revisão →](REVISAO.md)

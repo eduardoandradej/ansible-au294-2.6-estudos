@@ -44,6 +44,9 @@ quando o Capítulo 9 (Comprehensive Review) for recebido.
 - [ ] Aplico uma system role com variáveis em `group_vars` e trato reboot da role de SELinux.
 - [ ] Declaro repositório com chave GPG e instalo vários pacotes em uma transação.
 - [ ] Crio usuários e grupos, autorizo chaves e configuro sudo com `validate`.
+- [ ] Crio e removo jobs cron e `at`; mudo o alvo de boot de forma idempotente.
+- [ ] Escrevo `storage_pools` com LVs, XFS, montagem e swap.
+- [ ] Escrevo `network_connections` com IP estático e DNS.
 - [ ] ⏳ Demais itens com os próximos capítulos.
 
 ---

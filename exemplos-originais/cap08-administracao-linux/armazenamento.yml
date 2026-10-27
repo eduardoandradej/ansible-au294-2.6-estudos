@@ -1,0 +1,29 @@
+---
+- name: Armazenamento dos servidores de relatórios
+  hosts: relatorios
+  become: true
+  tasks:
+    - name: Mostrar o disco que será usado
+      ansible.builtin.debug:
+        msg: "vdc: {{ ansible_facts['devices']['vdc']['size'] | default('ausente') }}"
+
+    - name: Aplicar a role de armazenamento
+      ansible.builtin.include_role:
+        name: redhat.rhel_system_roles.storage
+
+    - name: Montar o compartilhamento NFS de modelos
+      ansible.posix.mount:
+        path: /mnt/modelos
+        src: nfs.example.net:/exports/modelos
+        fstype: nfs
+        opts: ro,defaults
+        state: mounted
+        backup: true
+
+    - name: Informar o espaço livre em /srv/relatorios
+      ansible.builtin.debug:
+        msg: >-
+          {{ (item['block_available'] * item['block_size'] / 1000000) | round(1) }}
+          MB livres em {{ item['mount'] }}
+      loop: "{{ ansible_facts['mounts'] }}"
+      when: item['mount'] == '/srv/relatorios'

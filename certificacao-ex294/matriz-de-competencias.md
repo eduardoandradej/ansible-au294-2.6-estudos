@@ -32,7 +32,9 @@ verificados ([ver status](objetivos-publicos-verificados.md)).
 | Usar RHEL system roles com variáveis no inventário | 8 | [8.1](../capitulos/08-administracao-linux/8.1-usando-system-roles.md) | ⏳ a verificar |
 | Gerenciar pacotes, repositórios, chaves GPG e registro | 8 | [8.3](../capitulos/08-administracao-linux/8.3-automatizando-software-e-assinaturas.md) | ⏳ a verificar |
 | Gerenciar usuários, grupos, chaves SSH e sudo | 8 | [8.5](../capitulos/08-administracao-linux/8.5-automatizando-usuarios-e-autenticacao.md) | ⏳ a verificar |
-| Boot, agendamentos, armazenamento e rede | 8 | ⏳ Aguardando PDF 08B | ⏳ |
+| Agendar com `at`/`cron`, gerenciar serviços, alvo de boot e reboot | 8 | [8.7](../capitulos/08-administracao-linux/8.7-automatizando-boot-e-agendamentos.md) | ⏳ a verificar |
+| Configurar LVM, file systems, montagens e swap | 8 | [8.9](../capitulos/08-administracao-linux/8.9-automatizando-armazenamento.md) | ⏳ a verificar |
+| Configurar interfaces, IP, DNS e firewall; usar facts de rede | 8 | [8.11](../capitulos/08-administracao-linux/8.11-automatizando-rede.md) | ⏳ a verificar |
 
 ---
 [← Objetivos públicos](objetivos-publicos-verificados.md) | [Índice geral](../README.md) | [Roteiro de revisão →](roteiro-de-revisao.md)

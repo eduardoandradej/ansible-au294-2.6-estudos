@@ -1,0 +1,49 @@
+---
+- name: Agendamentos e boot dos servidores de análise
+  hosts: analise
+  become: true
+  tasks:
+    - name: Agendar a exportação diária de métricas (crontab do usuário)
+      ansible.builtin.cron:
+        name: Exportar métricas diárias
+        user: ana.souza
+        job: /home/ana.souza/bin/exportar-metricas
+        minute: "30"
+        hour: "2"
+
+    - name: Agendar a limpeza de temporários em dias úteis (arquivo em /etc/cron.d)
+      ansible.builtin.cron:
+        name: Limpar temporários de análise
+        cron_file: limpeza_analise
+        user: root
+        minute: "*/15"
+        hour: "8-18"
+        weekday: "1-5"
+        job: find /srv/analise/tmp -type f -mmin +120 -delete
+
+    - name: Agendar uma única remoção da conta temporária daqui a 2 horas
+      ansible.posix.at:
+        command: userdel -r visitante
+        count: 2
+        units: hours
+        unique: true
+
+    - name: Desabilitar o timer que atualiza o cache do dnf
+      ansible.builtin.systemd_service:
+        name: dnf-makecache.timer
+        state: stopped
+        enabled: false
+
+    - name: Garantir o alvo de boot sem interface gráfica
+      ansible.builtin.file:
+        src: /usr/lib/systemd/system/multi-user.target
+        dest: /etc/systemd/system/default.target
+        state: link
+        force: true
+      notify: Reiniciar com aviso
+
+  handlers:
+    - name: Reiniciar com aviso
+      ansible.builtin.reboot:
+        msg: Reinício agendado pela automação (alvo de boot alterado)
+        reboot_timeout: 900

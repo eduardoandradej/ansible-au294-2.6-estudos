@@ -1,0 +1,22 @@
+---
+# Variáveis da role redhat.rhel_system_roles.storage para o grupo relatorios
+storage_pools:
+  - name: vg_relatorios
+    type: lvm
+    disks:
+      - vdc
+    volumes:
+      - name: lv_dados
+        size: 2g
+        fs_type: xfs
+        mount_point: /srv/relatorios
+        state: present
+      - name: lv_arquivo
+        size: 50%VG
+        fs_type: xfs
+        mount_point: /srv/arquivo
+        state: present
+      - name: lv_swap
+        size: 512m
+        fs_type: swap
+        state: present

@@ -5,7 +5,7 @@
 > [CLAUDE.md](../CLAUDE.md). Este arquivo registra **documentação produzida**, não
 > aprendizagem do aluno (essa fica no [checklist](checklist-geral.md) e no [diário](diario-de-laboratorios.md)).
 
-**Última atualização:** 2026-10-27 (sessão 8: Capítulo 8, parte A)
+**Última atualização:** 2026-10-27 (sessão 9: Capítulo 8, parte B)
 
 ## Situação por módulo
 
@@ -23,10 +23,10 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 | Capítulo 5 | ✅ | C05 (p. 292–339) | 2 lições + prática oficial (2 GEs + lab com `lab grade`), revisão (22 questões), resumo |
 | Capítulo 6 | ✅ | C06 (p. 340–384) | 2 lições + prática oficial (2 GEs + lab com `lab grade`), revisão (22 questões), resumo |
 | Capítulo 7 | ✅ | C07 (p. 385–452) | 4 lições + prática oficial (quiz, 3 GEs + lab com `lab grade`), revisão (23 questões), resumo |
-| Capítulo 8 | 🟡 parcial | C08A (p. 453–508) | Parte A: 3 lições + prática oficial (3 GEs); parte B (8.7–8.14), revisão e resumo aguardam o PDF 08B |
+| Capítulo 8 | ✅ | C08A (p. 453–508) + C08B (p. 509–569) | 6 lições + prática oficial (6 GEs + lab com `lab grade`), revisão (26 questões), resumo |
 | Capítulo 9 | ⏳ | — | Só `README.md` estrutural |
-| consulta-rapida | 🟡 | — | Todos os arquivos atualizados até o Cap. 7 e a parte A do Cap. 8; boot, armazenamento e rede aguardam o 08B |
-| exemplos-originais | ✅ (Caps. 1–7) · 🟡 Cap. 8 | — | `cap01` a `cap07` e `cap08` (parte A) com checagem estática (YAML, syntax-check, lint) |
+| consulta-rapida | 🟡 | — | Todos os arquivos atualizados até o Cap. 8; revisão geral aguarda o Cap. 9 |
+| exemplos-originais | ✅ (Caps. 1–8) | — | `cap01` a `cap08` com checagem estática (YAML, syntax-check, lint) |
 | certificacao-ex294 | 🟡 | — | Objetivos oficiais **não** conferidos (página inacessível nesta sessão) |
 
 ## Fatos verificados no PDF
@@ -42,6 +42,7 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 - Capítulo 4 (p. 226–291): 4.1 (p. 227–238); 4.2 GE `control-flow` (p. 239–244); 4.3 (p. 245–247); 4.4 GE `control-handlers` (p. 248–254); 4.5 (p. 255–260); 4.6 GE `control-errors` (p. 261–276); 4.7 Lab `control-review` (p. 277–290, **com** `lab grade`); 4.8 Summary (p. 291). Sem quiz.
 - Capítulo 5 (p. 292–339): 5.1 (p. 293–304); 5.2 GE `files-manage` (p. 305–316); 5.3 (p. 317–324); 5.4 GE `files-templates` (p. 325–329); 5.5 Lab `files-review` (p. 330–338, **com** `lab grade`); 5.6 Summary (p. 339). Sem quiz.
 - Capítulo 6 (p. 340–384): 6.1 (p. 341–346); 6.2 GE `scale-files` (p. 347–354); 6.3 (p. 355–364); 6.4 GE `scale-hosts` (p. 365–372); 6.5 Lab `scale-review` (p. 373–383, **com** `lab grade`); 6.6 Summary (p. 384). Sem quiz. Os exemplos de 6.3 no PDF usam IPs da sala de aula; nas lições, foram trocados por IPs de documentação.
+- Capítulo 8, parte B (p. 509–569): 8.7 (p. 509–515); 8.8 GE `system-process` (p. 516–524); 8.9 (p. 525–533); 8.10 GE `system-storage` (p. 534–540); 8.11 (p. 541–548); 8.12 GE `system-network` (p. 549–555); 8.13 Lab `system-review` (p. 556–568, **com** `lab grade`); 8.14 Summary (p. 569). Os exemplos de 8.9 e 8.11 no PDF usam IPs da sala de aula; nas lições, foram trocados por IPs de documentação (RFC 5737).
 - Capítulo 8, parte A (p. 453–508): abertura p. 453; 8.1 (p. 454–462); 8.2 GE `system-roles` (p. 463–470); 8.3 (p. 471–483); 8.4 GE `system-software` (p. 484–492); 8.5 (p. 493–499); 8.6 GE `system-user` (p. 500–508). Sem quiz e sem `lab grade` na parte A. O EE `ee-supported-rhel9` do curso já inclui `redhat.rhel_system_roles`.
 - Capítulo 7 (p. 385–452): abertura p. 385; 7.1 (p. 386–395); 7.2 Quiz (p. 396–399, 7 questões); 7.3 (p. 400–405); 7.4 GE `roles-create` (p. 406–412); 7.5 (p. 413–419); 7.6 GE `roles-external` (p. 420–425); 7.7 (p. 426–433); 7.8 GE `roles-collections` (p. 434–440); 7.9 Lab `roles-review` (p. 441–451, **com** `lab grade`); 7.10 Summary (p. 452).
 - O curso afirma que, com `ansible-navigator`, o usuário padrão de conexão é `root` (o usuário do processo no EE), e que esse `root` usa as chaves SSH do usuário da workstation.
@@ -121,6 +122,15 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 - [x] YAML embutido validado por parser; links e âncoras verificados por script.
 - [x] `REVISAO.md`, `RESUMO.md` e status concluído **não** criados (regra das duas partes).
 
+## Validação do Capítulo 8 (parte B e fechamento)
+
+- [x] Seções 8.7–8.14 representadas, na ordem; capítulo completo (8.1–8.14).
+- [x] Identificadores `system-process`, `system-storage`, `system-network` e `system-review` conferidos; `lab grade` só no 8.13.
+- [x] Conteúdo seguindo o PDF, sem testes locais nem correções; GEs e lab sem passos, valores ou soluções.
+- [x] `cap08-administracao-linux` ampliado (agendamentos, armazenamento, rede): YAML, `--syntax-check` e `ansible-lint --offline` (perfil *production*) sem erros. **Não executado.**
+- [x] `REVISAO.md` (26 questões) e `RESUMO.md` cobrindo o capítulo inteiro; status ✅.
+- [x] YAML embutido validado por parser; links e âncoras verificados por script.
+
 ## Fluxo de publicação
 
 - Pedido do usuário: commit e push direto em `main`, sem PR.
@@ -135,10 +145,9 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 | Conferir objetivos públicos atuais do EX294 e preencher `certificacao-ex294/` | Assim que a página oficial estiver acessível |
 | Ampliar `consulta-rapida` com cada capítulo | A cada capítulo |
 | Host patterns avançados em `inventory-e-host-patterns.md` | Ao receber o Cap. 6 |
-| Capítulo 8 em duas partes: manter 🟡 após 08A | Caps. 8A/8B |
+| ~~Capítulo 8 em duas partes: manter 🟡 após 08A~~ (concluído com o 08B) | — |
 
 ## Próximo passo
 
-Aguardar o PDF **`AU294_AAP2.6_C08B_...`** (Capítulo 8, parte B: seções 8.7–8.14,
-PDF p. 509–569). Não avançar sem ele. Com o 08B: lições 8.7, 8.9 e 8.11, prática
-8.8–8.13, `REVISAO.md` e `RESUMO.md` do capítulo inteiro e status ✅.
+Aguardar o PDF do **Capítulo 9 — Comprehensive Review** (`AU294_AAP2.6_C09_Revisao_Geral_p570-615.pdf`,
+PDF p. 570–615). Não avançar sem ele.

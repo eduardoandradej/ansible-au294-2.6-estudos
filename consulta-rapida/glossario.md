@@ -1,6 +1,6 @@
 # Glossário
 
-Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 7**, parte A do Capítulo 8 e fundamentos.
+Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 8** e fundamentos.
 
 | Termo | Definição |
 |-------|-----------|
@@ -35,6 +35,8 @@ Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 7**, parte A do C
 | **Children (`:children`)** | Sufixo de seção INI que define um grupo cujos membros são outros grupos |
 | **`collections_path`** | Configuração com a lista ordenada de diretórios onde o Ansible procura collections |
 | **Control node** | Máquina de onde o Ansible é executado e onde ficam os arquivos do projeto |
+| **`cron_file`** | Parâmetro do módulo `cron` que cria o job em um arquivo de `/etc/cron.d` mantido só pelo Ansible |
+| **`default.target`** | Link do systemd que define o alvo de boot padrão |
 | **`defaults/main.yml`** | Arquivo de variáveis padrão de uma role, com a menor precedência |
 | **Dependência de role** | Role listada em `dependencies` do `meta/main.yml`, executada antes da role que a declara |
 | **Dev Containers** | Extensão do VS Code para desenvolver dentro de um container |
@@ -75,6 +77,7 @@ Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 7**, parte A do C
 | **Managed host** | Sistema configurado pelo Ansible |
 | **Marcador (`blockinfile`)** | Linhas de comentário que delimitam um bloco gerenciado e garantem sua idempotência |
 | **Module** | Programa pequeno que garante um aspecto do estado de um host |
+| **`network_connections`** | Variável da role `network` com a lista de perfis de conexão a configurar |
 | **`no_log`** | Palavra-chave que oculta argumentos e resultado de uma task na saída e nos logs |
 | **`notify`** | Palavra-chave de task que notifica handlers quando ela reporta `changed` |
 | **`package_facts`** | Módulo que coleta os pacotes instalados em `ansible_facts['packages']` |
@@ -88,6 +91,7 @@ Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 7**, parte A do C
 | **Private automation hub** | Hub local da organização para conteúdo confiável; fonte recomendada pela Red Hat |
 | **Pull policy** | Quando o navigator baixa a imagem do EE: `always`, `missing`, `never` (📘 `tag`) |
 | **Range (inventário)** | Notação `[início:fim(:passo)]` para gerar vários hostnames ou endereços |
+| **`reboot_timeout`** | Limite, por fase (desligar/subir e reconectar/testar), do módulo `reboot`; padrão 600 s |
 | **`register`** | Palavra-chave que guarda o retorno de uma task em uma variável |
 | **`remote_src`** | Parâmetro do `copy` que indica que a origem está no managed host |
 | **`remote_user`** | Usuário da conexão SSH; definido no `ansible.cfg` ou no play |
@@ -99,6 +103,7 @@ Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 7**, parte A do C
 | **`set_fact`** | Módulo que cria variáveis por host durante a execução |
 | **Simple Content Access (SCA)** | Modo do Red Hat Subscription Management em que a assinatura é anexada sem informar pool ID |
 | **Snippet (`doc -s`)** | Esqueleto de task com todos os parâmetros de um módulo, gerado por `ansible-navigator doc -s` |
+| **`storage_pools`** | Variável da role `storage` que descreve volume groups LVM e seus volumes lógicos |
 | **Task** | Ação nomeada que chama um módulo com argumentos |
 | **Technology Preview (system role)** | Role testada e estável, mas sujeita a mudanças incompatíveis em versões futuras |
 | **Template** | Arquivo-modelo Jinja2 (normalmente `.j2`) renderizado por host pelo módulo `ansible.builtin.template` |

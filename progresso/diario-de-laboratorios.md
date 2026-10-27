@@ -53,7 +53,11 @@ credenciais.
 | 8.2 | GE `system-roles` | | | | |
 | 8.4 | GE `system-software` | | | | |
 | 8.6 | GE `system-user` | | | | |
-| 8.8+ | ⏳ Aguardando PDF 08B | | | | |
+| 8.8 | GE `system-process` | | | | |
+| 8.10 | GE `system-storage` | | | | |
+| 8.12 | GE `system-network` | | | | |
+| 8.13 | Lab `system-review` (grade) | | | | |
+| 9.x | ⏳ Aguardando PDF | | | | |
 
 ## Entradas
 

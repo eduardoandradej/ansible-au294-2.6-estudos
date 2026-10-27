@@ -99,7 +99,15 @@ escrito) está em [estado-do-projeto.md](estado-do-projeto.md).
 - [ ] 8.4 GE `system-software`
 - [ ] 8.5 Automating User Management and Authentication Tasks
 - [ ] 8.6 GE `system-user`
-- [ ] ⏳ Parte B (8.7–8.14) — aguardando PDF
+- [ ] 8.7 Automating the Boot Process and Scheduled Processes
+- [ ] 8.8 GE `system-process`
+- [ ] 8.9 Automating Storage Tasks
+- [ ] 8.10 GE `system-storage`
+- [ ] 8.11 Automating Network Configuration Tasks
+- [ ] 8.12 GE `system-network`
+- [ ] 8.13 Lab `system-review` (`lab grade` aprovado)
+- [ ] REVISAO.md
+- [ ] RESUMO.md
 
 ## Capítulo 9 — Comprehensive Review
 - [ ] ⏳ Aguardando PDF

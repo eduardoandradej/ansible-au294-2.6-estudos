@@ -1,6 +1,6 @@
 # Módulos e collections
 
-Cobertura atual: **Capítulos 1 a 7** e parte A do Capítulo 8.
+Cobertura atual: **Capítulos 1 a 8**.
 
 ## Conceitos já vistos
 
@@ -27,7 +27,7 @@ Cobertura atual: **Capítulos 1 a 7** e parte A do Capítulo 8.
 | `ansible.builtin.user` | Contas de usuário (`groups` + `append`, `system`, `generate_ssh_key`) | 2.3, 2.5, 8.5 |
 | `ansible.builtin.uri` / `ansible.builtin.get_url` | Requisições HTTP / download de arquivos | 2.5 |
 | `ansible.builtin.wait_for` | Aguarda porta/arquivo/condição | exemplo do Cap. 2 |
-| `ansible.builtin.reboot` | Reinicia o host e espera voltar | 2.5 |
+| `ansible.builtin.reboot` | Reinicia o host e espera voltar (`reboot_timeout` por fase, `test_command`, `msg`) | 2.5, 8.7 |
 | `ansible.builtin.command` / `shell` / `raw` | Comandos arbitrários (evitar; `creates`/`removes`) | 2.5 |
 | `ansible.builtin.import_playbook` | Importa plays de outro playbook (nível superior) | 6.1 |
 | `ansible.builtin.import_tasks` | Importa tasks (estático) | 6.1 |
@@ -51,6 +51,10 @@ Cobertura atual: **Capítulos 1 a 7** e parte A do Capítulo 8.
 | `ansible.builtin.assert` | Valida condições (`that`, `success_msg`, `fail_msg`) | 8.3 |
 | `ansible.builtin.known_hosts` | Entradas de chaves de host em `known_hosts` | 8.5 |
 | `ansible.posix.authorized_key` | Chaves autorizadas para login em uma conta | 8.5 |
+| `ansible.posix.at` | Agenda um comando para rodar uma vez (`count`, `units`, `unique`) | 8.7 |
+| `ansible.builtin.cron` | Jobs recorrentes (`name` obrigatório, `cron_file`) | 8.7 |
+| `ansible.posix.mount` | Montagens e `/etc/fstab` (`mounted`, `present`, `ephemeral`...) | 8.9 |
+| `ansible.builtin.hostname` | Define o hostname (não altera `/etc/hosts`) | 8.11 |
 
 ## RHEL system roles (Cap. 8)
 
@@ -64,6 +68,8 @@ Lição: [8.1](../capitulos/08-administracao-linux/8.1-usando-system-roles.md).
 | `timesync` | `timesync_ntp_servers` (`hostname`, `iburst`) |
 | `selinux` | `selinux_state`, `selinux_booleans`, `selinux_fcontexts`, `selinux_restore_dirs`, `selinux_ports`; não reinicia: `selinux_reboot_required` + `block`/`rescue` |
 | `rhc` | `rhc_state`, `rhc_auth` (Vault ou activation key), `rhc_repositories` |
+| `storage` | `storage_volumes` (`type: disk`), `storage_pools` (`type: lvm`, `volumes`: `size` em minúsculas, `%VG`, `100%FREE`; `fs_type: swap`) |
+| `network` | `network_provider: nm` (único no RHEL 10), `network_connections` (`name`, `type`, `state`, `persistent_state`, `mac`, `zone`, `ip`) |
 | Boa prática | Variáveis em `group_vars`/`host_vars`; play curto |
 
 ## Onde obter collections

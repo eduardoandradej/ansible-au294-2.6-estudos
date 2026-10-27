@@ -130,6 +130,24 @@ Cobertura: **estrutura de playbooks** (Capítulo 2) e **controle de tarefas**
     validate: /usr/sbin/visudo -cf %s
 ```
 
+```yaml
+- name: Job recorrente em /etc/cron.d
+  ansible.builtin.cron:
+    name: Limpeza noturna     # identifica o job
+    cron_file: limpeza
+    user: root
+    minute: "0"
+    hour: "3"
+    job: /usr/local/bin/limpeza
+
+- name: Alvo de boot idempotente
+  ansible.builtin.file:
+    src: /usr/lib/systemd/system/multi-user.target
+    dest: /etc/systemd/system/default.target
+    state: link
+    force: true
+```
+
 ## Executar e verificar
 
 | Tarefa | Opção de `ansible-navigator run` |

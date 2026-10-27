@@ -1,6 +1,6 @@
 # Troubleshooting — sintoma → causa → verificação
 
-Cobertura atual: **Capítulos 1 a 7 e parte A do Capítulo 8** (ambiente, configuração, inventário, playbooks, conexão). Ampliado a cada capítulo.
+Cobertura atual: **Capítulos 1 a 8** (ambiente, configuração, inventário, playbooks, conexão). Ampliado a cada capítulo.
 
 ## Roteiro geral (do mais externo ao mais interno)
 
@@ -126,7 +126,7 @@ flowchart TD
 | Playbook quebrou após reinstalar roles | Versão não fixada no requirements | `version` com tag ou commit |
 | Versão inesperada da collection | Ordem do `collections_path` | Projeto antes da imagem |
 
-## Administração Linux (Cap. 8, parte A)
+## Administração Linux (Cap. 8)
 
 | Sintoma | Causa provável | Verificação / correção |
 |---------|----------------|------------------------|
@@ -137,6 +137,12 @@ flowchart TD
 | Usuário perdeu grupos | `groups` sem `append: true` | Acrescente `append: true` |
 | Sudo não vale para o grupo | Faltou `%` | `%grupo ...` + `validate` |
 | Mudança no `sshd_config` sem efeito | `sshd` não reiniciado | Handler notificado |
+| Job cron duplicado | `name` da task mudou | Mesmo `name`; remova o antigo com `state: absent` |
+| Alvo de boot sempre `changed` | `command` com `systemctl set-default` | Link com `ansible.builtin.file` |
+| Reboot "trava" o playbook | Host lento para voltar | `reboot_timeout` (por fase) |
+| Role `storage` recusa disco ou tamanho | Disco particionado; unidade maiúscula | Disco sem partição; `1g` |
+| Montagem some após reboot | `state: ephemeral` | `state: mounted` |
+| Host inacessível após role `network` | Mudou a interface de gerenciamento | Restrinja por `mac`; teste em outra interface |
 
 ## Development container e Git
 

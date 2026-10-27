@@ -1,6 +1,6 @@
 # Comandos Ansible — consulta rápida
 
-Agrupados por tarefa. Cobertura atual: **Capítulos 1 a 7** e parte A do Capítulo 8. Ampliado a cada capítulo.
+Agrupados por tarefa. Cobertura atual: **Capítulos 1 a 8**. Ampliado a cada capítulo.
 
 ## Ferramentas e versões
 
@@ -85,7 +85,7 @@ Agrupados por tarefa. Cobertura atual: **Capítulos 1 a 7** e parte A do Capítu
 | Documentação no EE (TUI) | `ansible-navigator collections -m interactive` |
 | Montar diretório extra no EE | `ansible-navigator run <pb>.yml --volume <local>:<no-container>` |
 
-## Administração Linux (Cap. 8, parte A)
+## Administração Linux (Cap. 8)
 
 | Tarefa | Comando |
 |--------|---------|
@@ -94,6 +94,9 @@ Agrupados por tarefa. Cobertura atual: **Capítulos 1 a 7** e parte A do Capítu
 | Registrar (sem Ansible, RHEL 10 com SCA) | `sudo subscription-manager register` · `sudo subscription-manager attach --auto` |
 | Habilitar repositórios (sem Ansible) | `sudo subscription-manager repos --enable <repo>` |
 | Listar lookups | `ansible-navigator doc -l -t lookup` |
+| Conferir no host (cron, at, boot) | `crontab -l -u <usuário>` · `atq` · `systemctl get-default` |
+| Conferir no host (storage) | `lsblk` · `vgs` · `lvs` · `findmnt --fstab` · `swapon --show` |
+| Conferir no host (rede) | `nmcli connection show` · `ip -4 address` · `firewall-cmd --list-all` |
 
 ## ansible-core (local)
 

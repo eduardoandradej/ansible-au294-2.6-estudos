@@ -1,0 +1,28 @@
+---
+- name: Rede dos servidores de relatórios
+  hosts: relatorios
+  become: true
+  tasks:
+    - name: Listar as interfaces encontradas
+      ansible.builtin.debug:
+        var: ansible_facts['interfaces']
+
+    - name: Garantir o nome do host
+      ansible.builtin.hostname:
+        name: "{{ inventory_hostname }}"
+
+    - name: Aplicar a role de rede
+      ansible.builtin.include_role:
+        name: redhat.rhel_system_roles.network
+
+    - name: Liberar o serviço de relatórios na zona internal
+      ansible.posix.firewalld:
+        zone: internal
+        port: 8088/tcp
+        permanent: true
+        immediate: true
+        state: enabled
+
+    - name: Mostrar os endereços IPv4 do host
+      ansible.builtin.debug:
+        var: ansible_facts['all_ipv4_addresses']

@@ -1,0 +1,19 @@
+---
+# Variáveis da role redhat.rhel_system_roles.network (valores de documentação, RFC 5737)
+network_provider: nm
+network_connections:
+  - name: rede-relatorios
+    type: ethernet
+    mac: 00:00:5e:00:53:2a
+    autoconnect: true
+    persistent_state: present
+    state: up
+    zone: internal
+    ip:
+      address:
+        - 198.51.100.20/24
+      gateway4: 198.51.100.1
+      dns:
+        - 198.51.100.53
+      dns_search:
+        - example.net
