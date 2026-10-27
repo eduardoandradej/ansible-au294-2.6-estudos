@@ -1,0 +1,46 @@
+# Inventário estático fictício (INI) — AU294 Cap. 2
+# Domínio reservado example.net: nenhum destes nomes resolve na internet.
+
+# Host sem grupo: precisa vir ANTES do primeiro cabeçalho [grupo]
+bastiao.example.net
+
+# --- Por função -------------------------------------------------------
+[ntp]
+ntp[1:2].sp.example.net
+
+[db]
+db01.sp.example.net
+db01.rj.example.net
+
+[app]
+app[01:04].sp.example.net
+app01.rj.example.net ansible_host=203.0.113.21
+
+# --- Por localização --------------------------------------------------
+[sp]
+ntp[1:2].sp.example.net
+db01.sp.example.net
+app[01:04].sp.example.net
+
+[rj]
+db01.rj.example.net
+app01.rj.example.net
+
+# --- Por ambiente -----------------------------------------------------
+[producao]
+db01.sp.example.net
+app[01:04:2].sp.example.net
+
+[homologacao]
+db01.rj.example.net
+app01.rj.example.net
+app[02:04:2].sp.example.net
+
+# --- Grupo de grupos --------------------------------------------------
+[brasil:children]
+sp
+rj
+
+# --- Variáveis de grupo -----------------------------------------------
+[app:vars]
+ansible_port=2222

@@ -5,7 +5,7 @@
 > [CLAUDE.md](../CLAUDE.md). Este arquivo registra **documentação produzida**, não
 > aprendizagem do aluno (essa fica no [checklist](checklist-geral.md) e no [diário](diario-de-laboratorios.md)).
 
-**Última atualização:** 2026-10-27 (sessão 1: estrutura inicial + Capítulo 0 + Capítulo 1)
+**Última atualização:** 2026-10-27 (sessão 2: Capítulo 2)
 
 ## Situação por módulo
 
@@ -17,11 +17,12 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 | 00-comecar-aqui | ✅ | C00 (p. 1–11) | Objetivos, público, ambiente (sem IPs), comando `lab` |
 | 01-fundamentos-essenciais | ✅ | — | 4 lições autorais (F1–F4) |
 | Capítulo 1 | ✅ | C01 (p. 12–61) | 3 lições + prática oficial, revisão (21 questões), resumo |
-| Capítulos 2–7 | ⏳ | — | Só `README.md` estrutural, a partir do sumário (PDF p. 3–5) |
+| Capítulo 2 | ✅ | C02 (p. 62–140) | 4 lições + prática oficial (4 GEs + lab com `lab grade`), revisão (23 questões), resumo |
+| Capítulos 3–7 | ⏳ | — | Só `README.md` estrutural, a partir do sumário (PDF p. 3–5) |
 | Capítulo 8 | ⏳ | — | Será recebido em duas partes (08A e 08B) |
 | Capítulo 9 | ⏳ | — | Só `README.md` estrutural |
-| consulta-rapida | 🟡 | — | Comandos, configuração, troubleshooting, glossário e módulos cobrem o Cap. 1; demais páginas aguardam capítulos |
-| exemplos-originais | ✅ (Cap. 1) | — | `cap01-projeto-base` validado |
+| consulta-rapida | 🟡 | — | Comandos, configuração, troubleshooting, glossário, módulos, inventário e playbooks cobrem os Caps. 1–2; variáveis e roles/templates aguardam capítulos |
+| exemplos-originais | ✅ (Caps. 1–2) | — | `cap01-projeto-base` e `cap02-inventario-e-playbooks` validados |
 | certificacao-ex294 | 🟡 | — | Objetivos oficiais **não** conferidos (página inacessível nesta sessão) |
 
 ## Fatos verificados no PDF
@@ -32,6 +33,9 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 - Alinhamento citado: AAP 2.4 ⇔ ansible-core 2.15; AAP 2.5 e 2.6 ⇔ ansible-core 2.16.
 - Imagens citadas: development tools `ansible-automation-platform-26/ansible-dev-tools-rhel9`; EE `ansible-automation-platform-26/ee-supported-rhel9` (no curso, espelhadas em um registry local em `utility`).
 - Repositório RPM citado: `ansible-automation-platform-2.6-for-rhel-10-x86_64-rpms`; pacote `ansible-dev-tools`.
+- Capítulo 2 (p. 62–140): abertura p. 62; 2.1 (p. 63–69); 2.2 GE `develop-inventory` (p. 70–75); 2.3 (p. 76–85); 2.4 GE `develop-singleplay` (p. 86–93); 2.5 (p. 94–102); 2.6 GE `develop-multiplay` (p. 103–109); 2.7 (p. 110–118); 2.8 GE `develop-troubleshoot` (p. 119–126); 2.9 Lab `develop-review` (p. 127–139, **com** `lab grade`); 2.10 Summary (p. 140). Sem quiz. GEs sem `lab grade`.
+- A abertura do Capítulo 2 (p. 62) repete o objetivo do Capítulo 1 (provável erro editorial); o README do capítulo usa um objetivo reescrito a partir das seções e do resumo.
+- O curso afirma que, com `ansible-navigator`, o usuário padrão de conexão é `root` (o usuário do processo no EE), e que esse `root` usa as chaves SSH do usuário da workstation.
 
 ## Correções e complementos (marcados nas lições)
 
@@ -39,6 +43,11 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 - **Comentário inline:** em `ansible.cfg`, `;` comenta inline; `#` só no início da linha (verificado: `timeout = 30 # x` gera erro de tipo).
 - **Diretório gravável por todos:** `ansible.cfg` ignorado (verificado localmente; fonte externa).
 - **`remote_user` vazio:** curso diz `root` no EE; documentação descreve o padrão do plug-in de conexão. Ambos registrados.
+- **Inventário INI × `ansible.cfg` (Cap. 2, verificado):** no inventário, `#` comenta também no fim da linha e `;` inline **quebra** o parse; no `ansible.cfg` é o contrário. Host listado depois de `[grupo:vars]` invalida o arquivo inteiro; grupo filho inexistente em `:children` gera `includes undefined group`.
+- **Usuário de conexão (Cap. 2, verificado com `-vvv`):** `ansible_user` > `remote_user` do play > `remote_user` do `ansible.cfg`.
+- **Plays seguintes (Cap. 2, verificado):** se todos os hosts de um play falham, os plays seguintes não rodam.
+- **`doc -s` (Cap. 2, verificado):** funciona antes (`ansible-navigator -s doc <m>`, forma do curso) e depois do módulo.
+- **IDs de regras do ansible-lint 26.10.1 (Cap. 2, verificado):** `yaml[trailing-spaces]`, `fqcn[action-core]`, `no-free-form`, `yaml[octal-values]`, `yaml[empty-lines]`, `no-changed-when`; `skip_list`/`warn_list` no `.ansible-lint` funcionam como descrito; o navigator aceita `ansible-lint.config`.
 - Fontes externas marcadas com 📘: `visudo -cf`, `ansible-config dump/list`, `ansible-inventory --graph`, chaves de `settings.json` das extensões, pull policy `tag`, repasse de variáveis `ANSIBLE_*` ao EE (verificado no código do navigator 26.10.0), nome padrão dos artefatos e do log do navigator.
 
 ## Validação do Capítulo 1
@@ -49,6 +58,16 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 - [x] Sem senhas do laboratório, IPs da sala de aula, e-mail/nome da marca d'água.
 - [x] Exemplos validados com ansible-core 2.16.19, ansible-lint 26.10.1 (perfil *production*), ansible-navigator 26.10.0 e yamllint 1.38.0. **Não executados contra hosts.**
 - [x] YAML embutido nos Markdown validado por parser; links relativos e âncoras verificados por script.
+
+## Validação do Capítulo 2
+
+- [x] Seções 2.1–2.10 representadas, na ordem; ausência de quiz registrada.
+- [x] Identificadores `develop-inventory`, `develop-singleplay`, `develop-multiplay`, `develop-troubleshoot` e `develop-review` conferidos; `lab grade` só no 2.9.
+- [x] Guided exercises e lab sem passos, arquivos de solução ou conteúdo esperado; exemplos com cenários próprios (NTP, banco), diferentes do serviço web dos exercícios.
+- [x] Sem senhas do laboratório, IPs da sala de aula, e-mail/nome da marca d'água. IPs de exemplo apenas de documentação (RFC 5737).
+- [x] `cap02-inventario-e-playbooks` validado: yamllint, `ansible-inventory --graph/--host`, `--syntax-check`, `--list-hosts`, `ansible-lint` (perfil *production*) com a collection `ansible.posix` (pacote comunitário `ansible` 9, pois o Galaxy está bloqueado no ambiente da sessão). **Não executado contra hosts.**
+- [x] Todos os blocos INI dos Markdown do capítulo testados com `ansible-inventory` (o fragmento incremental do Passo 3 de 2.1 está rotulado como continuação).
+- [x] YAML embutido validado por parser; links e âncoras verificados por script.
 
 ## Fluxo de publicação
 
@@ -62,11 +81,11 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 | Item | Quando |
 |------|--------|
 | Conferir objetivos públicos atuais do EX294 e preencher `certificacao-ex294/` | Assim que a página oficial estiver acessível |
-| Ad hoc commands (`ansible -m`), se o curso abordar | Ao receber o Cap. 2 |
 | Ampliar `consulta-rapida` com cada capítulo | A cada capítulo |
+| Host patterns avançados em `inventory-e-host-patterns.md` | Ao receber o Cap. 6 |
 | Capítulo 8 em duas partes: manter 🟡 após 08A | Caps. 8A/8B |
 
 ## Próximo passo
 
-Aguardar o PDF **`AU294_AAP2.6_C02_Desenvolvendo_Automacao_p062-140.pdf`**
-(Capítulo 2, p. 62–140). Não avançar sem ele.
+Aguardar o PDF **`AU294_AAP2.6_C03_Variaveis_p141-225.pdf`**
+(Capítulo 3, p. 141–225). Não avançar sem ele.

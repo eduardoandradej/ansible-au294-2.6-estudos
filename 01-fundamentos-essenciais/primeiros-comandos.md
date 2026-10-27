@@ -13,7 +13,7 @@
 | `ansible-config` | `ansible-core` | Ver/gerar configuração (`init`, `dump`, `list`) | Cap. 1 |
 | `ansible-lint` | Development tools | Verificar conteúdo contra erros e boas práticas | Desde o Cap. 1 |
 | `ansible-builder` | Development tools | Construir execution environments | Citado no Cap. 1 |
-| `ansible` | `ansible-core` | Executar um módulo avulso (*ad hoc*) | Ainda não abordado no Cap. 1 |
+| `ansible` | `ansible-core` | Executar um módulo avulso (*ad hoc*) | Cap. 2 (diagnóstico pontual) |
 
 ## Subcomandos do `ansible-navigator` que aparecem cedo
 

@@ -1,6 +1,6 @@
 # Troubleshooting — sintoma → causa → verificação
 
-Cobertura atual: **Capítulo 1** (ambiente e configuração). Ampliado a cada capítulo.
+Cobertura atual: **Capítulos 1 e 2** (ambiente, configuração, inventário, playbooks, conexão). Ampliado a cada capítulo.
 
 ## Roteiro geral (do mais externo ao mais interno)
 
@@ -44,6 +44,29 @@ flowchart TD
 | `Host key verification failed` | Chave de host desconhecida ou mudou | Confirme a identidade do host e atualize `known_hosts` |
 | `Missing sudo password` | `sudo` com senha e `become_ask_pass = false` | `NOPASSWD` no host ou `become_ask_pass = true` |
 | Prompt de senha não aparece / trava | Modo interativo ou artefatos ligados | `-m stdout --pae false` |
+
+## Inventário (Cap. 2)
+
+| Sintoma | Causa provável | Verificação / correção |
+|---------|----------------|------------------------|
+| `You must pass a single valid host to --host parameter` | Nome diferente do gerado (zero à esquerda, domínio) | `--graph` e compare |
+| `Expected key=value, got: <host>` | Host listado depois de `[grupo:vars]` | Hosts soltos no topo do arquivo |
+| `Expected key=value host variable assignment, got: ;` | `;` como comentário no inventário | Use `#` |
+| `Section [x:children] includes undefined group: <g>` | Grupo filho não definido em nenhuma seção | Defina o grupo filho (`[g]`) |
+| `Found both group and host with same name` | Host e grupo homônimos | Renomeie o grupo |
+| `No inventory was parsed, only implicit localhost` | Caminho errado ou arquivo inválido | `-i`/`inventory=` e avisos de parse |
+
+## Playbooks (Cap. 2)
+
+| Sintoma | Causa provável | Verificação / correção |
+|---------|----------------|------------------------|
+| `Syntax Error while loading YAML` / `mapping values are not allowed` | Falta espaço após `:`, indentação, tab | Linha indicada **e a anterior** |
+| `couldn't resolve module/action '<fqcn>'` | FQCN errado ou collection ausente no EE | `ansible-navigator doc -l`; usar EE com a collection |
+| `changed` em toda execução | `command`/`shell`/`raw` ou `state: latest` | Módulo específico; `creates`/`removes`; `present` |
+| Plays seguintes não executam | Todos os hosts do play anterior falharam | Corrija o primeiro erro do `PLAY RECAP` |
+| `Could not find or access '<arquivo>'` | `src` com nome ou caminho errado | Caminho relativo ao playbook / `files/` |
+| Lint acusa `yaml[octal-values]`, `fqcn[...]`, `no-free-form` | Octal sem aspas, nome curto, `chave=valor` | Corrija; não silencie a regra |
+| `UNREACHABLE` com usuário inesperado na mensagem | `ansible_user` > `remote_user` (play) > `ansible.cfg` | `--host <h>` e `-vvvv` |
 
 ## Development container e Git
 

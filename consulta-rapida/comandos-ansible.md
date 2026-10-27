@@ -1,6 +1,6 @@
 # Comandos Ansible — consulta rápida
 
-Agrupados por tarefa. Cobertura atual: **Capítulo 1**. Ampliado a cada capítulo.
+Agrupados por tarefa. Cobertura atual: **Capítulos 1 e 2**. Ampliado a cada capítulo.
 
 ## Ferramentas e versões
 
@@ -26,7 +26,35 @@ Agrupados por tarefa. Cobertura atual: **Capítulo 1**. Ampliado a cada capítul
 | Configuração efetiva | `ansible-navigator config` · na TUI: `:f <texto>`, número da linha, `Esc`, `:q` |
 | Gerar `ansible.cfg` de referência | `ansible-navigator config init --disabled --eei <img> --pp never --mode stdout > ansible.cfg` |
 | Documentação de módulo | `ansible-navigator doc <fqcn> -m stdout` |
+| Snippet de task com todos os parâmetros | `ansible-navigator doc <fqcn> -s -m stdout` (ou `ansible-navigator -s doc <fqcn>`) |
+| Listar módulos do EE | `ansible-navigator doc -l -m stdout` |
+| Explorar collections do EE | `ansible-navigator collections` |
 | Ver configurações do próprio navigator (📘) | `ansible-navigator settings --effective -m stdout` |
+
+## Inventário (Cap. 2)
+
+| Tarefa | Comando |
+|--------|---------|
+| Árvore de grupos e hosts | `ansible-navigator inventory -m stdout --graph [grupo]` |
+| JSON completo | `ansible-navigator inventory -m stdout --list` |
+| Variáveis de um host | `ansible-navigator inventory -m stdout --host <host>` |
+| TUI (`:0` grupos, `:1` hosts) | `ansible-navigator inventory` |
+| Inventário específico | `... -i <caminho>` |
+
+## Execução e diagnóstico de playbooks (Cap. 2)
+
+| Tarefa | Comando |
+|--------|---------|
+| Verificar sintaxe | `ansible-navigator run <pb>.yml --syntax-check` |
+| Simular (dry run) | `ansible-navigator run <pb>.yml --check` |
+| Mais detalhes | `ansible-navigator run <pb>.yml -v` … `-vvvvvv` |
+| Passo a passo | `ansible-navigator run <pb>.yml -m stdout --pae false --step` |
+| Começar em uma task | `ansible-navigator run <pb>.yml --start-at-task "<nome>"` |
+| Listar tasks | `ansible-navigator run <pb>.yml --list-tasks` |
+| Listar hosts por play (📘) | `ansible-navigator run <pb>.yml --list-hosts` |
+| Rever execução anterior | `ansible-navigator replay <pb>-artifact-<data>.json [-m stdout]` |
+| Comando ad hoc | `ansible <padrão> -m <fqcn> [-a '<args>'] [-i <inv>]` |
+| Ad hoc dentro do EE (📘) | `ansible-navigator exec -- ansible <padrão> -m <fqcn>` |
 
 ## ansible-core (local)
 

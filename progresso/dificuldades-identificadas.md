@@ -22,5 +22,13 @@ Não são dificuldades registradas pelo aluno, mas armadilhas comuns para observ
 - Esquecer que só **um** `ansible.cfg` é usado (o de maior precedência).
 - Indentação do `ansible-navigator.yml`.
 
+## Pontos de atenção previstos pelo autor (Capítulo 2)
+
+- Zeros à esquerda em ranges e nomes de host consultados com `--host`.
+- Comentários: `#` no inventário, `;` inline no `ansible.cfg` (comportamentos opostos).
+- Host solto listado depois de uma seção `[grupo:vars]`.
+- Prioridade do usuário de conexão: `ansible_user` > `remote_user` do play > `ansible.cfg`.
+- Indentação de um segundo play (mesma coluna do primeiro).
+
 ---
 [Início](../README.md) | [Diário de laboratórios](diario-de-laboratorios.md)

@@ -1,0 +1,32 @@
+---
+# Playbook com UM play: transforma os hosts do grupo ntp em servidores NTP.
+- name: Configurar servidores NTP com chrony
+  hosts: ntp
+  become: true                  # dnf, /etc e systemd exigem root
+
+  tasks:
+    - name: Garantir que o pacote chrony está instalado
+      ansible.builtin.dnf:
+        name: chrony
+        state: present          # present: não atualiza se já existir
+
+    - name: Publicar o arquivo de configuração do chrony
+      ansible.builtin.copy:
+        src: files/chrony.conf  # relativo ao diretório do playbook
+        dest: /etc/chrony.conf
+        owner: root
+        group: root
+        mode: '0644'            # entre aspas: evita octal implícito
+
+    - name: Garantir que o chronyd está ativo e habilitado no boot
+      ansible.builtin.systemd_service:
+        name: chronyd
+        state: started
+        enabled: true
+
+    - name: Liberar o serviço ntp no firewall (runtime e permanente)
+      ansible.posix.firewalld:  # collection ansible.posix (incluída no ee-supported)
+        service: ntp
+        permanent: true
+        immediate: true
+        state: enabled

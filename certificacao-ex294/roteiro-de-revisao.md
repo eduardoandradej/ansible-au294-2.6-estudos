@@ -24,6 +24,10 @@ quando o Capítulo 9 (Comprehensive Review) for recebido.
 - [ ] Monto um projeto do zero (`ansible.cfg`, `ansible-navigator.yml`, inventário) em menos de 5 minutos.
 - [ ] Explico de onde vem cada valor efetivo com `ansible-navigator config`.
 - [ ] Preparo um managed host para automação (usuário, chave SSH, `sudoers.d`).
+- [ ] Escrevo um inventário com grupos, `:children` e ranges a partir de uma tabela, sem erros de parse.
+- [ ] Escrevo um playbook de dois plays com `become` e `remote_user` diferentes, de memória, e ele passa no `ansible-lint`.
+- [ ] Diante de uma falha, identifico a camada (escrita, conexão, escalada, task) em menos de 2 minutos.
+- [ ] Uso `ansible-navigator doc <módulo> -s` para montar uma task sem consultar a internet.
 - [ ] ⏳ Demais itens com os próximos capítulos.
 
 ---

@@ -27,7 +27,17 @@ escrito) está em [estado-do-projeto.md](estado-do-projeto.md).
 - [ ] RESUMO.md
 
 ## Capítulo 2 — Introduction to Developing Automation Content
-- [ ] ⏳ Aguardando PDF
+- [ ] 2.1 Building an Ansible Inventory
+- [ ] 2.2 GE `develop-inventory`
+- [ ] 2.3 Developing Playbooks
+- [ ] 2.4 GE `develop-singleplay`
+- [ ] 2.5 Developing Playbooks with Multiple Plays
+- [ ] 2.6 GE `develop-multiplay`
+- [ ] 2.7 Troubleshooting Playbooks and Managed Hosts
+- [ ] 2.8 GE `develop-troubleshoot`
+- [ ] 2.9 Lab `develop-review` (`lab grade` aprovado)
+- [ ] REVISAO.md
+- [ ] RESUMO.md
 
 ## Capítulo 3 — Developing Automation Content: Variables
 - [ ] ⏳ Aguardando PDF

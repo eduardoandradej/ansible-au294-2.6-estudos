@@ -12,7 +12,10 @@ verificados ([ver status](objetivos-publicos-verificados.md)).
 | Configurar `ansible.cfg` (inventário, usuário remoto, escalada de privilégio) | 1 | [1.5](../capitulos/01-introducao-ansible/1.5-configurando-ajustes-do-ansible.md) | ⏳ a verificar |
 | Preparar managed hosts: chave SSH e `sudo` para a conta de automação | 1 | [1.5](../capitulos/01-introducao-ansible/1.5-configurando-ajustes-do-ansible.md) | ⏳ a verificar |
 | Configurar o `ansible-navigator` e execution environments | 1 | [1.5](../capitulos/01-introducao-ansible/1.5-configurando-ajustes-do-ansible.md) | ⏳ a verificar |
-| Inventários, playbooks, troubleshooting | 2 | ⏳ Aguardando PDF | ⏳ |
+| Criar e consultar inventários estáticos (grupos, `:children`, ranges, variáveis de conexão) | 2 | [2.1](../capitulos/02-desenvolvendo-automacao/2.1-construindo-um-inventario.md) | ⏳ a verificar |
+| Escrever e executar playbooks de um play com módulos `ansible.builtin` e de collections | 2 | [2.3](../capitulos/02-desenvolvendo-automacao/2.3-desenvolvendo-playbooks.md) | ⏳ a verificar |
+| Playbooks com vários plays, `remote_user` e `become` por play; consultar `ansible-navigator doc` | 2 | [2.5](../capitulos/02-desenvolvendo-automacao/2.5-playbooks-com-multiplos-plays.md) | ⏳ a verificar |
+| Diagnosticar playbooks e hosts (lint, sintaxe, verbosidade, `debug`, conexão, escalada) e usar comandos ad hoc | 2 | [2.7](../capitulos/02-desenvolvendo-automacao/2.7-troubleshooting-de-playbooks-e-hosts.md) | ⏳ a verificar |
 | Variáveis, facts, Ansible Vault | 3 | ⏳ Aguardando PDF | ⏳ |
 | Loops, condicionais, handlers, falhas | 4 | ⏳ Aguardando PDF | ⏳ |
 | Arquivos e templates Jinja2 | 5 | ⏳ Aguardando PDF | ⏳ |

@@ -27,7 +27,12 @@ credenciais.
 | 1.2 | Quiz Automating Tasks with Ansible | | | | |
 | 1.4 | GE `intro-devenv` | | | | |
 | 1.6 | GE `intro-configure` | | | | |
-| 2.x | ⏳ Aguardando PDF | | | | |
+| 2.2 | GE `develop-inventory` | | | | |
+| 2.4 | GE `develop-singleplay` | | | | |
+| 2.6 | GE `develop-multiplay` | | | | |
+| 2.8 | GE `develop-troubleshoot` | | | | |
+| 2.9 | Lab `develop-review` (grade) | | | | |
+| 3.x | ⏳ Aguardando PDF | | | | |
 
 ## Entradas
 

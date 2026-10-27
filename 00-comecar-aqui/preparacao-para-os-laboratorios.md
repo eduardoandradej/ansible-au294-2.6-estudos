@@ -42,7 +42,8 @@ Cada atividade tem um nome único no curso. O comando aceita **Tab completion**:
 | Capítulo | Atividades |
 |----------|-----------|
 | 1 | `intro-devenv` (GE 1.4), `intro-configure` (GE 1.6) — sem `lab grade` |
-| 2–9 | ⏳ Aguardando PDF |
+| 2 | `develop-inventory` (GE 2.2), `develop-singleplay` (GE 2.4), `develop-multiplay` (GE 2.6), `develop-troubleshoot` (GE 2.8) — sem `lab grade`; `develop-review` (Lab 2.9) — **com** `lab grade` |
+| 3–9 | ⏳ Aguardando PDF |
 
 ---
 [← Ambiente oficial](ambiente-oficial.md) | [Índice](README.md) | [Próximo: Fundamentos essenciais →](../01-fundamentos-essenciais/README.md)

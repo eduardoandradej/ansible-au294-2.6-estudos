@@ -1,0 +1,40 @@
+---
+# Playbook com DOIS plays, cada um com alvo, usuário e privilégio próprios.
+
+- name: Preparar os servidores de banco de dados
+  hosts: db
+  become: true
+
+  tasks:
+    - name: Garantir que o MariaDB está instalado
+      ansible.builtin.dnf:
+        name:
+          - mariadb-server
+          - mariadb
+        state: present
+
+    - name: Garantir que o MariaDB está ativo e habilitado no boot
+      ansible.builtin.systemd_service:
+        name: mariadb
+        state: started
+        enabled: true
+
+    - name: Liberar o serviço mysql no firewall
+      ansible.posix.firewalld:
+        service: mysql
+        permanent: true
+        immediate: true
+        state: enabled
+
+- name: Verificar, a partir das aplicações, se o banco responde
+  hosts: app
+  remote_user: verificador      # sobrepõe o remote_user do ansible.cfg só neste play
+  become: false                 # só leitura de rede: dispensa root
+  gather_facts: false
+
+  tasks:
+    - name: Aguardar a porta 3306 do banco de produção aceitar conexões
+      ansible.builtin.wait_for:
+        host: db01.sp.example.net
+        port: 3306
+        timeout: 15
