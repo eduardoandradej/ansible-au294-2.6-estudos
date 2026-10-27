@@ -5,7 +5,7 @@
 > [CLAUDE.md](../CLAUDE.md). Este arquivo registra **documentação produzida**, não
 > aprendizagem do aluno (essa fica no [checklist](checklist-geral.md) e no [diário](diario-de-laboratorios.md)).
 
-**Última atualização:** 2026-10-27 (sessão 6: Capítulo 6)
+**Última atualização:** 2026-10-27 (sessão 7: Capítulo 7)
 
 ## Situação por módulo
 
@@ -22,11 +22,11 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 | Capítulo 4 | ✅ | C04 (p. 226–291) | 3 lições + prática oficial (3 GEs + lab com `lab grade`), revisão (22 questões), resumo |
 | Capítulo 5 | ✅ | C05 (p. 292–339) | 2 lições + prática oficial (2 GEs + lab com `lab grade`), revisão (22 questões), resumo |
 | Capítulo 6 | ✅ | C06 (p. 340–384) | 2 lições + prática oficial (2 GEs + lab com `lab grade`), revisão (22 questões), resumo |
-| Capítulo 7 | ⏳ | — | Só `README.md` estrutural, a partir do sumário (PDF p. 3–5) |
+| Capítulo 7 | ✅ | C07 (p. 385–452) | 4 lições + prática oficial (quiz, 3 GEs + lab com `lab grade`), revisão (23 questões), resumo |
 | Capítulo 8 | ⏳ | — | Será recebido em duas partes (08A e 08B) |
 | Capítulo 9 | ⏳ | — | Só `README.md` estrutural |
-| consulta-rapida | 🟡 | — | Comandos, configuração, troubleshooting, glossário, módulos, inventário e playbooks cobrem os Caps. 1–2; variáveis cobertas pelo Cap. 3; roles/templates aguardam capítulos |
-| exemplos-originais | ✅ (Caps. 1–6) | — | `cap01` a `cap06` com checagem estática (YAML, syntax-check, lint) |
+| consulta-rapida | 🟡 | — | Todos os arquivos atualizados até o Cap. 7 (inclui roles, collections e templates); administração Linux aguarda o Cap. 8 |
+| exemplos-originais | ✅ (Caps. 1–7) | — | `cap01` a `cap07` com checagem estática (YAML, syntax-check, lint) |
 | certificacao-ex294 | 🟡 | — | Objetivos oficiais **não** conferidos (página inacessível nesta sessão) |
 
 ## Fatos verificados no PDF
@@ -42,6 +42,7 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 - Capítulo 4 (p. 226–291): 4.1 (p. 227–238); 4.2 GE `control-flow` (p. 239–244); 4.3 (p. 245–247); 4.4 GE `control-handlers` (p. 248–254); 4.5 (p. 255–260); 4.6 GE `control-errors` (p. 261–276); 4.7 Lab `control-review` (p. 277–290, **com** `lab grade`); 4.8 Summary (p. 291). Sem quiz.
 - Capítulo 5 (p. 292–339): 5.1 (p. 293–304); 5.2 GE `files-manage` (p. 305–316); 5.3 (p. 317–324); 5.4 GE `files-templates` (p. 325–329); 5.5 Lab `files-review` (p. 330–338, **com** `lab grade`); 5.6 Summary (p. 339). Sem quiz.
 - Capítulo 6 (p. 340–384): 6.1 (p. 341–346); 6.2 GE `scale-files` (p. 347–354); 6.3 (p. 355–364); 6.4 GE `scale-hosts` (p. 365–372); 6.5 Lab `scale-review` (p. 373–383, **com** `lab grade`); 6.6 Summary (p. 384). Sem quiz. Os exemplos de 6.3 no PDF usam IPs da sala de aula; nas lições, foram trocados por IPs de documentação.
+- Capítulo 7 (p. 385–452): abertura p. 385; 7.1 (p. 386–395); 7.2 Quiz (p. 396–399, 7 questões); 7.3 (p. 400–405); 7.4 GE `roles-create` (p. 406–412); 7.5 (p. 413–419); 7.6 GE `roles-external` (p. 420–425); 7.7 (p. 426–433); 7.8 GE `roles-collections` (p. 434–440); 7.9 Lab `roles-review` (p. 441–451, **com** `lab grade`); 7.10 Summary (p. 452).
 - O curso afirma que, com `ansible-navigator`, o usuário padrão de conexão é `root` (o usuário do processo no EE), e que esse `root` usa as chaves SSH do usuário da workstation.
 
 ## Diretriz de fidelidade ao material (decisão do usuário, 2026-10-27)
@@ -102,6 +103,14 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 - [x] `cap06-automacao-em-escala`: YAML, `--syntax-check` e `ansible-lint` (perfil *production*) sem erros. **Não executado.**
 - [x] YAML embutido validado por parser; links e âncoras verificados por script.
 
+## Validação do Capítulo 7
+
+- [x] Seções 7.1–7.10 representadas, na ordem; quiz 7.2 sem respostas reproduzidas.
+- [x] Identificadores `roles-create`, `roles-external`, `roles-collections` e `roles-review` conferidos; `lab grade` só no 7.9.
+- [x] Conteúdo seguindo o PDF, sem testes locais nem correções; GEs e lab sem passos, valores, senhas ou soluções; exemplo com cenário próprio (estações de administração e coletor de logs).
+- [x] `cap07-roles-e-collections`: YAML, `--syntax-check` e `ansible-lint --offline` (perfil *production*) sem erros. **Não executado**; requirements não instalados (fontes fictícias).
+- [x] YAML embutido validado por parser; links e âncoras verificados por script.
+
 ## Fluxo de publicação
 
 - Pedido do usuário: commit e push direto em `main`, sem PR.
@@ -120,5 +129,5 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 
 ## Próximo passo
 
-Aguardar o PDF **`AU294_AAP2.6_C07_Roles_Collections_p385-452.pdf`**
-(Capítulo 7, p. 385–452). Não avançar sem ele.
+Aguardar o PDF **`AU294_AAP2.6_C08A_...`** (Capítulo 8, parte A: seções 8.1–8.6,
+PDF p. 453–508). Não avançar sem ele. Com 08A, o capítulo fica 🟡 parcial.

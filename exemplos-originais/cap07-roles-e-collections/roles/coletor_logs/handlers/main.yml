@@ -1,0 +1,5 @@
+---
+- name: Reiniciar o coletor
+  ansible.builtin.systemd_service:
+    name: "{{ coletor_logs_servico }}"
+    state: restarted

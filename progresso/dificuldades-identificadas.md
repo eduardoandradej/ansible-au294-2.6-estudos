@@ -58,5 +58,12 @@ Não são dificuldades registradas pelo aluno, mas armadilhas comuns para observ
 - `import_playbook` só no nível superior; caminhos relativos ao arquivo que importa.
 - Aspas em patterns com `!`, `*`, `&`; `--list-hosts` antes de executar.
 
+## Pontos de atenção previstos pelo autor (Capítulo 7)
+
+- Precedência: parâmetro em `roles:` > `vars/main.yml` > `vars` do play > `defaults/main.yml`.
+- Seção `roles` roda antes de `tasks`; ordem com `pre_tasks`/`post_tasks` e handlers.
+- `-p roles`/`-p collections` (ou `roles_path`/`collections_path`) para o EE enxergar o conteúdo.
+- Roles de collection com FQRN via `include_role`/`import_role`.
+
 ---
 [Início](../README.md) | [Diário de laboratórios](diario-de-laboratorios.md)

@@ -1,6 +1,6 @@
 # Módulos e collections
 
-Cobertura atual: **Capítulos 1 a 6**. O Capítulo 7 aprofunda collections.
+Cobertura atual: **Capítulos 1 a 7**.
 
 ## Conceitos já vistos
 
@@ -32,6 +32,8 @@ Cobertura atual: **Capítulos 1 a 6**. O Capítulo 7 aprofunda collections.
 | `ansible.builtin.import_playbook` | Importa plays de outro playbook (nível superior) | 6.1 |
 | `ansible.builtin.import_tasks` | Importa tasks (estático) | 6.1 |
 | `ansible.builtin.include_tasks` | Inclui tasks (dinâmico) | 6.1 |
+| `ansible.builtin.import_role` | Importa uma role como task (estático) | 7.1, 7.3 |
+| `ansible.builtin.include_role` | Inclui uma role como task (dinâmico) | 7.1, 7.3, 7.7 |
 | `ansible.builtin.template` | Publica arquivo gerado de um template Jinja2 | 5.3 |
 | `ansible.builtin.fetch` | Traz arquivos dos hosts para o control node (`flat`) | 5.1 |
 | `ansible.builtin.blockinfile` | Bloco de várias linhas com marcadores | 5.1 |
@@ -63,8 +65,42 @@ ansible-navigator -s doc ansible.builtin.user           # snippet de task
 ansible-navigator collections                            # TUI por collection
 ```
 
-⏳ Seções sobre instalação de collections, `requirements.yml` e conteúdo certificado
-serão adicionadas com o Capítulo 7.
+## Instalar e usar collections (Cap. 7)
+
+Lição: [7.7](../capitulos/07-roles-e-collections/7.7-roles-e-modulos-de-collections.md).
+
+```ini
+[defaults]
+collections_path = ./collections:/usr/share/ansible/collections
+```
+
+```yaml
+---
+# collections/requirements.yml
+collections:
+  - name: community.crypto
+  - name: ansible.posix
+    version: 1.5.4
+  - name: /tmp/exemplo-colecao-1.0.0.tar.gz
+  - name: git+https://git.example.net/infra/colecao.git
+    version: main
+```
+
+```bash
+ansible-galaxy collection install -r collections/requirements.yml -p collections
+ansible-galaxy collection list
+ansible-navigator collections list
+```
+
+| Regra | Detalhe |
+|-------|---------|
+| Nomes | FQCN `ns.colecao` · FQMN `ns.colecao.modulo` · FQRN `ns.colecao.role` |
+| Ordem do `collections_path` | Primeiro encontrado vence (projeto antes da imagem) |
+| Sem `-p` nem `collections_path` | Vai para `~/.ansible/collections`, fora do EE |
+| Fontes no `ansible.cfg` | `[galaxy] server_list` + `[galaxy_server.<id>]` (`url`, `auth_url`) |
+| Token do hub | `ANSIBLE_GALAXY_SERVER_<ID>_TOKEN`, nunca no arquivo versionado |
+| Role de collection | `include_role`/`import_role` com FQRN, não a seção `roles` |
+| Produção | EE customizado (`ansible-builder`) com as collections embutidas |
 
 ---
 [Índice geral](../README.md)

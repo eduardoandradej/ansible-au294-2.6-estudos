@@ -1,7 +1,50 @@
 # Roles e templates
 
-Cobertura: **templates Jinja2 e filtros** (Capítulo 5). ⏳ Roles chegam com o
-Capítulo 7. Lição: [5.3](../capitulos/05-deploy-de-arquivos/5.3-templates-jinja2-e-filtros.md).
+Cobertura: **templates Jinja2 e filtros** (Capítulo 5) e **roles** (Capítulo 7).
+Lições: [5.3](../capitulos/05-deploy-de-arquivos/5.3-templates-jinja2-e-filtros.md),
+[7.1](../capitulos/07-roles-e-collections/7.1-definindo-a-estrutura-de-roles.md),
+[7.3](../capitulos/07-roles-e-collections/7.3-criando-roles.md),
+[7.5](../capitulos/07-roles-e-collections/7.5-implantando-roles-de-fontes-externas.md).
+
+## Roles (Cap. 7)
+
+| Subdiretório | Conteúdo |
+|--------------|----------|
+| `tasks/main.yml` | Tasks principais |
+| `handlers/main.yml` | Handlers |
+| `defaults/main.yml` | Valores padrão (precedência **mínima**) |
+| `vars/main.yml` | Variáveis internas (precedência **alta**) |
+| `files/` · `templates/` | Arquivos estáticos · templates (`src` relativo à role) |
+| `meta/main.yml` | `galaxy_info` e `dependencies` (`allow_duplicates`) |
+| `tests/` · `README.md` | Testes · documentação |
+
+| Uso no play | Comportamento |
+|-------------|---------------|
+| Seção `roles` | Roda **antes** de `tasks`; parâmetros na entrada vencem todas as fontes; mesma role + mesmos parâmetros = uma vez |
+| `ansible.builtin.import_role` | Estático; `defaults`, `vars` e handlers visíveis para todo o play |
+| `ansible.builtin.include_role` | Dinâmico; variáveis não expostas ao resto do play |
+
+Ordem do play: `pre_tasks` → handlers → `roles` → `tasks` → handlers → `post_tasks` → handlers.
+
+```bash
+ansible-galaxy role init roles/<role>
+ansible-galaxy role install -r roles/requirements.yml -p roles
+ansible-galaxy role list
+ansible-galaxy role remove <role>
+```
+
+```yaml
+---
+# roles/requirements.yml
+- src: https://git.example.net/infra/ansible-role-x.git
+  scm: git
+  version: "1.0.0"
+  name: x
+- src: file:///srv/roles/y.tar
+  name: y
+```
+
+Busca de roles: `roles/` do playbook → `roles_path` → diretório do playbook.
 
 ## Templates Jinja2
 

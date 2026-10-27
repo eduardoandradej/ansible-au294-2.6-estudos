@@ -1,0 +1,5 @@
+---
+# Constantes internas (alta precedência): não pensadas para sobrescrita.
+coletor_logs_pacote: rsyslog
+coletor_logs_servico: rsyslog
+coletor_logs_arquivo: /etc/rsyslog.d/10-coletor.conf

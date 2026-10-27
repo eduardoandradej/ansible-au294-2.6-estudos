@@ -1,6 +1,6 @@
 # Glossário
 
-Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 6** e fundamentos.
+Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 7** e fundamentos.
 
 | Termo | Definição |
 |-------|-----------|
@@ -15,6 +15,7 @@ Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 6** e fundamentos
 | **Ansible Vault** | Recurso do Ansible para cifrar variáveis e arquivos (AES-256), decifrados na execução com a senha certa |
 | **`ansible-builder`** | Constrói execution environments personalizados |
 | **`ansible-core`** | Motor e linguagem do Ansible, CLIs e módulos `ansible.builtin`. Antes de 2.11 chamava-se `ansible-base` |
+| **`ansible-galaxy`** | Comando que cria, instala, lista e remove roles e collections |
 | **`ansible-lint`** | Analisador estático de conteúdo Ansible (erros comuns e padrões obsoletos) |
 | **`ansible-navigator`** | *Automation content navigator*: executa e inspeciona conteúdo dentro de execution environments |
 | **`ansible-navigator.yml`** | Arquivo de configuração do `ansible-navigator` (YAML ou JSON) |
@@ -31,7 +32,10 @@ Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 6** e fundamentos
 | **`changed_when`** | Condição personalizada para a task reportar `changed` |
 | **Check mode (`--check`)** | Execução simulada (*dry run*): informa o que mudaria sem alterar os hosts |
 | **Children (`:children`)** | Sufixo de seção INI que define um grupo cujos membros são outros grupos |
+| **`collections_path`** | Configuração com a lista ordenada de diretórios onde o Ansible procura collections |
 | **Control node** | Máquina de onde o Ansible é executado e onde ficam os arquivos do projeto |
+| **`defaults/main.yml`** | Arquivo de variáveis padrão de uma role, com a menor precedência |
+| **Dependência de role** | Role listada em `dependencies` do `meta/main.yml`, executada antes da role que a declara |
 | **Dev Containers** | Extensão do VS Code para desenvolver dentro de um container |
 | **Development container** | Container onde o VS Code roda o ambiente de desenvolvimento (imagem `ansible-dev-tools`), via extensão Dev Containers |
 | **Drift** | Divergência entre o estado real de um sistema e o estado declarado |
@@ -43,6 +47,7 @@ Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 6** e fundamentos
 | **`flush_handlers`** | Ação de `ansible.builtin.meta` que executa naquele ponto os handlers já notificados |
 | **`force_handlers`** | Palavra-chave de play que faz handlers já notificados rodarem mesmo após falha |
 | **FQCN** | *Fully qualified collection name*: `namespace.collection.modulo`, ex.: `ansible.builtin.ping` |
+| **FQRN** | Nome qualificado de role de collection: `namespace.collection.role` |
 | **Gathering Facts** | Task automática no início de cada play que executa `ansible.builtin.setup` e coleta facts |
 | **Git (staging area)** | Área intermediária onde ficam as alterações marcadas para o próximo commit |
 | **`group_vars` / `host_vars`** | Diretórios com arquivos YAML de variáveis por grupo / por host, ao lado do inventário ou do playbook |
@@ -53,6 +58,7 @@ Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 6** e fundamentos
 | **Idempotência** | Propriedade de produzir o mesmo resultado em execuções repetidas, sem mudanças se o estado já está correto |
 | **`ignore_errors`** | Palavra-chave de task que mantém a execução após a falha dela |
 | **`import_playbook`** | Módulo que importa os plays de outro playbook, no nível superior |
+| **`import_role` / `include_role`** | Módulos que usam uma role como task, de forma estática / dinâmica |
 | **`import_tasks`** | Módulo que importa tasks de forma estática, no parse do playbook |
 | **`include_tasks`** | Módulo que inclui tasks de forma dinâmica, quando a execução chega ao include |
 | **Infraestrutura como código (IaC)** | Descrever o estado desejado da infraestrutura em arquivos versionáveis aplicados por ferramenta |
@@ -74,13 +80,17 @@ Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 6** e fundamentos
 | **Playbook** | Arquivo YAML com um ou mais plays |
 | **Playbook artifact** | JSON gerado pelo `ansible-navigator run` com o registro de uma execução |
 | **Plug-in** | Código que estende o motor (conexão, inventário, saída...) |
+| **`pre_tasks` / `post_tasks`** | Seções de play que rodam antes das roles / depois das tasks |
 | **Precedência de variáveis** | Ordem que decide qual valor vale quando a mesma variável é definida em vários lugares |
+| **Private automation hub** | Hub local da organização para conteúdo confiável; fonte recomendada pela Red Hat |
 | **Pull policy** | Quando o navigator baixa a imagem do EE: `always`, `missing`, `never` (📘 `tag`) |
 | **Range (inventário)** | Notação `[início:fim(:passo)]` para gerar vários hostnames ou endereços |
 | **`register`** | Palavra-chave que guarda o retorno de uma task em uma variável |
 | **`remote_src`** | Parâmetro do `copy` que indica que a origem está no managed host |
 | **`remote_user`** | Usuário da conexão SSH; definido no `ansible.cfg` ou no play |
 | **Replay** | `ansible-navigator replay <artefato>`: reexibe uma execução a partir do JSON do artefato |
+| **`requirements.yml`** | Manifesto de roles (`roles/`) ou collections (`collections/`) a instalar com `ansible-galaxy` |
+| **Role** | Unidade de reuso com estrutura padrão (`tasks`, `handlers`, `defaults`, `vars`, `files`, `templates`, `meta`) |
 | **`set_fact`** | Módulo que cria variáveis por host durante a execução |
 | **Snippet (`doc -s`)** | Esqueleto de task com todos os parâmetros de um módulo, gerado por `ansible-navigator doc -s` |
 | **Task** | Ação nomeada que chama um módulo com argumentos |
@@ -88,6 +98,7 @@ Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 6** e fundamentos
 | **Terraform** | Ferramenta de IaC focada em provisionar infraestrutura (Day 0), com *state file*; complementar ao Ansible |
 | **`UNREACHABLE` × `FAILED`** | Falha de conexão com o host × task executada que falhou |
 | **`vars` / `vars_files`** | Variáveis definidas no play / carregadas de arquivos YAML externos pelo play |
+| **`vars/main.yml` (role)** | Arquivo de variáveis internas de uma role, com precedência alta |
 | **Vault ID** | Rótulo associado a uma senha do vault (`rotulo@origem`), gravado no cabeçalho do arquivo cifrado (formato 1.2) |
 | **`when`** | Palavra-chave de task (ou bloco) com a condição para executá-la |
 | **WinRM / PSRP** | Protocolos usados para gerenciar hosts Windows |

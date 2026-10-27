@@ -1,0 +1,14 @@
+---
+- name: Garantir os pacotes de administração
+  ansible.builtin.dnf:
+    name: "{{ ferramentas_admin_pacotes }}"
+    state: present
+
+- name: Publicar o perfil de shell dos administradores
+  ansible.builtin.template:
+    src: admin.sh.j2
+    dest: /etc/profile.d/admin.sh
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Registrar alteração do perfil

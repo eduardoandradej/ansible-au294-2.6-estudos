@@ -11,6 +11,7 @@ Projetos pequenos, **autorais**, com hostnames fictícios (domínio reservado
 | [cap04-controle-de-tarefas](cap04-controle-de-tarefas/) | 4 | Loops, `when` com facts, handlers, `flush_handlers`, `force_handlers`, `changed_when`/`failed_when`, blocos | ✅ ver o README do projeto |
 | [cap05-arquivos-e-templates](cap05-arquivos-e-templates/) | 5 | Módulos de arquivo, `ansible_managed`, templates com facts/`for`/`if` e filtros | ✅ ver o README do projeto |
 | [cap06-automacao-em-escala](cap06-automacao-em-escala/) | 6 | `import_playbook`, `import_tasks` com `vars`, `include_tasks` com `when`, host patterns | ✅ ver o README do projeto |
+| [cap07-roles-e-collections](cap07-roles-e-collections/) | 7 | Duas roles (defaults, vars, files, templates, handlers, dependência), `roles`/`include_role`, `pre_tasks`/`post_tasks`, requirements de roles e collections | ✅ ver o README do projeto |
 
 ## Como a validação é feita
 

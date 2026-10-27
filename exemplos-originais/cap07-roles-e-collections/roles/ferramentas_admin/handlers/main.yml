@@ -1,0 +1,4 @@
+---
+- name: Registrar alteração do perfil
+  ansible.builtin.debug:
+    msg: "Perfil de shell atualizado em {{ inventory_hostname }}"

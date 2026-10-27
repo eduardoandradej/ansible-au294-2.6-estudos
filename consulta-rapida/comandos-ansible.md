@@ -1,6 +1,6 @@
 # Comandos Ansible — consulta rápida
 
-Agrupados por tarefa. Cobertura atual: **Capítulos 1 a 6**. Ampliado a cada capítulo.
+Agrupados por tarefa. Cobertura atual: **Capítulos 1 a 7**. Ampliado a cada capítulo.
 
 ## Ferramentas e versões
 
@@ -71,6 +71,19 @@ Agrupados por tarefa. Cobertura atual: **Capítulos 1 a 6**. Ampliado a cada cap
 | Executar pedindo senha | `ansible-navigator run <pb>.yml -m stdout --pae false --ask-vault-pass` |
 | Executar com arquivo de senha | `ansible-navigator run <pb>.yml --vault-password-file=<f>` |
 | Executar com vault IDs | `ansible-navigator run <pb>.yml --vault-id a@<f1> --vault-id b@<f2>` |
+
+## Roles e collections (Cap. 7)
+
+| Tarefa | Comando |
+|--------|---------|
+| Criar esqueleto de role | `ansible-galaxy role init roles/<role>` |
+| Instalar roles do projeto | `ansible-galaxy role install -r roles/requirements.yml -p roles` |
+| Listar / remover / buscar roles | `ansible-galaxy role list` · `role remove <role>` · `role search <termo> --platforms EL` |
+| Instalar collections do projeto | `ansible-galaxy collection install -r collections/requirements.yml -p collections` |
+| Instalar collection de arquivo | `ansible-galaxy collection install <arquivo>.tar.gz -p collections` |
+| Listar collections | `ansible-galaxy collection list` · `ansible-navigator collections list` |
+| Documentação no EE (TUI) | `ansible-navigator collections -m interactive` |
+| Montar diretório extra no EE | `ansible-navigator run <pb>.yml --volume <local>:<no-container>` |
 
 ## ansible-core (local)
 

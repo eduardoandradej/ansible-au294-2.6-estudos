@@ -1,0 +1,8 @@
+---
+# Valores padrão (menor precedência): quem usa a role pode sobrescrever.
+ferramentas_admin_pacotes:
+  - tmux
+  - vim-enhanced
+  - bash-completion
+ferramentas_admin_historico: 5000
+ferramentas_admin_responsavel: Equipe de Plataforma

@@ -1,0 +1,11 @@
+---
+galaxy_info:
+  author: Estudos AU294
+  description: Instala ferramentas de administração e publica um perfil de shell.
+  license: MIT
+  min_ansible_version: "2.16"
+  platforms:
+    - name: EL
+      versions:
+        - "10"
+dependencies: []

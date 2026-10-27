@@ -26,7 +26,9 @@ verificados ([ver status](objetivos-publicos-verificados.md)).
 | Criar e implantar templates Jinja2 com variáveis, facts, loops, condicionais e filtros | 5 | [5.3](../capitulos/05-deploy-de-arquivos/5.3-templates-jinja2-e-filtros.md) | ⏳ a verificar |
 | Organizar playbooks com `import_playbook`, `import_tasks` e `include_tasks`, com variáveis e condições | 6 | [6.1](../capitulos/06-automacao-em-escala/6.1-incluindo-e-importando-arquivos.md) | ⏳ a verificar |
 | Selecionar hosts com host patterns (grupos, curingas, `,`, `&`, `!`), `--list-hosts` e `--limit` | 6 | [6.3](../capitulos/06-automacao-em-escala/6.3-selecionando-hosts-com-host-patterns.md) | ⏳ a verificar |
-| Roles e collections | 7 | ⏳ Aguardando PDF | ⏳ |
+| Criar roles (estrutura, `defaults`/`vars`, handlers, templates, dependências) e usá-las em plays | 7 | [7.1](../capitulos/07-roles-e-collections/7.1-definindo-a-estrutura-de-roles.md), [7.3](../capitulos/07-roles-e-collections/7.3-criando-roles.md) | ⏳ a verificar |
+| Instalar roles de fontes externas com `requirements.yml` e `ansible-galaxy` | 7 | [7.5](../capitulos/07-roles-e-collections/7.5-implantando-roles-de-fontes-externas.md) | ⏳ a verificar |
+| Instalar collections e usar módulos e roles por nome qualificado | 7 | [7.7](../capitulos/07-roles-e-collections/7.7-roles-e-modulos-de-collections.md) | ⏳ a verificar |
 | Administração de RHEL e system roles | 8 | ⏳ Aguardando PDF | ⏳ |
 
 ---

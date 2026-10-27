@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Estudos AU294
+  description: Configura um coletor de logs com rsyslog.
+  license: MIT
+  min_ansible_version: "2.16"
+  platforms:
+    - name: EL
+      versions:
+        - "10"
+dependencies:
+  - role: ferramentas_admin
+    ferramentas_admin_pacotes:
+      - tmux
+      - lnav

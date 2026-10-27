@@ -80,7 +80,17 @@ escrito) está em [estado-do-projeto.md](estado-do-projeto.md).
 - [ ] RESUMO.md
 
 ## Capítulo 7 — Reusing Code with Ansible Roles and Content Collections
-- [ ] ⏳ Aguardando PDF
+- [ ] 7.1 Defining Role Structure
+- [ ] 7.2 Quiz
+- [ ] 7.3 Creating Roles
+- [ ] 7.4 GE `roles-create`
+- [ ] 7.5 Deploying Roles from External Content Sources
+- [ ] 7.6 GE `roles-external`
+- [ ] 7.7 Obtaining Roles and Modules from Ansible Content Collections
+- [ ] 7.8 GE `roles-collections`
+- [ ] 7.9 Lab `roles-review` (`lab grade` aprovado)
+- [ ] REVISAO.md
+- [ ] RESUMO.md
 
 ## Capítulo 8 — Automating Linux Administration Tasks
 - [ ] ⏳ Parte A (8.1–8.6) — aguardando PDF

@@ -1,0 +1,21 @@
+---
+- name: Ilustrar a ordem das seções de um play
+  hosts: estacoes_admin
+  become: true
+  pre_tasks:
+    - name: Pré-task
+      ansible.builtin.debug:
+        msg: 1 - pre_tasks
+
+  roles:
+    - role: ferramentas_admin
+
+  tasks:
+    - name: Task comum
+      ansible.builtin.debug:
+        msg: 3 - tasks (depois das roles)
+
+  post_tasks:
+    - name: Pós-task
+      ansible.builtin.debug:
+        msg: 4 - post_tasks

@@ -1,0 +1,7 @@
+---
+# Manifesto de roles externas (fonte fictícia). Instalar com:
+#   ansible-galaxy role install -r roles/requirements.yml -p roles
+- name: equipe.ntp_basico
+  src: https://git.example.net/infra/ansible-role-ntp_basico.git
+  scm: git
+  version: "2.3.1"

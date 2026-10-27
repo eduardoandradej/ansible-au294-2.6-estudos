@@ -1,0 +1,26 @@
+---
+- name: Preparar as estações de administração
+  hosts: estacoes_admin
+  become: true
+  roles:
+    - role: ferramentas_admin
+      ferramentas_admin_historico: 10000
+
+- name: Configurar o coletor de logs
+  hosts: coleta
+  become: true
+  tasks:
+    - name: Mostrar a porta que será usada
+      ansible.builtin.debug:
+        var: coletor_logs_porta
+
+    - name: Incluir a role do coletor (traz ferramentas_admin como dependência)
+      ansible.builtin.include_role:
+        name: coletor_logs
+
+    - name: Coletar o estado dos serviços
+      ansible.builtin.service_facts:
+
+    - name: Mostrar o estado do coletor
+      ansible.builtin.debug:
+        msg: "rsyslog: {{ ansible_facts['services']['rsyslog.service']['state'] }}"

@@ -1,0 +1,3 @@
+---
+# Sobrescreve o padrão da role (defaults/main.yml)
+coletor_logs_porta: 10514

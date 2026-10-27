@@ -38,6 +38,9 @@ quando o Capítulo 9 (Comprehensive Review) for recebido.
 - [ ] Escrevo um template com facts, `for`, `if` e `default` e o implanto com handler.
 - [ ] Reorganizo um playbook longo em arquivos de tasks importados e parametrizados.
 - [ ] Escrevo patterns com curinga, `&` e `!` e confiro com `--list-hosts`.
+- [ ] Crio uma role com `ansible-galaxy role init`, com `defaults`, template, handler e dependência.
+- [ ] Instalo roles e collections por `requirements.yml` no diretório do projeto.
+- [ ] Uso uma role de collection pelo FQRN com variáveis em `group_vars`.
 - [ ] ⏳ Demais itens com os próximos capítulos.
 
 ---

@@ -1,0 +1,27 @@
+---
+- name: Garantir o pacote do coletor
+  ansible.builtin.dnf:
+    name: "{{ coletor_logs_pacote }}"
+    state: present
+
+- name: Publicar a configuração base do coletor
+  ansible.builtin.copy:
+    src: 10-coletor.conf
+    dest: "{{ coletor_logs_arquivo }}"
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Reiniciar o coletor
+
+- name: Abrir a porta do coletor no firewall
+  ansible.posix.firewalld:
+    port: "{{ coletor_logs_porta }}/tcp"
+    permanent: true
+    immediate: true
+    state: enabled
+
+- name: Garantir o serviço do coletor ativo e habilitado
+  ansible.builtin.systemd_service:
+    name: "{{ coletor_logs_servico }}"
+    state: started
+    enabled: true

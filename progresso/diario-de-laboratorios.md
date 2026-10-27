@@ -46,7 +46,11 @@ credenciais.
 | 6.2 | GE `scale-files` | | | | |
 | 6.4 | GE `scale-hosts` | | | | |
 | 6.5 | Lab `scale-review` (grade) | | | | |
-| 7.x | ⏳ Aguardando PDF | | | | |
+| 7.4 | GE `roles-create` | | | | |
+| 7.6 | GE `roles-external` | | | | |
+| 7.8 | GE `roles-collections` | | | | |
+| 7.9 | Lab `roles-review` (grade) | | | | |
+| 8.x | ⏳ Aguardando PDF | | | | |
 
 ## Entradas
 

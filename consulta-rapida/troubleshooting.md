@@ -1,6 +1,6 @@
 # Troubleshooting — sintoma → causa → verificação
 
-Cobertura atual: **Capítulos 1 a 6** (ambiente, configuração, inventário, playbooks, conexão). Ampliado a cada capítulo.
+Cobertura atual: **Capítulos 1 a 7** (ambiente, configuração, inventário, playbooks, conexão). Ampliado a cada capítulo.
 
 ## Roteiro geral (do mais externo ao mais interno)
 
@@ -113,6 +113,18 @@ flowchart TD
 | Erro de YAML em `hosts:` | Pattern com `!`, `*`, `&` sem aspas | Aspas |
 | IP não casa | IP não listado no inventário | Liste o IP ou use o nome |
 | Curinga atinge hosts demais | Casa também grupos e IPs | `--list-hosts`; pattern mais específico |
+
+## Roles e collections (Cap. 7)
+
+| Sintoma | Causa provável | Verificação / correção |
+|---------|----------------|------------------------|
+| `the role 'x' was not found` | Role fora de `roles/`/`roles_path` ou instalada em `~/.ansible/roles` | `ansible-galaxy role list`; `-p roles` ou `roles_path` |
+| `couldn't resolve module/action` | Collection fora do `collections_path` | `ansible-navigator collections list`; `-p collections` |
+| Task antes de `roles:` roda depois | Seção `roles` sempre roda antes de `tasks` | `import_role`/`include_role` em `tasks` |
+| Valor do play ignorado pela role | Variável em `vars/main.yml` da role | Parâmetro em `roles:` ou mover para `defaults` |
+| Template/arquivo da role não encontrado | Fora de `templates/`/`files/` da role | Mover; `src` é relativo à role |
+| Playbook quebrou após reinstalar roles | Versão não fixada no requirements | `version` com tag ou commit |
+| Versão inesperada da collection | Ordem do `collections_path` | Projeto antes da imagem |
 
 ## Development container e Git
 
