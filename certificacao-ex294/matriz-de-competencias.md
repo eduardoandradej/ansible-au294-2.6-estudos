@@ -16,7 +16,9 @@ verificados ([ver status](objetivos-publicos-verificados.md)).
 | Escrever e executar playbooks de um play com módulos `ansible.builtin` e de collections | 2 | [2.3](../capitulos/02-desenvolvendo-automacao/2.3-desenvolvendo-playbooks.md) | ⏳ a verificar |
 | Playbooks com vários plays, `remote_user` e `become` por play; consultar `ansible-navigator doc` | 2 | [2.5](../capitulos/02-desenvolvendo-automacao/2.5-playbooks-com-multiplos-plays.md) | ⏳ a verificar |
 | Diagnosticar playbooks e hosts (lint, sintaxe, verbosidade, `debug`, conexão, escalada) e usar comandos ad hoc | 2 | [2.7](../capitulos/02-desenvolvendo-automacao/2.7-troubleshooting-de-playbooks-e-hosts.md) | ⏳ a verificar |
-| Variáveis, facts, Ansible Vault | 3 | ⏳ Aguardando PDF | ⏳ |
+| Definir e usar variáveis (inventário, `group_vars`/`host_vars`, `vars`/`vars_files`, `-e`) e explicar a precedência | 3 | [3.1](../capitulos/03-variaveis-e-vault/3.1-usando-variaveis.md) | ⏳ a verificar |
+| Usar facts, facts customizados, `set_fact` e variáveis mágicas | 3 | [3.3](../capitulos/03-variaveis-e-vault/3.3-coletando-informacoes-com-facts.md) | ⏳ a verificar |
+| Proteger dados com Ansible Vault (arquivos, valores, vault IDs) e executar playbooks com conteúdo cifrado | 3 | [3.5](../capitulos/03-variaveis-e-vault/3.5-protegendo-dados-com-ansible-vault.md) | ⏳ a verificar |
 | Loops, condicionais, handlers, falhas | 4 | ⏳ Aguardando PDF | ⏳ |
 | Arquivos e templates Jinja2 | 5 | ⏳ Aguardando PDF | ⏳ |
 | Include/import e host patterns | 6 | ⏳ Aguardando PDF | ⏳ |

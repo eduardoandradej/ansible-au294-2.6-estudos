@@ -7,6 +7,7 @@ Projetos pequenos, **autorais**, com hostnames fictícios (domínio reservado
 |---------|----------|----------|-----------|
 | [cap01-projeto-base](cap01-projeto-base/) | 1 | `ansible.cfg`, `ansible-navigator.yml`, inventário INI e playbook de conectividade | ✅ ver abaixo |
 | [cap02-inventario-e-playbooks](cap02-inventario-e-playbooks/) | 2 | Inventário com grupos, ranges e `:children`; playbook de um play (NTP) e de dois plays (banco + verificação) | ✅ ver o README do projeto |
+| [cap03-variaveis-fatos-vault](cap03-variaveis-fatos-vault/) | 3 | `group_vars`/`host_vars`, `vars_files`, facts customizados, `set_fact`, `hostvars`, vault ID e `no_log` | ✅ ver o README do projeto |
 
 ## Como a validação é feita
 

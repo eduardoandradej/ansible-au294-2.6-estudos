@@ -1,0 +1,11 @@
+---
+# Carregado com vars_files: dados estruturados da aplicação
+app_servico:
+  nome: estoque-api
+  porta: 8443
+  diretorio: /srv/estoque
+contas_servico:
+  - nome: estoque
+    uid: 2101
+  - nome: relatorios
+    uid: 2102

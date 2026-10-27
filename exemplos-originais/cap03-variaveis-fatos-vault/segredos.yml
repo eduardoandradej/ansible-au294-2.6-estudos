@@ -1,0 +1,23 @@
+---
+# Uso de variável cifrada com vault + no_log
+- name: Publicar a credencial do banco para a aplicação
+  hosts: db
+  become: true
+
+  tasks:
+    - name: Garantir o diretório de configuração
+      ansible.builtin.file:
+        path: /etc/estoque
+        state: directory
+        mode: '0750'
+
+    - name: Publicar arquivo de conexão com a senha decifrada
+      ansible.builtin.copy:
+        dest: /etc/estoque/banco.conf
+        mode: '0600'
+        content: |
+          banco={{ banco_nome }}
+          usuario={{ banco_usuario_app }}
+          senha={{ banco_senha_app }}
+          porta={{ porta_banco }}
+      no_log: true              # não exibir o conteúdo (com a senha) na saída

@@ -28,6 +28,9 @@ quando o Capítulo 9 (Comprehensive Review) for recebido.
 - [ ] Escrevo um playbook de dois plays com `become` e `remote_user` diferentes, de memória, e ele passa no `ansible-lint`.
 - [ ] Diante de uma falha, identifico a camada (escrita, conexão, escalada, task) em menos de 2 minutos.
 - [ ] Uso `ansible-navigator doc <módulo> -s` para montar uma task sem consultar a internet.
+- [ ] Explico de onde vem o valor de uma variável em um host, percorrendo a precedência.
+- [ ] Crio, vejo, edito e troco a senha de um arquivo do vault sem consultar a ajuda; executo com prompt, arquivo e `ansible.cfg`.
+- [ ] Publico um fato customizado e o uso na mesma execução.
 - [ ] ⏳ Demais itens com os próximos capítulos.
 
 ---

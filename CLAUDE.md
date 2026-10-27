@@ -63,7 +63,7 @@ Capítulos sem PDF recebido têm só um `README.md` marcado **⏳ Aguardando PDF
 - Não copiar arquivos extraídos dos laboratórios Red Hat.
 - O conteúdo precisa ser seguro para leitura pública, qualquer que seja a
   visibilidade do repositório. Não alterar a visibilidade.
-- O `.gitignore` bloqueia `*.pdf`, `AU294_*`, `.vault_pass*`, chaves, artefatos do
+- O `.gitignore` bloqueia `*.pdf`, `AU294_*`, `.vault_pass*`, `.vault-*` (arquivos de senha do vault), chaves, artefatos do
   `ansible-navigator` e `.devcontainer/`. Exemplos de `devcontainer.json` e de
   `.vscode/settings.json` ficam **dentro de Markdown**.
 

@@ -30,5 +30,13 @@ Não são dificuldades registradas pelo aluno, mas armadilhas comuns para observ
 - Prioridade do usuário de conexão: `ansible_user` > `remote_user` do play > `ansible.cfg`.
 - Indentação de um segundo play (mesma coluna do primeiro).
 
+## Pontos de atenção previstos pelo autor (Capítulo 3)
+
+- Aspas quando o valor começa com `{{`.
+- `lista[0]['chave']` com aspas na chave.
+- Precedência: variável de play mascarando `group_vars` durante testes.
+- Recoletar facts depois de publicar um `.fact`.
+- Vault + navigator: `-m stdout --pae false`; arquivo de senha fora do Git.
+
 ---
 [Início](../README.md) | [Diário de laboratórios](diario-de-laboratorios.md)

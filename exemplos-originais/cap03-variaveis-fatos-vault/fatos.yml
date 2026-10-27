@@ -1,0 +1,49 @@
+---
+# facts, fato customizado, set_fact e variáveis mágicas
+- name: Publicar fato customizado e banner com facts
+  hosts: producao
+  become: true
+
+  tasks:
+    - name: Garantir o diretório de fatos customizados
+      ansible.builtin.file:
+        path: /etc/ansible/facts.d
+        state: directory
+        mode: '0755'
+
+    - name: Publicar o fato customizado papel.fact (formato INI)
+      ansible.builtin.copy:
+        dest: /etc/ansible/facts.d/papel.fact
+        mode: '0644'
+        content: |
+          [servidor]
+          funcao={{ group_names[0] }}
+          responsavel=equipe-plataforma
+
+    - name: Recoletar facts para enxergar o fato novo
+      ansible.builtin.setup:
+        filter: ansible_local    # 📘 coleta só ansible_local
+
+    - name: Criar atalho para o fato customizado
+      ansible.builtin.set_fact:
+        papel: "{{ ansible_facts['ansible_local']['papel']['servidor'] }}"
+
+    - name: Publicar banner de login com dados do host
+      ansible.builtin.copy:
+        dest: /etc/motd
+        mode: '0644'
+        content: |
+          {{ banner_texto }}
+          Host: {{ ansible_facts['fqdn'] }} ({{ ansible_facts['default_ipv4']['address'] }})
+          Função: {{ papel['funcao'] }} | SO: {{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_version'] }}
+
+- name: Consultar dados de outro host com hostvars
+  hosts: app
+  gather_facts: false
+
+  tasks:
+    - name: Mostrar grupos deste host e a porta configurada para db02
+      ansible.builtin.debug:
+        msg: >-
+          {{ inventory_hostname }} está em {{ group_names }};
+          db02 escuta na porta {{ hostvars['db02.sp.example.net']['porta_banco'] }}

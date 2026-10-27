@@ -24,6 +24,8 @@ pdfs/
 *.env
 .vault_pass*
 vault_pass*
+.vault-*
+*.vault-senha
 *vault-pass*
 *.vault-password
 *.pem

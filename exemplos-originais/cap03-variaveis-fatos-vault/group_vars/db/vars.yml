@@ -1,0 +1,6 @@
+---
+# Variáveis comuns do grupo db (texto puro)
+banco_nome: estoque
+banco_usuario_app: app_estoque
+# Indireção: o valor real fica no vault.yml cifrado, ao lado deste arquivo
+banco_senha_app: "{{ vault_banco_senha_app }}"

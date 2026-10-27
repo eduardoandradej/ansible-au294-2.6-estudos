@@ -1,6 +1,6 @@
 # Comandos Ansible — consulta rápida
 
-Agrupados por tarefa. Cobertura atual: **Capítulos 1 e 2**. Ampliado a cada capítulo.
+Agrupados por tarefa. Cobertura atual: **Capítulos 1 a 3**. Ampliado a cada capítulo.
 
 ## Ferramentas e versões
 
@@ -55,6 +55,21 @@ Agrupados por tarefa. Cobertura atual: **Capítulos 1 e 2**. Ampliado a cada cap
 | Rever execução anterior | `ansible-navigator replay <pb>-artifact-<data>.json [-m stdout]` |
 | Comando ad hoc | `ansible <padrão> -m <fqcn> [-a '<args>'] [-i <inv>]` |
 | Ad hoc dentro do EE (📘) | `ansible-navigator exec -- ansible <padrão> -m <fqcn>` |
+
+## Variáveis e Vault (Cap. 3)
+
+| Tarefa | Comando |
+|--------|---------|
+| Extra var | `ansible-navigator run <pb>.yml -e chave=valor` |
+| Onde a variável é definida | `grep -Rw <var>:` |
+| Criar / cifrar arquivo | `ansible-vault create <f>` · `ansible-vault encrypt <f>...` |
+| Cifrar valor | `ansible-vault encrypt_string --stdin-name <var>` |
+| Ver / editar / decifrar | `ansible-vault view <f>` · `edit <f>` · `decrypt <f> --output=<novo>` |
+| Trocar senha | `ansible-vault rekey <f>` |
+| Cifrar com vault ID | `ansible-vault encrypt <f> --vault-id <rótulo>@<origem>` |
+| Executar pedindo senha | `ansible-navigator run <pb>.yml -m stdout --pae false --ask-vault-pass` |
+| Executar com arquivo de senha | `ansible-navigator run <pb>.yml --vault-password-file=<f>` |
+| Executar com vault IDs | `ansible-navigator run <pb>.yml --vault-id a@<f1> --vault-id b@<f2>` |
 
 ## ansible-core (local)
 

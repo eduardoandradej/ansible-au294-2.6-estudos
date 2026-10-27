@@ -32,7 +32,11 @@ credenciais.
 | 2.6 | GE `develop-multiplay` | | | | |
 | 2.8 | GE `develop-troubleshoot` | | | | |
 | 2.9 | Lab `develop-review` (grade) | | | | |
-| 3.x | ⏳ Aguardando PDF | | | | |
+| 3.2 | GE `variables-vars` | | | | |
+| 3.4 | GE `variables-facts` | | | | |
+| 3.6 | GE `variables-vault` | | | | |
+| 3.7 | Lab `variables-review` (grade) | | | | |
+| 4.x | ⏳ Aguardando PDF | | | | |
 
 ## Entradas
 

@@ -1,0 +1,43 @@
+---
+# vars, vars_files, variáveis estruturadas, register e debug
+- name: Preparar contas e diretório da aplicação
+  hosts: app
+  become: true
+  vars:
+    pacotes_app:                # variável de play: lista
+      - java-21-openjdk-headless
+      - unzip
+  vars_files:
+    - vars/app.yml              # relativo ao diretório do playbook
+
+  tasks:
+    - name: Garantir os pacotes da aplicação
+      ansible.builtin.dnf:
+        name: "{{ pacotes_app }}"           # aspas: o valor começa com {{
+        state: present
+
+    - name: Garantir a primeira conta de serviço
+      ansible.builtin.user:
+        name: "{{ contas_servico[0]['nome'] }}"   # índice + colchetes com aspas
+        uid: "{{ contas_servico[0]['uid'] }}"
+        system: true
+        state: present
+
+    - name: Garantir o diretório {{ app_servico['diretorio'] }}
+      ansible.builtin.file:
+        path: "{{ app_servico['diretorio'] }}"
+        state: directory
+        owner: "{{ contas_servico[0]['nome'] }}"
+        mode: '0750'
+      register: resultado_dir   # guarda o retorno do módulo
+
+    - name: Mostrar o retorno registrado (só com -v ou mais)
+      ansible.builtin.debug:
+        var: resultado_dir
+        verbosity: 1
+
+    - name: Resumir a configuração aplicada
+      ansible.builtin.debug:
+        msg: >-
+          {{ app_servico['nome'] }} vai escutar na porta {{ app_servico['porta'] }}
+          e falar com o banco na porta {{ porta_banco }}

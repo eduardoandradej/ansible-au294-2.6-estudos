@@ -1,0 +1,11 @@
+# Inventário fictício — AU294 Cap. 3 (variáveis ficam em group_vars/ e host_vars/)
+[app]
+app[01:02].sp.example.net
+
+[db]
+db01.sp.example.net
+db02.sp.example.net
+
+[producao:children]
+app
+db

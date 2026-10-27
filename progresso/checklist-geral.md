@@ -40,7 +40,15 @@ escrito) está em [estado-do-projeto.md](estado-do-projeto.md).
 - [ ] RESUMO.md
 
 ## Capítulo 3 — Developing Automation Content: Variables
-- [ ] ⏳ Aguardando PDF
+- [ ] 3.1 Using Variables
+- [ ] 3.2 GE `variables-vars`
+- [ ] 3.3 Gathering Host Information from Facts
+- [ ] 3.4 GE `variables-facts`
+- [ ] 3.5 Protecting Sensitive Data with Ansible Vault
+- [ ] 3.6 GE `variables-vault`
+- [ ] 3.7 Lab `variables-review` (`lab grade` aprovado)
+- [ ] REVISAO.md
+- [ ] RESUMO.md
 
 ## Capítulo 4 — Developing Automation Content: Task Control
 - [ ] ⏳ Aguardando PDF

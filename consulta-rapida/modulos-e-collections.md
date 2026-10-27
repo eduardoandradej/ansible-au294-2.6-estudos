@@ -1,6 +1,6 @@
 # Módulos e collections
 
-Cobertura atual: **Capítulos 1 e 2**. O Capítulo 7 aprofunda collections.
+Cobertura atual: **Capítulos 1 a 3**. O Capítulo 7 aprofunda collections.
 
 ## Conceitos já vistos
 
@@ -16,7 +16,8 @@ Cobertura atual: **Capítulos 1 e 2**. O Capítulo 7 aprofunda collections.
 |--------|----------------|--------------|
 | `ansible.builtin.ping` | Testa conexão + Python no managed host (não é ICMP) | 1.1, GE 1.6, [projeto-base](../exemplos-originais/cap01-projeto-base/verificar-conectividade.yml) |
 | `ansible.builtin.debug` | Imprime mensagens (`msg`) ou variáveis (`var`); `verbosity` controla quando aparece | 1.4, 2.7 |
-| `ansible.builtin.setup` | Coleta facts (executado pelo `Gathering Facts`) | 2.3 |
+| `ansible.builtin.setup` | Coleta facts (executado pelo `Gathering Facts`); `gather_subset`, `filter` | 2.3, 3.3 |
+| `ansible.builtin.set_fact` | Cria variáveis por host durante a execução | 3.3 |
 | `ansible.builtin.dnf` | Pacotes com DNF (`state: present`/`latest`/`absent`; `name` aceita lista) | 2.3, 2.5 |
 | `ansible.builtin.package` | Pacotes com o gerenciador detectado no host | 2.5 |
 | `ansible.builtin.copy` | Copia arquivo (`src`) ou grava conteúdo (`content`) no host | 2.3, 2.5 |
@@ -28,6 +29,7 @@ Cobertura atual: **Capítulos 1 e 2**. O Capítulo 7 aprofunda collections.
 | `ansible.builtin.wait_for` | Aguarda porta/arquivo/condição | exemplo do Cap. 2 |
 | `ansible.builtin.reboot` | Reinicia o host e espera voltar | 2.5 |
 | `ansible.builtin.command` / `shell` / `raw` | Comandos arbitrários (evitar; `creates`/`removes`) | 2.5 |
+| `community.postgresql.postgresql_user` | Usuários do PostgreSQL (collection da comunidade; o PDF o cita como `ansible.builtin`) | 3.5 |
 | `ansible.posix.firewalld` | Regras do firewalld (`permanent`, `immediate`) | 2.3, 2.5 |
 | `ansible.posix.synchronize` | Sincroniza conteúdo com rsync | 2.5 |
 

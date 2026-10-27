@@ -1,0 +1,5 @@
+---
+# Vale para todos os hosts (menor precedência entre os arquivos de grupo)
+org_nome: Exemplo S.A.
+banner_texto: "Sistema da {{ org_nome }} - acesso monitorado"
+porta_banco: 5432

@@ -1,6 +1,6 @@
 # Troubleshooting — sintoma → causa → verificação
 
-Cobertura atual: **Capítulos 1 e 2** (ambiente, configuração, inventário, playbooks, conexão). Ampliado a cada capítulo.
+Cobertura atual: **Capítulos 1 a 3** (ambiente, configuração, inventário, playbooks, conexão). Ampliado a cada capítulo.
 
 ## Roteiro geral (do mais externo ao mais interno)
 
@@ -67,6 +67,23 @@ flowchart TD
 | `Could not find or access '<arquivo>'` | `src` com nome ou caminho errado | Caminho relativo ao playbook / `files/` |
 | Lint acusa `yaml[octal-values]`, `fqcn[...]`, `no-free-form` | Octal sem aspas, nome curto, `chave=valor` | Corrija; não silencie a regra |
 | `UNREACHABLE` com usuário inesperado na mensagem | `ansible_user` > `remote_user` (play) > `ansible.cfg` | `--host <h>` e `-vvvv` |
+
+## Variáveis, facts e Vault (Cap. 3)
+
+| Sintoma | Causa provável | Verificação / correção |
+|---------|----------------|------------------------|
+| `...looks like it might be an issue with missing quotes` | Valor começa com `{{` sem aspas | `"{{ var }}"` |
+| `'x' is undefined` | Variável não definida para o host, nome errado ou `[0][chave]` sem aspas | `inventory --host <h>`; `grep -Rw x:`; `[0]['chave']` |
+| Valor inesperado | Outro nível da precedência vence | Percorra: `-e` → task → play → facts → host_vars → host → group_vars → grupo |
+| `<built-in method ...>` | Notação de ponto em chave com nome de método | Colchetes |
+| `ansible_local` vazio | `.fact` com nome/formato errado ou sem recoleta | `.fact` em INI/JSON; `ansible.builtin.setup` depois de criar |
+| `ansible_hostname` indefinido | `inject_facts_as_vars = false` | `ansible_facts['hostname']` |
+| YAML inválido em `gather_subset` | `!x` sem aspas | `"!x"` |
+| `Attempting to decrypt but no vault secrets found` | Senha não fornecida | `--ask-vault-pass`, `--vault-password-file`, `--vault-id`, `ansible.cfg` |
+| `Decryption failed (no vault secrets were found that could decrypt)` | Senha errada ou vault ID ausente | `head -1 <f>` mostra o rótulo |
+| `The vault-ids default,default are available to encrypt` | Duas origens de senha ao cifrar | Use uma origem ou `--encrypt-vault-id <rótulo>` |
+| `ansible.cfg` → `File contains no section headers` | Arquivo de configuração cifrado | Não cifre o `ansible.cfg` |
+| Segredo na saída | Falta `no_log: true` | Adicione nas tasks sensíveis |
 
 ## Development container e Git
 

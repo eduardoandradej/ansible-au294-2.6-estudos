@@ -1,0 +1,3 @@
+---
+# Só este host usa outra porta: host_vars vence group_vars/all
+porta_banco: 5433
