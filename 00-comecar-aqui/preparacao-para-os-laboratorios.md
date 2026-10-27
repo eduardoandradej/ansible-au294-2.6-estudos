@@ -44,7 +44,8 @@ Cada atividade tem um nome único no curso. O comando aceita **Tab completion**:
 | 1 | `intro-devenv` (GE 1.4), `intro-configure` (GE 1.6) — sem `lab grade` |
 | 2 | `develop-inventory` (GE 2.2), `develop-singleplay` (GE 2.4), `develop-multiplay` (GE 2.6), `develop-troubleshoot` (GE 2.8) — sem `lab grade`; `develop-review` (Lab 2.9) — **com** `lab grade` |
 | 3 | `variables-vars` (GE 3.2), `variables-facts` (GE 3.4), `variables-vault` (GE 3.6) — sem `lab grade`; `variables-review` (Lab 3.7) — **com** `lab grade` |
-| 4–9 | ⏳ Aguardando PDF |
+| 4 | `control-flow` (GE 4.2), `control-handlers` (GE 4.4), `control-errors` (GE 4.6) — sem `lab grade`; `control-review` (Lab 4.7) — **com** `lab grade` |
+| 5–9 | ⏳ Aguardando PDF |
 
 ---
 [← Ambiente oficial](ambiente-oficial.md) | [Índice](README.md) | [Próximo: Fundamentos essenciais →](../01-fundamentos-essenciais/README.md)

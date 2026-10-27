@@ -8,7 +8,7 @@ Estimativas autorais para quem já tem base de RHCSA. Ajuste ao seu ritmo.
 | 1 | [Capítulo 1](../capitulos/01-introducao-ansible/README.md) — introdução, ambiente, configuração | 4–5 h | ✅ |
 | 2 | [Capítulo 2](../capitulos/02-desenvolvendo-automacao/README.md) — inventários e playbooks | 6–8 h | ✅ |
 | 3 | [Capítulo 3](../capitulos/03-variaveis-e-vault/README.md) — variáveis, facts, Vault | 6–8 h | ✅ |
-| 4 | Capítulo 4 — loops, condicionais, handlers, falhas | 6–8 h | ⏳ |
+| 4 | [Capítulo 4](../capitulos/04-controle-de-tarefas/README.md) — loops, condicionais, handlers, falhas | 6–8 h | ✅ |
 | 5 | Capítulo 5 — arquivos e templates Jinja2 | 4–6 h | ⏳ |
 | 6 | Capítulo 6 — include/import e host patterns | 4–5 h | ⏳ |
 | 7 | Capítulo 7 — roles e collections | 6–8 h | ⏳ |

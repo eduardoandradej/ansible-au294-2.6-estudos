@@ -1,6 +1,6 @@
 # Troubleshooting — sintoma → causa → verificação
 
-Cobertura atual: **Capítulos 1 a 3** (ambiente, configuração, inventário, playbooks, conexão). Ampliado a cada capítulo.
+Cobertura atual: **Capítulos 1 a 4** (ambiente, configuração, inventário, playbooks, conexão). Ampliado a cada capítulo.
 
 ## Roteiro geral (do mais externo ao mais interno)
 
@@ -75,6 +75,18 @@ flowchart TD
 | `Attempting to decrypt but no vault secrets found` | Senha não fornecida | `--ask-vault-pass`, `--vault-password-file`, `--vault-id`, `ansible.cfg` |
 | `Decryption failed (no vault secrets were found that could decrypt)` | Senha errada ou vault ID ausente | `head -1 <f>` mostra o rótulo |
 | Segredo na saída | Falta `no_log: true` | Adicione nas tasks sensíveis |
+
+## Controle de tarefas (Cap. 4)
+
+| Sintoma | Causa provável | Verificação / correção |
+|---------|----------------|------------------------|
+| `'item' is undefined` | `loop` dentro dos parâmetros do módulo | `loop` no nível da task |
+| Task sempre `skipping` | Condição nunca verdadeira | `debug` dos valores comparados |
+| `r['stdout']` inexistente após loop | Resultados em `r['results']` | `r['results'][N]['stdout']` |
+| Handler não roda | Task `ok`, nome diferente no `notify`, ou falha antes do fim do play | Nome exato; `force_handlers` |
+| Teste logo após mudança falha | Handlers só no fim do play | `ansible.builtin.meta: flush_handlers` |
+| Playbook verde, mas algo faltou | `ignore_errors` escondendo falha | `failed_when`/`rescue` |
+| `command` sempre `changed` | Natureza do módulo | `changed_when` |
 
 ## Development container e Git
 

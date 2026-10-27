@@ -31,6 +31,9 @@ quando o Capítulo 9 (Comprehensive Review) for recebido.
 - [ ] Explico de onde vem o valor de uma variável em um host, percorrendo a precedência.
 - [ ] Crio, vejo, edito e troco a senha de um arquivo do vault sem consultar a ajuda; executo com prompt, arquivo e `ansible.cfg`.
 - [ ] Publico um fato customizado e o uso na mesma execução.
+- [ ] Escrevo de memória uma task com `loop` sobre lista de dicionários e `when` com fact.
+- [ ] Uso handlers com `notify`/`flush_handlers` e explico quando cada um roda.
+- [ ] Escrevo `block`/`rescue`/`always` com `changed_when`/`failed_when` sem consulta.
 - [ ] ⏳ Demais itens com os próximos capítulos.
 
 ---

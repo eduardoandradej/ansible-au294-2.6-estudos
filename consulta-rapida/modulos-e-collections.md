@@ -1,6 +1,6 @@
 # Módulos e collections
 
-Cobertura atual: **Capítulos 1 a 3**. O Capítulo 7 aprofunda collections.
+Cobertura atual: **Capítulos 1 a 4**. O Capítulo 7 aprofunda collections.
 
 ## Conceitos já vistos
 
@@ -29,6 +29,10 @@ Cobertura atual: **Capítulos 1 a 3**. O Capítulo 7 aprofunda collections.
 | `ansible.builtin.wait_for` | Aguarda porta/arquivo/condição | exemplo do Cap. 2 |
 | `ansible.builtin.reboot` | Reinicia o host e espera voltar | 2.5 |
 | `ansible.builtin.command` / `shell` / `raw` | Comandos arbitrários (evitar; `creates`/`removes`) | 2.5 |
+| `ansible.builtin.fail` | Falha a task com uma mensagem (com `when`) | 4.5 |
+| `ansible.builtin.meta` | Ações internas, como `flush_handlers` | 4.3 |
+| `ansible.builtin.service_facts` | Coleta o estado dos serviços em `ansible_facts['services']` | 4.1 |
+| `ansible.builtin.group` | Grupos locais | exemplos do Cap. 4 |
 | `ansible.posix.firewalld` | Regras do firewalld (`permanent`, `immediate`) | 2.3, 2.5 |
 | `ansible.posix.synchronize` | Sincroniza conteúdo com rsync | 2.5 |
 

@@ -51,7 +51,15 @@ escrito) está em [estado-do-projeto.md](estado-do-projeto.md).
 - [ ] RESUMO.md
 
 ## Capítulo 4 — Developing Automation Content: Task Control
-- [ ] ⏳ Aguardando PDF
+- [ ] 4.1 Using Loops and Conditional Tasks
+- [ ] 4.2 GE `control-flow`
+- [ ] 4.3 Implementing Handlers
+- [ ] 4.4 GE `control-handlers`
+- [ ] 4.5 Handling Task Failure
+- [ ] 4.6 GE `control-errors`
+- [ ] 4.7 Lab `control-review` (`lab grade` aprovado)
+- [ ] REVISAO.md
+- [ ] RESUMO.md
 
 ## Capítulo 5 — Developing Automation Content: Deploying Files
 - [ ] ⏳ Aguardando PDF

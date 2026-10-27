@@ -1,7 +1,7 @@
 # Playbooks e controle de tarefas
 
-Cobertura: **estrutura de playbooks** (Capítulo 2). ⏳ Loops, condicionais, handlers
-e tratamento de falhas chegam com o Capítulo 4.
+Cobertura: **estrutura de playbooks** (Capítulo 2) e **controle de tarefas**
+(Capítulo 4: loops, condicionais, handlers, falhas).
 
 ## Esqueleto
 
@@ -55,6 +55,41 @@ e tratamento de falhas chegam com o Capítulo 4.
 | `'...'` | Literal (`\` não escapa) |
 | `"..."` | Interpreta `\n`, `\t` |
 | `{a: 1}` / `[a, b]` | Inline: evitar |
+
+## Loops e condicionais (Cap. 4)
+
+| Recurso | Forma |
+|---------|-------|
+| Loop simples | `loop:` + itens; valor atual em `item` |
+| Lista em variável | `loop: "{{ lista }}"` |
+| Lista de dicionários | `item['chave']` |
+| Sintaxe antiga | `with_items` (achata listas), `with_file`, `with_sequence` |
+| Register com loop | `var['results']`; cada item tem `item` e o retorno do módulo |
+| Condição | `when: <expressão>` no nível da task |
+| Operadores | `==`, `!=`, `<`, `>`, `<=`, `>=`, `is defined`, `is not defined`, `not`, `in` |
+| Várias condições | `and`, `or`, lista em `when` (= `and`), parênteses |
+| Facts de serviços | `ansible.builtin.service_facts` → `ansible_facts['services']` |
+
+## Handlers (Cap. 4)
+
+| Recurso | Forma |
+|---------|-------|
+| Notificar | `notify: <nome>` (ou lista) na task |
+| Definir | Seção `handlers:` no play |
+| Quando roda | Task notificadora `changed`; uma vez, no fim do play |
+| Ordem | Ordem da seção `handlers` |
+| Antecipar | `ansible.builtin.meta: flush_handlers` |
+
+## Tratamento de falhas (Cap. 4)
+
+| Palavra-chave | Efeito |
+|---------------|--------|
+| `ignore_errors: true` | Segue após a falha da task |
+| `force_handlers: true` (play) | Handlers já notificados rodam mesmo após falha |
+| `failed_when: <expr>` | Condição de falha personalizada |
+| `changed_when: <expr>` / `false` / `true` | Condição de mudança personalizada |
+| `ansible.builtin.fail` + `when` | Falha explícita com mensagem |
+| `block` / `rescue` / `always` | Agrupar / recuperar / garantir |
 
 ## Executar e verificar
 

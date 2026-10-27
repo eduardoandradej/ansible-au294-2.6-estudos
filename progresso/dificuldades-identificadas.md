@@ -38,5 +38,12 @@ Não são dificuldades registradas pelo aluno, mas armadilhas comuns para observ
 - Recoletar facts depois de publicar um `.fact`.
 - Vault + navigator: `-m stdout --pae false`; arquivo de senha fora do Git.
 
+## Pontos de atenção previstos pelo autor (Capítulo 4)
+
+- `loop` e `when` no nível da task.
+- Resultados de loop em `['results']`.
+- Handler só com `changed`; nome idêntico no `notify`; ordem da seção `handlers`.
+- `debug` no `rescue` precisa de `changed_when: true` para notificar.
+
 ---
 [Início](../README.md) | [Diário de laboratórios](diario-de-laboratorios.md)

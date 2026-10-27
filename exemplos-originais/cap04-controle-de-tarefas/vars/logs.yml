@@ -1,0 +1,18 @@
+---
+# Dados do servidor central de logs (exemplo autoral)
+log_min_ram_mb: 1024
+log_distros_suportadas:
+  - RedHat
+log_pacotes:
+  - rsyslog
+  - logrotate
+log_servicos:
+  - rsyslog
+log_diretorios:
+  - path: /srv/logs/remotos
+    mode: '0750'
+  - path: /srv/logs/arquivo
+    mode: '0700'
+log_firewall_portas:
+  - 514/tcp
+  - 514/udp

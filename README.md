@@ -43,7 +43,7 @@ flowchart LR
 | [Capítulo 1](capitulos/01-introducao-ansible/README.md) | An Introduction to Ansible | p. 12–61 | ✅ |
 | [Capítulo 2](capitulos/02-desenvolvendo-automacao/README.md) | Introduction to Developing Automation Content | p. 62–140 | ✅ |
 | [Capítulo 3](capitulos/03-variaveis-e-vault/README.md) | Developing Automation Content: Variables | p. 141–225 | ✅ |
-| [Capítulo 4](capitulos/04-controle-de-tarefas/README.md) | Developing Automation Content: Task Control | p. 226–291 | ⏳ |
+| [Capítulo 4](capitulos/04-controle-de-tarefas/README.md) | Developing Automation Content: Task Control | p. 226–291 | ✅ |
 | [Capítulo 5](capitulos/05-deploy-de-arquivos/README.md) | Developing Automation Content: Deploying Files | p. 292–339 | ⏳ |
 | [Capítulo 6](capitulos/06-automacao-em-escala/README.md) | Developing Automation Content at Scale | p. 340–384 | ⏳ |
 | [Capítulo 7](capitulos/07-roles-e-collections/README.md) | Reusing Code with Ansible Roles and Content Collections | p. 385–452 | ⏳ |
@@ -61,7 +61,7 @@ desenvolvidos **um por vez**, à medida que o PDF de cada um é recebido.
 | [configuracao-ansible-e-navigator.md](consulta-rapida/configuracao-ansible-e-navigator.md) | `ansible.cfg`, `ansible-navigator.yml` e precedência em uma página |
 | [modulos-e-collections.md](consulta-rapida/modulos-e-collections.md) | Módulos citados, fontes de collections e como consultar documentação |
 | [inventory-e-host-patterns.md](consulta-rapida/inventory-e-host-patterns.md) | Sintaxe INI, ranges, `:children`, variáveis de conexão, consultas (host patterns avançados: Cap. 6) |
-| [playbooks-e-controle.md](consulta-rapida/playbooks-e-controle.md) | Esqueleto de play, usuário e privilégio, `command`/`shell`/`raw`, opções de execução (controle de tarefas: Cap. 4) |
+| [playbooks-e-controle.md](consulta-rapida/playbooks-e-controle.md) | Esqueleto de play, usuário e privilégio, loops, condicionais, handlers, tratamento de falhas, opções de execução |
 | [troubleshooting.md](consulta-rapida/troubleshooting.md) | Sintoma → causa provável → como verificar |
 | [glossario.md](consulta-rapida/glossario.md) | Termos em ordem alfabética |
 | [variaveis-e-precedencia.md](consulta-rapida/variaveis-e-precedencia.md) | Precedência, sintaxe, facts, variáveis mágicas e Ansible Vault |
@@ -78,7 +78,7 @@ desenvolvidos **um por vez**, à medida que o PDF de cada um é recebido.
 - [ ] Capítulo 1 — lições, quiz, guided exercises, revisão
 - [ ] Capítulo 2 — lições, guided exercises, lab `develop-review`, revisão
 - [ ] Capítulo 3 — lições, guided exercises, lab `variables-review`, revisão
-- [ ] Capítulo 4
+- [ ] Capítulo 4 — lições, guided exercises, lab `control-review`, revisão
 - [ ] Capítulo 5
 - [ ] Capítulo 6
 - [ ] Capítulo 7

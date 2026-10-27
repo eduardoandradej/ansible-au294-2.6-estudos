@@ -1,0 +1,45 @@
+---
+# changed_when, failed_when, force_handlers e block/rescue/always
+- name: Verificar a recepção de logs e recuperar se necessário
+  hosts: coletores
+  become: true
+  force_handlers: true                  # handlers já notificados rodam mesmo após falha
+
+  tasks:
+    - name: Validar a sintaxe da configuração do rsyslog
+      ansible.builtin.command:
+        cmd: rsyslogd -N1
+      register: validacao
+      changed_when: false               # só leitura: nunca reporta changed
+      failed_when: validacao['rc'] != 0
+
+    - name: Verificar e, se preciso, recuperar o serviço
+      block:
+        - name: Listar as portas em escuta
+          ansible.builtin.command:
+            cmd: ss -ltn
+          register: portas
+          changed_when: false
+
+        - name: Falhar se a porta 514 não estiver em escuta
+          ansible.builtin.fail:
+            msg: "rsyslog não está escutando na porta 514"
+          when: "':514 ' not in portas['stdout']"
+
+      rescue:
+        - name: Registrar a falha e pedir reinício
+          ansible.builtin.debug:
+            msg: "Recepção de logs indisponível; o rsyslog será reiniciado"
+          changed_when: true             # força changed para notificar o handler
+          notify: Reiniciar rsyslog
+
+      always:
+        - name: Mostrar o resultado da validação
+          ansible.builtin.debug:
+            var: validacao['rc']
+
+  handlers:
+    - name: Reiniciar rsyslog
+      ansible.builtin.systemd_service:
+        name: rsyslog
+        state: restarted

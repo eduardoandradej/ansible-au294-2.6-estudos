@@ -36,7 +36,11 @@ credenciais.
 | 3.4 | GE `variables-facts` | | | | |
 | 3.6 | GE `variables-vault` | | | | |
 | 3.7 | Lab `variables-review` (grade) | | | | |
-| 4.x | ⏳ Aguardando PDF | | | | |
+| 4.2 | GE `control-flow` | | | | |
+| 4.4 | GE `control-handlers` | | | | |
+| 4.6 | GE `control-errors` | | | | |
+| 4.7 | Lab `control-review` (grade) | | | | |
+| 5.x | ⏳ Aguardando PDF | | | | |
 
 ## Entradas
 

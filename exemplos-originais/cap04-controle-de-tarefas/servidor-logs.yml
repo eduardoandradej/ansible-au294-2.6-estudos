@@ -1,0 +1,67 @@
+---
+# Loops, condicionais e handlers: transforma os coletores em servidores de logs
+- name: Configurar o servidor central de logs
+  hosts: coletores
+  become: true
+  vars_files:
+    - vars/logs.yml
+
+  tasks:
+    - name: Interromper se o host não atende aos requisitos mínimos
+      ansible.builtin.fail:
+        msg: "Host fora do requisito: precisa de RedHat e {{ log_min_ram_mb }} MiB de RAM"
+      when: >
+        ansible_facts['memtotal_mb'] < log_min_ram_mb or
+        ansible_facts['distribution'] not in log_distros_suportadas
+
+    - name: Garantir os pacotes de log
+      ansible.builtin.dnf:
+        name: "{{ log_pacotes }}"        # lista passada direto ao módulo
+        state: present
+
+    - name: Garantir os diretórios de armazenamento
+      ansible.builtin.file:
+        path: "{{ item['path'] }}"
+        state: directory
+        owner: root
+        group: root
+        mode: "{{ item['mode'] }}"
+      loop: "{{ log_diretorios }}"      # lista de dicionários
+
+    - name: Publicar a configuração de recepção remota
+      ansible.builtin.copy:
+        src: files/remoto.conf
+        dest: /etc/rsyslog.d/remoto.conf
+        owner: root
+        group: root
+        mode: '0644'
+      notify: Reiniciar rsyslog           # só dispara se a task reportar changed
+
+    - name: Liberar as portas de recepção no firewall
+      ansible.posix.firewalld:
+        port: "{{ item }}"
+        permanent: true
+        immediate: true
+        state: enabled
+      loop: "{{ log_firewall_portas }}"
+
+    - name: Garantir os serviços ativos e habilitados
+      ansible.builtin.systemd_service:
+        name: "{{ item }}"
+        state: started
+        enabled: true
+      loop: "{{ log_servicos }}"
+
+    - name: Aplicar agora os handlers notificados
+      ansible.builtin.meta: flush_handlers
+
+    - name: Confirmar que a porta 514/tcp está escutando
+      ansible.builtin.wait_for:
+        port: 514
+        timeout: 10
+
+  handlers:
+    - name: Reiniciar rsyslog
+      ansible.builtin.systemd_service:
+        name: rsyslog
+        state: restarted

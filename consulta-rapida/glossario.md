@@ -1,6 +1,6 @@
 # Glossário
 
-Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 3** e fundamentos.
+Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 4** e fundamentos.
 
 | Termo | Definição |
 |-------|-----------|
@@ -23,6 +23,8 @@ Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 3** e fundamentos
 | **Automation controller** | Componente do AAP (antigo Ansible Tower) para gerenciar e escalar automação entre equipes |
 | **Automation execution environment (EE)** | Imagem de container (base RHEL UBI) com `ansible-core`, Python e collections, onde os playbooks rodam |
 | **`become`** | Escalada de privilégio após conectar (padrão: `sudo` para `root`) |
+| **`block` / `rescue` / `always`** | Agrupamento de tasks; `rescue` roda se o `block` falhar; `always` roda sempre |
+| **`changed_when`** | Condição personalizada para a task reportar `changed` |
 | **Check mode (`--check`)** | Execução simulada (*dry run*): informa o que mudaria sem alterar os hosts |
 | **Children (`:children`)** | Sufixo de seção INI que define um grupo cujos membros são outros grupos |
 | **Control node** | Máquina de onde o Ansible é executado e onde ficam os arquivos do projeto |
@@ -32,23 +34,31 @@ Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 3** e fundamentos
 | **Extra vars (`-e`)** | Variáveis passadas na linha de comando; maior precedência de todas |
 | **Fact** | Variável com informação descoberta no managed host pelo `ansible.builtin.setup` |
 | **Fact customizado** | Fact declarado pelo próprio host em um arquivo `.fact` (INI, JSON ou script executável) |
+| **`failed_when`** | Condição personalizada para a task ser considerada falha |
+| **`flush_handlers`** | Ação de `ansible.builtin.meta` que executa naquele ponto os handlers já notificados |
+| **`force_handlers`** | Palavra-chave de play que faz handlers já notificados rodarem mesmo após falha |
 | **FQCN** | *Fully qualified collection name*: `namespace.collection.modulo`, ex.: `ansible.builtin.ping` |
 | **Gathering Facts** | Task automática no início de cada play que executa `ansible.builtin.setup` e coleta facts |
 | **Git (staging area)** | Área intermediária onde ficam as alterações marcadas para o próximo commit |
 | **`group_vars` / `host_vars`** | Diretórios com arquivos YAML de variáveis por grupo / por host, ao lado do inventário ou do playbook |
 | **Grupo `all` / `ungrouped`** | Grupos implícitos: todos os hosts / hosts sem nenhum outro grupo |
+| **Handler** | Task que só roda quando notificada por uma task `changed`, normalmente no fim do play |
 | **Host pattern** | Expressão em `hosts:` (ou no comando ad hoc) que seleciona hosts do inventário |
 | **`hostvars`** | Variável mágica com as variáveis de todos os hosts do inventário |
 | **Idempotência** | Propriedade de produzir o mesmo resultado em execuções repetidas, sem mudanças se o estado já está correto |
+| **`ignore_errors`** | Palavra-chave de task que mantém a execução após a falha dela |
 | **Infraestrutura como código (IaC)** | Descrever o estado desejado da infraestrutura em arquivos versionáveis aplicados por ferramenta |
 | **`inject_facts_as_vars`** | Opção do `ansible.cfg` que mantém a forma antiga `ansible_*` dos facts (padrão `true`) |
 | **Inventário dinâmico** | Inventário gerado em tempo de execução por um plug-in que consulta fonte externa |
 | **Inventory** | Lista de managed hosts e grupos; estática ou dinâmica |
+| **`item`** | Variável que guarda o valor da iteração atual de um loop |
 | **Jinja2** | Motor de templates usado pelo Ansible para avaliar `{{ }}`, filtros e lógica simples |
+| **`loop`** | Palavra-chave de task que itera sobre uma lista |
 | **Magic variables** | Variáveis definidas pelo Ansible (`inventory_hostname`, `group_names`, `groups`, `hostvars`); nomes reservados |
 | **Managed host** | Sistema configurado pelo Ansible |
 | **Module** | Programa pequeno que garante um aspecto do estado de um host |
 | **`no_log`** | Palavra-chave que oculta argumentos e resultado de uma task na saída e nos logs |
+| **`notify`** | Palavra-chave de task que notifica handlers quando ela reporta `changed` |
 | **Play** | Associação entre um conjunto de hosts e uma lista ordenada de tasks |
 | **PLAY RECAP** | Resumo final por host: `ok`, `changed`, `unreachable`, `failed`, `skipped`, `rescued`, `ignored` |
 | **Playbook** | Arquivo YAML com um ou mais plays |
@@ -67,7 +77,9 @@ Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 3** e fundamentos
 | **`UNREACHABLE` × `FAILED`** | Falha de conexão com o host × task executada que falhou |
 | **`vars` / `vars_files`** | Variáveis definidas no play / carregadas de arquivos YAML externos pelo play |
 | **Vault ID** | Rótulo associado a uma senha do vault (`rotulo@origem`), gravado no cabeçalho do arquivo cifrado (formato 1.2) |
+| **`when`** | Palavra-chave de task (ou bloco) com a condição para executá-la |
 | **WinRM / PSRP** | Protocolos usados para gerenciar hosts Windows |
+| **`with_items`** | Sintaxe antiga de loop (antes do Ansible 2.5); achata listas aninhadas |
 | **Working tree** | Cópia de trabalho dos arquivos de um repositório Git |
 
 ---

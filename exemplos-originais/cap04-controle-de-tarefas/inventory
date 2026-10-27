@@ -1,0 +1,6 @@
+# Inventário fictício — AU294 Cap. 4
+[coletores]
+log[01:02].sp.example.net
+
+[clientes]
+app[01:03].sp.example.net

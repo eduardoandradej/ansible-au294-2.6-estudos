@@ -19,7 +19,9 @@ verificados ([ver status](objetivos-publicos-verificados.md)).
 | Definir e usar variáveis (inventário, `group_vars`/`host_vars`, `vars`/`vars_files`, `-e`) e explicar a precedência | 3 | [3.1](../capitulos/03-variaveis-e-vault/3.1-usando-variaveis.md) | ⏳ a verificar |
 | Usar facts, facts customizados, `set_fact` e variáveis mágicas | 3 | [3.3](../capitulos/03-variaveis-e-vault/3.3-coletando-informacoes-com-facts.md) | ⏳ a verificar |
 | Proteger dados com Ansible Vault (arquivos, valores, vault IDs) e executar playbooks com conteúdo cifrado | 3 | [3.5](../capitulos/03-variaveis-e-vault/3.5-protegendo-dados-com-ansible-vault.md) | ⏳ a verificar |
-| Loops, condicionais, handlers, falhas | 4 | ⏳ Aguardando PDF | ⏳ |
+| Usar loops (`loop`, listas de dicionários, `register` com `results`) e condicionais (`when`) | 4 | [4.1](../capitulos/04-controle-de-tarefas/4.1-loops-e-tarefas-condicionais.md) | ⏳ a verificar |
+| Implementar handlers e antecipá-los com `flush_handlers` | 4 | [4.3](../capitulos/04-controle-de-tarefas/4.3-implementando-handlers.md) | ⏳ a verificar |
+| Tratar falhas (`ignore_errors`, `force_handlers`, `failed_when`, `changed_when`, blocos) | 4 | [4.5](../capitulos/04-controle-de-tarefas/4.5-tratando-falhas-de-tarefas.md) | ⏳ a verificar |
 | Arquivos e templates Jinja2 | 5 | ⏳ Aguardando PDF | ⏳ |
 | Include/import e host patterns | 6 | ⏳ Aguardando PDF | ⏳ |
 | Roles e collections | 7 | ⏳ Aguardando PDF | ⏳ |
