@@ -1,0 +1,86 @@
+---
+# Módulos de gerenciamento de arquivos (exemplo autoral)
+- name: Gerenciar arquivos de log e journald
+  hosts: clientes
+  become: true
+
+  tasks:
+    - name: Publicar a política de rotação dos logs da aplicação
+      ansible.builtin.copy:
+        src: files/rotacao-app.conf
+        dest: /etc/logrotate.d/estoque
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Guardar uma cópia da configuração do journald no próprio host
+      ansible.builtin.copy:
+        src: /etc/systemd/journald.conf
+        dest: /etc/systemd/journald.conf.orig
+        remote_src: true                 # origem no managed host, não no control node
+        force: false                     # só copia se o destino ainda não existir
+        mode: '0644'
+
+    - name: Limitar o espaço em disco do journal
+      ansible.builtin.lineinfile:
+        path: /etc/systemd/journald.conf
+        regexp: '^#?SystemMaxUse='
+        line: 'SystemMaxUse=500M'
+        backup: true
+      notify: Reiniciar journald
+
+    - name: Garantir o bloco de encaminhamento para o rsyslog
+      ansible.builtin.blockinfile:
+        path: /etc/systemd/journald.conf
+        marker: "# {mark} ENCAMINHAMENTO"
+        marker_begin: "INICIO"
+        marker_end: "FIM"
+        block: |
+          ForwardToSyslog=yes
+          MaxLevelSyslog=info
+      notify: Reiniciar journald
+
+    - name: Garantir o diretório de logs da aplicação com contexto SELinux
+      ansible.builtin.file:
+        path: /srv/estoque/logs
+        state: directory
+        owner: root
+        group: root
+        mode: '0750'
+        setype: var_log_t
+
+    - name: Garantir um atalho para os logs da aplicação
+      ansible.builtin.file:
+        src: /srv/estoque/logs
+        dest: /var/log/estoque
+        state: link
+
+    - name: Consultar o estado do arquivo de rotação
+      ansible.builtin.stat:
+        path: /etc/logrotate.d/estoque
+        checksum_algorithm: sha256
+      register: rotacao
+
+    - name: Mostrar dono e modo do arquivo de rotação
+      ansible.builtin.debug:
+        msg: "Dono {{ rotacao['stat']['pw_name'] }}, modo {{ rotacao['stat']['mode'] }}"
+      when: rotacao['stat']['exists']
+
+    - name: Procurar logs antigos e grandes
+      ansible.builtin.find:
+        paths: /srv/estoque/logs
+        patterns: "*.log"
+        size: 50m
+        age: 7d
+      register: logs_grandes
+
+    - name: Trazer cada configuração do journald para o control node
+      ansible.builtin.fetch:
+        src: /etc/systemd/journald.conf
+        dest: coletados/                 # cria coletados/<host>/etc/systemd/journald.conf
+
+  handlers:
+    - name: Reiniciar journald
+      ansible.builtin.systemd_service:
+        name: systemd-journald
+        state: restarted

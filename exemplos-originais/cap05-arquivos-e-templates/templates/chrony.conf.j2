@@ -1,0 +1,14 @@
+# {{ ansible_managed }}
+{# Comentário Jinja2: não aparece no arquivo gerado #}
+# Host: {{ ansible_facts['fqdn'] }} ({{ ansible_facts['default_ipv4']['address'] }})
+{% for servidor in ntp_servidores %}
+server {{ servidor }} iburst
+{% endfor %}
+driftfile /var/lib/chrony/drift
+makestep 1.0 3
+rtcsync
+{% if 'ntp' in group_names %}
+# Servidores do grupo ntp atendem a rede de clientes
+allow {{ ntp_rede_clientes | default('198.51.100.0/24') }}
+{% endif %}
+logdir /var/log/chrony

@@ -22,7 +22,8 @@ verificados ([ver status](objetivos-publicos-verificados.md)).
 | Usar loops (`loop`, listas de dicionários, `register` com `results`) e condicionais (`when`) | 4 | [4.1](../capitulos/04-controle-de-tarefas/4.1-loops-e-tarefas-condicionais.md) | ⏳ a verificar |
 | Implementar handlers e antecipá-los com `flush_handlers` | 4 | [4.3](../capitulos/04-controle-de-tarefas/4.3-implementando-handlers.md) | ⏳ a verificar |
 | Tratar falhas (`ignore_errors`, `force_handlers`, `failed_when`, `changed_when`, blocos) | 4 | [4.5](../capitulos/04-controle-de-tarefas/4.5-tratando-falhas-de-tarefas.md) | ⏳ a verificar |
-| Arquivos e templates Jinja2 | 5 | ⏳ Aguardando PDF | ⏳ |
+| Gerenciar arquivos com `copy`, `fetch`, `synchronize`, `lineinfile`, `blockinfile`, `file`, `stat`, `find` (dono, modo, SELinux) | 5 | [5.1](../capitulos/05-deploy-de-arquivos/5.1-automatizando-gerenciamento-de-arquivos.md) | ⏳ a verificar |
+| Criar e implantar templates Jinja2 com variáveis, facts, loops, condicionais e filtros | 5 | [5.3](../capitulos/05-deploy-de-arquivos/5.3-templates-jinja2-e-filtros.md) | ⏳ a verificar |
 | Include/import e host patterns | 6 | ⏳ Aguardando PDF | ⏳ |
 | Roles e collections | 7 | ⏳ Aguardando PDF | ⏳ |
 | Administração de RHEL e system roles | 8 | ⏳ Aguardando PDF | ⏳ |

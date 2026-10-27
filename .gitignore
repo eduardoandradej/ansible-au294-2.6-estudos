@@ -51,6 +51,7 @@ auth.json
 ansible-navigator.log
 ansible.log
 *.retry
+coletados/
 .ansible/
 collections/ansible_collections/
 context/

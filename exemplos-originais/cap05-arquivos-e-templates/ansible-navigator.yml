@@ -1,0 +1,12 @@
+---
+# ansible-navigator.yml — exemplo autoral, AU294 Cap. 5
+ansible-navigator:
+  execution-environment:
+    container-engine: podman
+    enabled: true
+    image: registry.redhat.io/ansible-automation-platform-26/ee-supported-rhel9:latest
+    pull:
+      policy: missing
+  mode: stdout
+  playbook-artifact:
+    enable: false

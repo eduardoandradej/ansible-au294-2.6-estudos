@@ -40,7 +40,10 @@ credenciais.
 | 4.4 | GE `control-handlers` | | | | |
 | 4.6 | GE `control-errors` | | | | |
 | 4.7 | Lab `control-review` (grade) | | | | |
-| 5.x | ⏳ Aguardando PDF | | | | |
+| 5.2 | GE `files-manage` | | | | |
+| 5.4 | GE `files-templates` | | | | |
+| 5.5 | Lab `files-review` (grade) | | | | |
+| 6.x | ⏳ Aguardando PDF | | | | |
 
 ## Entradas
 

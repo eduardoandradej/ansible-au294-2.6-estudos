@@ -1,0 +1,6 @@
+# Inventário fictício — AU294 Cap. 5
+[ntp]
+ntp[1:2].sp.example.net
+
+[clientes]
+app[01:03].sp.example.net

@@ -1,6 +1,6 @@
 # Módulos e collections
 
-Cobertura atual: **Capítulos 1 a 4**. O Capítulo 7 aprofunda collections.
+Cobertura atual: **Capítulos 1 a 5**. O Capítulo 7 aprofunda collections.
 
 ## Conceitos já vistos
 
@@ -29,6 +29,11 @@ Cobertura atual: **Capítulos 1 a 4**. O Capítulo 7 aprofunda collections.
 | `ansible.builtin.wait_for` | Aguarda porta/arquivo/condição | exemplo do Cap. 2 |
 | `ansible.builtin.reboot` | Reinicia o host e espera voltar | 2.5 |
 | `ansible.builtin.command` / `shell` / `raw` | Comandos arbitrários (evitar; `creates`/`removes`) | 2.5 |
+| `ansible.builtin.template` | Publica arquivo gerado de um template Jinja2 | 5.3 |
+| `ansible.builtin.fetch` | Traz arquivos dos hosts para o control node (`flat`) | 5.1 |
+| `ansible.builtin.blockinfile` | Bloco de várias linhas com marcadores | 5.1 |
+| `ansible.builtin.stat` | Estado e atributos de um arquivo (`['stat']`) | 5.1 |
+| `ansible.builtin.find` | Procura arquivos por critérios (`['files']`) | 5.1 |
 | `ansible.builtin.fail` | Falha a task com uma mensagem (com `when`) | 4.5 |
 | `ansible.builtin.meta` | Ações internas, como `flush_handlers` | 4.3 |
 | `ansible.builtin.service_facts` | Coleta o estado dos serviços em `ansible_facts['services']` | 4.1 |

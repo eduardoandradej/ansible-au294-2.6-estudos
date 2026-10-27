@@ -1,0 +1,46 @@
+---
+# Templates Jinja2 e filtros (exemplo autoral)
+- name: Gerar a configuração do chrony por template
+  hosts: ntp:clientes
+  become: true
+  gather_facts: true
+  vars:
+    ntp_servidores:
+      - a.ntp.example.net
+      - b.ntp.example.net
+
+  tasks:
+    - name: Publicar /etc/chrony.conf a partir do template
+      ansible.builtin.template:
+        src: templates/chrony.conf.j2
+        dest: /etc/chrony.conf
+        owner: root
+        group: root
+        mode: '0644'
+      notify: Reiniciar chronyd
+
+  handlers:
+    - name: Reiniciar chronyd
+      ansible.builtin.systemd_service:
+        name: chronyd
+        state: restarted
+
+- name: Gerar relatório de clientes nos servidores NTP
+  hosts: ntp
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Publicar a lista de clientes atendidos
+      ansible.builtin.template:
+        src: templates/clientes.txt.j2
+        dest: /etc/chrony-clientes.txt
+        mode: '0644'
+
+    - name: Gravar a lista de servidores NTP em YAML legível
+      ansible.builtin.copy:
+        dest: /etc/chrony-servidores.yml
+        mode: '0644'
+        content: |
+          # {{ ansible_managed }}
+          {{ {'servidores': groups['ntp']} | to_nice_yaml }}

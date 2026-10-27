@@ -34,6 +34,8 @@ quando o Capítulo 9 (Comprehensive Review) for recebido.
 - [ ] Escrevo de memória uma task com `loop` sobre lista de dicionários e `when` com fact.
 - [ ] Uso handlers com `notify`/`flush_handlers` e explico quando cada um roda.
 - [ ] Escrevo `block`/`rescue`/`always` com `changed_when`/`failed_when` sem consulta.
+- [ ] Escolho o módulo de arquivo certo para cada operação e aplico dono, modo e `setype`.
+- [ ] Escrevo um template com facts, `for`, `if` e `default` e o implanto com handler.
 - [ ] ⏳ Demais itens com os próximos capítulos.
 
 ---

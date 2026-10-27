@@ -62,7 +62,13 @@ escrito) está em [estado-do-projeto.md](estado-do-projeto.md).
 - [ ] RESUMO.md
 
 ## Capítulo 5 — Developing Automation Content: Deploying Files
-- [ ] ⏳ Aguardando PDF
+- [ ] 5.1 Automating File Management Tasks
+- [ ] 5.2 GE `files-manage`
+- [ ] 5.3 Using Jinja2 Templates and Filters
+- [ ] 5.4 GE `files-templates`
+- [ ] 5.5 Lab `files-review` (`lab grade` aprovado)
+- [ ] REVISAO.md
+- [ ] RESUMO.md
 
 ## Capítulo 6 — Developing Automation Content at Scale
 - [ ] ⏳ Aguardando PDF

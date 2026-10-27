@@ -1,6 +1,6 @@
 # Glossário
 
-Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 4** e fundamentos.
+Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 5** e fundamentos.
 
 | Termo | Definição |
 |-------|-----------|
@@ -19,6 +19,7 @@ Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 4** e fundamentos
 | **`ansible.cfg`** | Arquivo INI de configuração do Ansible (`[defaults]`, `[privilege_escalation]`...) |
 | **`ansible_host`** | Variável de inventário com o endereço real de conexão de um host |
 | **`ansible_local`** | Chave de `ansible_facts` onde ficam os facts customizados de `/etc/ansible/facts.d/*.fact` |
+| **`ansible_managed`** | Variável especial com o texto (definido no `ansible.cfg`) que indica que um arquivo é gerenciado pelo Ansible |
 | **`ansible_user`** | Variável de inventário com o usuário de conexão; vence o `remote_user` do play e do `ansible.cfg` |
 | **Automation controller** | Componente do AAP (antigo Ansible Tower) para gerenciar e escalar automação entre equipes |
 | **Automation execution environment (EE)** | Imagem de container (base RHEL UBI) com `ansible-core`, Python e collections, onde os playbooks rodam |
@@ -35,6 +36,7 @@ Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 4** e fundamentos
 | **Fact** | Variável com informação descoberta no managed host pelo `ansible.builtin.setup` |
 | **Fact customizado** | Fact declarado pelo próprio host em um arquivo `.fact` (INI, JSON ou script executável) |
 | **`failed_when`** | Condição personalizada para a task ser considerada falha |
+| **Filtro (Jinja2)** | Função aplicada com `|` que transforma um valor (`to_nice_yaml`, `lower`, `default`...) |
 | **`flush_handlers`** | Ação de `ansible.builtin.meta` que executa naquele ponto os handlers já notificados |
 | **`force_handlers`** | Palavra-chave de play que faz handlers já notificados rodarem mesmo após falha |
 | **FQCN** | *Fully qualified collection name*: `namespace.collection.modulo`, ex.: `ansible.builtin.ping` |
@@ -54,8 +56,10 @@ Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 4** e fundamentos
 | **`item`** | Variável que guarda o valor da iteração atual de um loop |
 | **Jinja2** | Motor de templates usado pelo Ansible para avaliar `{{ }}`, filtros e lógica simples |
 | **`loop`** | Palavra-chave de task que itera sobre uma lista |
+| **`loop.index`** | Número da iteração atual de um `{% for %}` em um template (começa em 1) |
 | **Magic variables** | Variáveis definidas pelo Ansible (`inventory_hostname`, `group_names`, `groups`, `hostvars`); nomes reservados |
 | **Managed host** | Sistema configurado pelo Ansible |
+| **Marcador (`blockinfile`)** | Linhas de comentário que delimitam um bloco gerenciado e garantem sua idempotência |
 | **Module** | Programa pequeno que garante um aspecto do estado de um host |
 | **`no_log`** | Palavra-chave que oculta argumentos e resultado de uma task na saída e nos logs |
 | **`notify`** | Palavra-chave de task que notifica handlers quando ela reporta `changed` |
@@ -68,11 +72,13 @@ Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 4** e fundamentos
 | **Pull policy** | Quando o navigator baixa a imagem do EE: `always`, `missing`, `never` (📘 `tag`) |
 | **Range (inventário)** | Notação `[início:fim(:passo)]` para gerar vários hostnames ou endereços |
 | **`register`** | Palavra-chave que guarda o retorno de uma task em uma variável |
+| **`remote_src`** | Parâmetro do `copy` que indica que a origem está no managed host |
 | **`remote_user`** | Usuário da conexão SSH; definido no `ansible.cfg` ou no play |
 | **Replay** | `ansible-navigator replay <artefato>`: reexibe uma execução a partir do JSON do artefato |
 | **`set_fact`** | Módulo que cria variáveis por host durante a execução |
 | **Snippet (`doc -s`)** | Esqueleto de task com todos os parâmetros de um módulo, gerado por `ansible-navigator doc -s` |
 | **Task** | Ação nomeada que chama um módulo com argumentos |
+| **Template** | Arquivo-modelo Jinja2 (normalmente `.j2`) renderizado por host pelo módulo `ansible.builtin.template` |
 | **Terraform** | Ferramenta de IaC focada em provisionar infraestrutura (Day 0), com *state file*; complementar ao Ansible |
 | **`UNREACHABLE` × `FAILED`** | Falha de conexão com o host × task executada que falhou |
 | **`vars` / `vars_files`** | Variáveis definidas no play / carregadas de arquivos YAML externos pelo play |

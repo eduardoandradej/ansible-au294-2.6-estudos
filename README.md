@@ -44,7 +44,7 @@ flowchart LR
 | [Capítulo 2](capitulos/02-desenvolvendo-automacao/README.md) | Introduction to Developing Automation Content | p. 62–140 | ✅ |
 | [Capítulo 3](capitulos/03-variaveis-e-vault/README.md) | Developing Automation Content: Variables | p. 141–225 | ✅ |
 | [Capítulo 4](capitulos/04-controle-de-tarefas/README.md) | Developing Automation Content: Task Control | p. 226–291 | ✅ |
-| [Capítulo 5](capitulos/05-deploy-de-arquivos/README.md) | Developing Automation Content: Deploying Files | p. 292–339 | ⏳ |
+| [Capítulo 5](capitulos/05-deploy-de-arquivos/README.md) | Developing Automation Content: Deploying Files | p. 292–339 | ✅ |
 | [Capítulo 6](capitulos/06-automacao-em-escala/README.md) | Developing Automation Content at Scale | p. 340–384 | ⏳ |
 | [Capítulo 7](capitulos/07-roles-e-collections/README.md) | Reusing Code with Ansible Roles and Content Collections | p. 385–452 | ⏳ |
 | [Capítulo 8](capitulos/08-administracao-linux/README.md) | Automating Linux Administration Tasks (partes A e B) | p. 453–569 | ⏳ |
@@ -65,7 +65,7 @@ desenvolvidos **um por vez**, à medida que o PDF de cada um é recebido.
 | [troubleshooting.md](consulta-rapida/troubleshooting.md) | Sintoma → causa provável → como verificar |
 | [glossario.md](consulta-rapida/glossario.md) | Termos em ordem alfabética |
 | [variaveis-e-precedencia.md](consulta-rapida/variaveis-e-precedencia.md) | Precedência, sintaxe, facts, variáveis mágicas e Ansible Vault |
-| [roles-e-templates.md](consulta-rapida/roles-e-templates.md) | ⏳ Preenchido com os Capítulos 5 e 7 |
+| [roles-e-templates.md](consulta-rapida/roles-e-templates.md) | Templates Jinja2 e filtros (roles: Cap. 7) |
 
 ## Exemplos e certificação
 
@@ -79,7 +79,7 @@ desenvolvidos **um por vez**, à medida que o PDF de cada um é recebido.
 - [ ] Capítulo 2 — lições, guided exercises, lab `develop-review`, revisão
 - [ ] Capítulo 3 — lições, guided exercises, lab `variables-review`, revisão
 - [ ] Capítulo 4 — lições, guided exercises, lab `control-review`, revisão
-- [ ] Capítulo 5
+- [ ] Capítulo 5 — lições, guided exercises, lab `files-review`, revisão
 - [ ] Capítulo 6
 - [ ] Capítulo 7
 - [ ] Capítulo 8 (partes A e B)

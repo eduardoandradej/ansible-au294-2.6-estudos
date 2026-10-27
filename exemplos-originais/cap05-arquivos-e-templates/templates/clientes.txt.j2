@@ -1,0 +1,4 @@
+# {{ ansible_managed }}
+{% for host in groups['clientes'] %}
+Cliente {{ loop.index }}: {{ host | lower }}
+{% endfor %}

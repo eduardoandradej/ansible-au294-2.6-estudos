@@ -9,6 +9,7 @@ Projetos pequenos, **autorais**, com hostnames fictícios (domínio reservado
 | [cap02-inventario-e-playbooks](cap02-inventario-e-playbooks/) | 2 | Inventário com grupos, ranges e `:children`; playbook de um play (NTP) e de dois plays (banco + verificação) | ✅ ver o README do projeto |
 | [cap03-variaveis-fatos-vault](cap03-variaveis-fatos-vault/) | 3 | `group_vars`/`host_vars`, `vars_files`, facts customizados, `set_fact`, `hostvars`, vault ID e `no_log` | ✅ ver o README do projeto |
 | [cap04-controle-de-tarefas](cap04-controle-de-tarefas/) | 4 | Loops, `when` com facts, handlers, `flush_handlers`, `force_handlers`, `changed_when`/`failed_when`, blocos | ✅ ver o README do projeto |
+| [cap05-arquivos-e-templates](cap05-arquivos-e-templates/) | 5 | Módulos de arquivo, `ansible_managed`, templates com facts/`for`/`if` e filtros | ✅ ver o README do projeto |
 
 ## Como a validação é feita
 

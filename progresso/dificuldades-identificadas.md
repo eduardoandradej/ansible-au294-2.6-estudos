@@ -45,5 +45,12 @@ Não são dificuldades registradas pelo aluno, mas armadilhas comuns para observ
 - Handler só com `changed`; nome idêntico no `notify`; ordem da seção `handlers`.
 - `debug` no `rescue` precisa de `changed_when: true` para notificar.
 
+## Pontos de atenção previstos pelo autor (Capítulo 5)
+
+- Barra final em `src` do `copy`; `remote_src` para origem no host.
+- `lineinfile` com `regexp` para não duplicar.
+- Marcadores distintos em `blockinfile`.
+- `ansible_managed` com o comentário do formato; `{% %}` só em templates.
+
 ---
 [Início](../README.md) | [Diário de laboratórios](diario-de-laboratorios.md)

@@ -1,6 +1,6 @@
 # Troubleshooting — sintoma → causa → verificação
 
-Cobertura atual: **Capítulos 1 a 4** (ambiente, configuração, inventário, playbooks, conexão). Ampliado a cada capítulo.
+Cobertura atual: **Capítulos 1 a 5** (ambiente, configuração, inventário, playbooks, conexão). Ampliado a cada capítulo.
 
 ## Roteiro geral (do mais externo ao mais interno)
 
@@ -87,6 +87,20 @@ flowchart TD
 | Teste logo após mudança falha | Handlers só no fim do play | `ansible.builtin.meta: flush_handlers` |
 | Playbook verde, mas algo faltou | `ignore_errors` escondendo falha | `failed_when`/`rescue` |
 | `command` sempre `changed` | Natureza do módulo | `changed_when` |
+
+## Arquivos e templates (Cap. 5)
+
+| Sintoma | Causa provável | Verificação / correção |
+|---------|----------------|------------------------|
+| `copy` não acha a origem | Origem no host sem `remote_src: true`, ou caminho fora do projeto | `remote_src: true`; caminhos relativos ao projeto |
+| Diretório copiado dentro de outro | `src` sem barra final | `src: dir/` copia só o conteúdo |
+| `lineinfile` duplica a linha | Faltou `regexp` | `regexp` casando a linha existente |
+| `lineinfile` falha (arquivo inexistente) | Padrão é falhar | `create: true` |
+| Blocos se sobrescrevem | Mesmo marcador em dois `blockinfile` | `marker`/`marker_begin`/`marker_end` próprios |
+| `synchronize` falha | `rsync` ausente em um dos lados | Instale `rsync` |
+| Template não encontrado | Fora de `templates/` | Ajuste `src` |
+| Variável indefinida no template | Não definida para o host | Defina ou use `default(...)` |
+| Fact vazio no template | `gather_facts: false` | Colete facts |
 
 ## Development container e Git
 
