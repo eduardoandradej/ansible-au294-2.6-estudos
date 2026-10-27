@@ -1,0 +1,9 @@
+# Inventário estático fictício (formato INI). O Capítulo 2 aprofunda inventários.
+# Os hosts usam o domínio reservado .example.net (RFC 2606): não resolvem na internet.
+
+[web]
+web01.example.net
+web02.example.net
+
+[db]
+db01.example.net

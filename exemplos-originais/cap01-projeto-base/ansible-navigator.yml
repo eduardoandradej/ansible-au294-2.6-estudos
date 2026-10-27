@@ -1,0 +1,14 @@
+---
+# ansible-navigator.yml — configuração do PROJETO (exemplo autoral, AU294 Cap. 1)
+# Substitua a imagem pela do seu ambiente (no curso, um registry local espelha
+# as imagens de registry.redhat.io).
+ansible-navigator:
+  execution-environment:
+    container-engine: podman      # deve existir no control node
+    enabled: true                 # executar dentro do container (EE)
+    image: registry.redhat.io/ansible-automation-platform-26/ee-supported-rhel9:latest
+    pull:
+      policy: missing             # baixar só se a imagem não existir localmente
+  mode: stdout                    # saída direta no terminal (bom para scripts e prompts)
+  playbook-artifact:
+    enable: false                 # não gerar <playbook>-artifact-<data>.json

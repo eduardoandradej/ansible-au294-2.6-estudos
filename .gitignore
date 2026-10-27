@@ -1,0 +1,69 @@
+# ---------------------------------------------------------------
+# Material oficial e restrito — NUNCA versionar
+# ---------------------------------------------------------------
+*.pdf
+*.PDF
+*.epub
+AU294_*
+AU294-*
+EX294_*
+# Extrações de texto/imagens de apostilas
+*-extraido.txt
+*.extracted.txt
+extracao/
+extracted/
+material-oficial/
+material-local/
+pdfs/
+
+# ---------------------------------------------------------------
+# Credenciais, segredos e chaves
+# ---------------------------------------------------------------
+.env
+.env.*
+*.env
+.vault_pass*
+vault_pass*
+*vault-pass*
+*.vault-password
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+id_ecdsa*
+known_hosts
+*token*
+*secret*.yml
+*secret*.yaml
+auth.json
+.netrc
+.git-credentials
+
+# ---------------------------------------------------------------
+# Artefatos gerados por Ansible / ansible-navigator
+# ---------------------------------------------------------------
+*-artifact-*.json
+ansible-navigator.log
+ansible.log
+*.retry
+.ansible/
+collections/ansible_collections/
+context/
+__pycache__/
+*.pyc
+
+# ---------------------------------------------------------------
+# Sistema / editores
+# ---------------------------------------------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
+.devcontainer/
+*.log
+tmp/

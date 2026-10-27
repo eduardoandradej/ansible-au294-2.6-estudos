@@ -1,0 +1,14 @@
+---
+# Playbook autoral: confirma que o control node consegue falar com os
+# managed hosts e executar Python neles. Não altera nada nos hosts.
+- name: Verificar se os managed hosts estão prontos para o Ansible
+  hosts: all
+  gather_facts: false           # dispensa a coleta de facts: teste mais rápido
+
+  tasks:
+    - name: Testar conexão SSH e interpretador Python
+      ansible.builtin.ping:     # não é ICMP: abre SSH e roda um módulo Python
+
+    - name: Registrar no terminal qual host respondeu
+      ansible.builtin.debug:
+        msg: "{{ inventory_hostname }} respondeu e está pronto para automação"
