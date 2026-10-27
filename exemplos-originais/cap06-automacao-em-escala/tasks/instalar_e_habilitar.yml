@@ -1,0 +1,12 @@
+---
+# Tasks parametrizadas: recebem as variáveis "pacote" e "servico"
+- name: "Garantir o pacote: {{ pacote }}"
+  ansible.builtin.dnf:
+    name: "{{ pacote }}"
+    state: present
+
+- name: "Garantir o serviço ativo e habilitado: {{ servico }}"
+  ansible.builtin.systemd_service:
+    name: "{{ servico }}"
+    enabled: true
+    state: started

@@ -52,5 +52,11 @@ Não são dificuldades registradas pelo aluno, mas armadilhas comuns para observ
 - Marcadores distintos em `blockinfile`.
 - `ansible_managed` com o comentário do formato; `{% %}` só em templates.
 
+## Pontos de atenção previstos pelo autor (Capítulo 6)
+
+- `when` em import (cada task) × include (só o include).
+- `import_playbook` só no nível superior; caminhos relativos ao arquivo que importa.
+- Aspas em patterns com `!`, `*`, `&`; `--list-hosts` antes de executar.
+
 ---
 [Início](../README.md) | [Diário de laboratórios](diario-de-laboratorios.md)

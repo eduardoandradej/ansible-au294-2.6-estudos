@@ -71,7 +71,13 @@ escrito) está em [estado-do-projeto.md](estado-do-projeto.md).
 - [ ] RESUMO.md
 
 ## Capítulo 6 — Developing Automation Content at Scale
-- [ ] ⏳ Aguardando PDF
+- [ ] 6.1 Including and Importing Files
+- [ ] 6.2 GE `scale-files`
+- [ ] 6.3 Selecting Hosts by Using Host Patterns
+- [ ] 6.4 GE `scale-hosts`
+- [ ] 6.5 Lab `scale-review` (`lab grade` aprovado)
+- [ ] REVISAO.md
+- [ ] RESUMO.md
 
 ## Capítulo 7 — Reusing Code with Ansible Roles and Content Collections
 - [ ] ⏳ Aguardando PDF

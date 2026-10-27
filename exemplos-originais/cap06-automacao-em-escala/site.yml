@@ -1,0 +1,7 @@
+---
+# Playbook principal: só importa playbooks (nível superior, nunca dentro de um play)
+- name: Baseline de todos os servidores
+  ansible.builtin.import_playbook: plays/baseline.yml
+
+- name: Monitoramento dos grupos de serviço
+  ansible.builtin.import_playbook: plays/monitoramento.yml

@@ -1,0 +1,33 @@
+---
+# Host patterns: confira os alvos com "ansible-navigator run padroes.yml --list-hosts"
+- name: Hosts que começam com app (curinga entre aspas)
+  hosts: 'app*'
+  gather_facts: false
+  tasks:
+    - name: Identificar o host
+      ansible.builtin.debug:
+        msg: "{{ inventory_hostname }}"
+
+- name: Grupo servicos, mas só em São Paulo (AND)
+  hosts: servicos,&sp
+  gather_facts: false
+  tasks:
+    - name: Identificar o host
+      ansible.builtin.debug:
+        msg: "{{ inventory_hostname }}"
+
+- name: Grupo servicos, exceto um host (NOT)
+  hosts: 'servicos,!db02-rj.example.net'
+  gather_facts: false
+  tasks:
+    - name: Identificar o host
+      ansible.builtin.debug:
+        msg: "{{ inventory_hostname }}"
+
+- name: Hosts sem grupo
+  hosts: ungrouped
+  gather_facts: false
+  tasks:
+    - name: Identificar o host
+      ansible.builtin.debug:
+        msg: "{{ inventory_hostname }}"

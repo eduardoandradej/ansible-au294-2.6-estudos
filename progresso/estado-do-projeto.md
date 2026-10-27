@@ -5,7 +5,7 @@
 > [CLAUDE.md](../CLAUDE.md). Este arquivo registra **documentação produzida**, não
 > aprendizagem do aluno (essa fica no [checklist](checklist-geral.md) e no [diário](diario-de-laboratorios.md)).
 
-**Última atualização:** 2026-10-27 (sessão 5: Capítulo 5)
+**Última atualização:** 2026-10-27 (sessão 6: Capítulo 6)
 
 ## Situação por módulo
 
@@ -21,11 +21,12 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 | Capítulo 3 | ✅ | C03 (p. 141–225) | 3 lições + prática oficial (3 GEs + lab com `lab grade`), revisão (25 questões), resumo |
 | Capítulo 4 | ✅ | C04 (p. 226–291) | 3 lições + prática oficial (3 GEs + lab com `lab grade`), revisão (22 questões), resumo |
 | Capítulo 5 | ✅ | C05 (p. 292–339) | 2 lições + prática oficial (2 GEs + lab com `lab grade`), revisão (22 questões), resumo |
-| Capítulos 6–7 | ⏳ | — | Só `README.md` estrutural, a partir do sumário (PDF p. 3–5) |
+| Capítulo 6 | ✅ | C06 (p. 340–384) | 2 lições + prática oficial (2 GEs + lab com `lab grade`), revisão (22 questões), resumo |
+| Capítulo 7 | ⏳ | — | Só `README.md` estrutural, a partir do sumário (PDF p. 3–5) |
 | Capítulo 8 | ⏳ | — | Será recebido em duas partes (08A e 08B) |
 | Capítulo 9 | ⏳ | — | Só `README.md` estrutural |
 | consulta-rapida | 🟡 | — | Comandos, configuração, troubleshooting, glossário, módulos, inventário e playbooks cobrem os Caps. 1–2; variáveis cobertas pelo Cap. 3; roles/templates aguardam capítulos |
-| exemplos-originais | ✅ (Caps. 1–5) | — | `cap01` a `cap05` com checagem estática (YAML, syntax-check, lint) |
+| exemplos-originais | ✅ (Caps. 1–6) | — | `cap01` a `cap06` com checagem estática (YAML, syntax-check, lint) |
 | certificacao-ex294 | 🟡 | — | Objetivos oficiais **não** conferidos (página inacessível nesta sessão) |
 
 ## Fatos verificados no PDF
@@ -40,6 +41,7 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 - Capítulo 3 (p. 141–225): 3.1 (p. 142–155); 3.2 GE `variables-vars` (p. 156–168); 3.3 (p. 169–178); 3.4 GE `variables-facts` (p. 179–187); 3.5 (p. 188–198); 3.6 GE `variables-vault` (p. 199–208); 3.7 Lab `variables-review` (p. 209–224, **com** `lab grade`); 3.8 Summary (p. 225). Sem quiz.
 - Capítulo 4 (p. 226–291): 4.1 (p. 227–238); 4.2 GE `control-flow` (p. 239–244); 4.3 (p. 245–247); 4.4 GE `control-handlers` (p. 248–254); 4.5 (p. 255–260); 4.6 GE `control-errors` (p. 261–276); 4.7 Lab `control-review` (p. 277–290, **com** `lab grade`); 4.8 Summary (p. 291). Sem quiz.
 - Capítulo 5 (p. 292–339): 5.1 (p. 293–304); 5.2 GE `files-manage` (p. 305–316); 5.3 (p. 317–324); 5.4 GE `files-templates` (p. 325–329); 5.5 Lab `files-review` (p. 330–338, **com** `lab grade`); 5.6 Summary (p. 339). Sem quiz.
+- Capítulo 6 (p. 340–384): 6.1 (p. 341–346); 6.2 GE `scale-files` (p. 347–354); 6.3 (p. 355–364); 6.4 GE `scale-hosts` (p. 365–372); 6.5 Lab `scale-review` (p. 373–383, **com** `lab grade`); 6.6 Summary (p. 384). Sem quiz. Os exemplos de 6.3 no PDF usam IPs da sala de aula; nas lições, foram trocados por IPs de documentação.
 - O curso afirma que, com `ansible-navigator`, o usuário padrão de conexão é `root` (o usuário do processo no EE), e que esse `root` usa as chaves SSH do usuário da workstation.
 
 ## Diretriz de fidelidade ao material (decisão do usuário, 2026-10-27)
@@ -92,6 +94,14 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 - [x] `cap05-arquivos-e-templates`: YAML, `--syntax-check` e `ansible-lint` (perfil *production*) sem erros. **Não executado.**
 - [x] YAML embutido validado por parser; links e âncoras verificados por script.
 
+## Validação do Capítulo 6
+
+- [x] Seções 6.1–6.6 representadas, na ordem; ausência de quiz registrada.
+- [x] Identificadores `scale-files`, `scale-hosts` e `scale-review` conferidos; `lab grade` só no 6.5.
+- [x] Conteúdo seguindo o PDF, sem testes locais nem correções; GEs e lab sem passos, valores ou soluções; exemplo com cenário próprio (baseline de servidores).
+- [x] `cap06-automacao-em-escala`: YAML, `--syntax-check` e `ansible-lint` (perfil *production*) sem erros. **Não executado.**
+- [x] YAML embutido validado por parser; links e âncoras verificados por script.
+
 ## Fluxo de publicação
 
 - Pedido do usuário: commit e push direto em `main`, sem PR.
@@ -110,5 +120,5 @@ Legenda: ⏳ aguardando PDF · 🟡 parcial · 📝 documentado · ✅ documenta
 
 ## Próximo passo
 
-Aguardar o PDF **`AU294_AAP2.6_C06_Automacao_Escala_p340-384.pdf`**
-(Capítulo 6, p. 340–384). Não avançar sem ele.
+Aguardar o PDF **`AU294_AAP2.6_C07_Roles_Collections_p385-452.pdf`**
+(Capítulo 7, p. 385–452). Não avançar sem ele.

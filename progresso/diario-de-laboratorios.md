@@ -43,7 +43,10 @@ credenciais.
 | 5.2 | GE `files-manage` | | | | |
 | 5.4 | GE `files-templates` | | | | |
 | 5.5 | Lab `files-review` (grade) | | | | |
-| 6.x | ⏳ Aguardando PDF | | | | |
+| 6.2 | GE `scale-files` | | | | |
+| 6.4 | GE `scale-hosts` | | | | |
+| 6.5 | Lab `scale-review` (grade) | | | | |
+| 7.x | ⏳ Aguardando PDF | | | | |
 
 ## Entradas
 

@@ -91,6 +91,22 @@ Cobertura: **estrutura de playbooks** (Capítulo 2) e **controle de tarefas**
 | `ansible.builtin.fail` + `when` | Falha explícita com mensagem |
 | `block` / `rescue` / `always` | Agrupar / recuperar / garantir |
 
+## Imports e includes (Cap. 6)
+
+| Módulo | Tipo | Observações |
+|--------|------|-------------|
+| `ansible.builtin.import_playbook` | Estático | Só no nível superior do playbook |
+| `ansible.builtin.import_tasks` | Estático | `when` aplicado a cada task; sem loops; nome em variável estática; aparece no `--list-tasks` |
+| `ansible.builtin.include_tasks` | Dinâmico | `when` só no include; aceita loops e dados da execução; não aparece no `--list-tasks` |
+
+```yaml
+- name: Importar tasks parametrizadas
+  ansible.builtin.import_tasks: tasks/instalar_e_habilitar.yml
+  vars:
+    pacote: chrony
+    servico: chronyd
+```
+
 ## Executar e verificar
 
 | Tarefa | Opção de `ansible-navigator run` |

@@ -45,7 +45,7 @@ flowchart LR
 | [Capítulo 3](capitulos/03-variaveis-e-vault/README.md) | Developing Automation Content: Variables | p. 141–225 | ✅ |
 | [Capítulo 4](capitulos/04-controle-de-tarefas/README.md) | Developing Automation Content: Task Control | p. 226–291 | ✅ |
 | [Capítulo 5](capitulos/05-deploy-de-arquivos/README.md) | Developing Automation Content: Deploying Files | p. 292–339 | ✅ |
-| [Capítulo 6](capitulos/06-automacao-em-escala/README.md) | Developing Automation Content at Scale | p. 340–384 | ⏳ |
+| [Capítulo 6](capitulos/06-automacao-em-escala/README.md) | Developing Automation Content at Scale | p. 340–384 | ✅ |
 | [Capítulo 7](capitulos/07-roles-e-collections/README.md) | Reusing Code with Ansible Roles and Content Collections | p. 385–452 | ⏳ |
 | [Capítulo 8](capitulos/08-administracao-linux/README.md) | Automating Linux Administration Tasks (partes A e B) | p. 453–569 | ⏳ |
 | [Capítulo 9](capitulos/09-revisao-geral/README.md) | Comprehensive Review | p. 570–615 | ⏳ |
@@ -60,7 +60,7 @@ desenvolvidos **um por vez**, à medida que o PDF de cada um é recebido.
 | [comandos-ansible.md](consulta-rapida/comandos-ansible.md) | Comandos agrupados por tarefa |
 | [configuracao-ansible-e-navigator.md](consulta-rapida/configuracao-ansible-e-navigator.md) | `ansible.cfg`, `ansible-navigator.yml` e precedência em uma página |
 | [modulos-e-collections.md](consulta-rapida/modulos-e-collections.md) | Módulos citados, fontes de collections e como consultar documentação |
-| [inventory-e-host-patterns.md](consulta-rapida/inventory-e-host-patterns.md) | Sintaxe INI, ranges, `:children`, variáveis de conexão, consultas (host patterns avançados: Cap. 6) |
+| [inventory-e-host-patterns.md](consulta-rapida/inventory-e-host-patterns.md) | Sintaxe INI, ranges, `:children`, variáveis de conexão, consultas e host patterns |
 | [playbooks-e-controle.md](consulta-rapida/playbooks-e-controle.md) | Esqueleto de play, usuário e privilégio, loops, condicionais, handlers, tratamento de falhas, opções de execução |
 | [troubleshooting.md](consulta-rapida/troubleshooting.md) | Sintoma → causa provável → como verificar |
 | [glossario.md](consulta-rapida/glossario.md) | Termos em ordem alfabética |
@@ -80,7 +80,7 @@ desenvolvidos **um por vez**, à medida que o PDF de cada um é recebido.
 - [ ] Capítulo 3 — lições, guided exercises, lab `variables-review`, revisão
 - [ ] Capítulo 4 — lições, guided exercises, lab `control-review`, revisão
 - [ ] Capítulo 5 — lições, guided exercises, lab `files-review`, revisão
-- [ ] Capítulo 6
+- [ ] Capítulo 6 — lições, guided exercises, lab `scale-review`, revisão
 - [ ] Capítulo 7
 - [ ] Capítulo 8 (partes A e B)
 - [ ] Capítulo 9 — revisão integrada

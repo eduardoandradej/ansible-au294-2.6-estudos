@@ -1,0 +1,9 @@
+---
+# Regras de auditoria comuns a todos os servidores
+- name: Publicar regra de auditoria para alterações em /etc/passwd
+  ansible.builtin.copy:
+    dest: /etc/audit/rules.d/50-identidade.rules
+    content: "-w /etc/passwd -p wa -k identidade\n"
+    owner: root
+    group: root
+    mode: '0640'

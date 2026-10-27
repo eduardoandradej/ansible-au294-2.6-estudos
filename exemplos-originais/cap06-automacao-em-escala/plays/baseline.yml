@@ -1,0 +1,25 @@
+---
+# Play reutilizável: baseline comum a todos os servidores Linux
+- name: Aplicar a baseline dos servidores
+  hosts: sp,rj
+  become: true
+
+  tasks:
+    - name: Importar a instalação do chrony
+      ansible.builtin.import_tasks: ../tasks/instalar_e_habilitar.yml
+      vars:
+        pacote: chrony
+        servico: chronyd
+
+    - name: Importar a instalação do auditd
+      ansible.builtin.import_tasks: ../tasks/instalar_e_habilitar.yml
+      vars:
+        pacote: audit
+        servico: auditd
+
+    - name: Importar as regras de auditoria
+      ansible.builtin.import_tasks: ../tasks/auditoria.yml
+
+    - name: Incluir ajustes específicos do RHEL 10
+      ansible.builtin.include_tasks: ../tasks/especifico_rhel10.yml
+      when: ansible_facts['distribution_major_version'] == "10"

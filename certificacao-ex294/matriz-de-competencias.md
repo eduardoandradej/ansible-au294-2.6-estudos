@@ -24,7 +24,8 @@ verificados ([ver status](objetivos-publicos-verificados.md)).
 | Tratar falhas (`ignore_errors`, `force_handlers`, `failed_when`, `changed_when`, blocos) | 4 | [4.5](../capitulos/04-controle-de-tarefas/4.5-tratando-falhas-de-tarefas.md) | ⏳ a verificar |
 | Gerenciar arquivos com `copy`, `fetch`, `synchronize`, `lineinfile`, `blockinfile`, `file`, `stat`, `find` (dono, modo, SELinux) | 5 | [5.1](../capitulos/05-deploy-de-arquivos/5.1-automatizando-gerenciamento-de-arquivos.md) | ⏳ a verificar |
 | Criar e implantar templates Jinja2 com variáveis, facts, loops, condicionais e filtros | 5 | [5.3](../capitulos/05-deploy-de-arquivos/5.3-templates-jinja2-e-filtros.md) | ⏳ a verificar |
-| Include/import e host patterns | 6 | ⏳ Aguardando PDF | ⏳ |
+| Organizar playbooks com `import_playbook`, `import_tasks` e `include_tasks`, com variáveis e condições | 6 | [6.1](../capitulos/06-automacao-em-escala/6.1-incluindo-e-importando-arquivos.md) | ⏳ a verificar |
+| Selecionar hosts com host patterns (grupos, curingas, `,`, `&`, `!`), `--list-hosts` e `--limit` | 6 | [6.3](../capitulos/06-automacao-em-escala/6.3-selecionando-hosts-com-host-patterns.md) | ⏳ a verificar |
 | Roles e collections | 7 | ⏳ Aguardando PDF | ⏳ |
 | Administração de RHEL e system roles | 8 | ⏳ Aguardando PDF | ⏳ |
 

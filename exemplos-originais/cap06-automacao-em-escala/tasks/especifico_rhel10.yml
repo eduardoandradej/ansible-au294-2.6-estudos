@@ -1,0 +1,7 @@
+---
+# Só faz sentido em RHEL 10: incluído dinamicamente com when
+- name: Registrar a versão base em /etc/motd.d
+  ansible.builtin.copy:
+    dest: /etc/motd.d/baseline
+    content: "Baseline RHEL {{ ansible_facts['distribution_version'] }}\n"
+    mode: '0644'

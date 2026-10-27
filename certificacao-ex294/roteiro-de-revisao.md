@@ -36,6 +36,8 @@ quando o Capítulo 9 (Comprehensive Review) for recebido.
 - [ ] Escrevo `block`/`rescue`/`always` com `changed_when`/`failed_when` sem consulta.
 - [ ] Escolho o módulo de arquivo certo para cada operação e aplico dono, modo e `setype`.
 - [ ] Escrevo um template com facts, `for`, `if` e `default` e o implanto com handler.
+- [ ] Reorganizo um playbook longo em arquivos de tasks importados e parametrizados.
+- [ ] Escrevo patterns com curinga, `&` e `!` e confiro com `--list-hosts`.
 - [ ] ⏳ Demais itens com os próximos capítulos.
 
 ---

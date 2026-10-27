@@ -1,7 +1,6 @@
 # Inventário e host patterns
 
-Cobertura: **inventário** (Capítulo 2). ⏳ Host patterns avançados chegam com o
-Capítulo 6. Lição completa: [2.1](../capitulos/02-desenvolvendo-automacao/2.1-construindo-um-inventario.md).
+Cobertura: **inventário** (Capítulo 2) e **host patterns** (Capítulo 6). Lição completa: [2.1](../capitulos/02-desenvolvendo-automacao/2.1-construindo-um-inventario.md).
 
 ## Sintaxe INI
 
@@ -56,15 +55,25 @@ ansible_user=dba
 | Outro inventário | `-i <caminho>` (sobrepõe `inventory=` do `ansible.cfg`) |
 | Hosts de cada play (📘) | `ansible-navigator run <pb>.yml --list-hosts` |
 
-## Host patterns já vistos
+## Host patterns (Cap. 6)
 
-| Padrão em `hosts:` | Alvo |
-|--------------------|------|
-| `all` | Todos os hosts |
-| `<grupo>` | Hosts do grupo (incluindo filhos) |
-| `<fqdn>` | Um host |
+Lição: [6.3](../capitulos/06-automacao-em-escala/6.3-selecionando-hosts-com-host-patterns.md).
 
-⏳ Combinações, exclusões e curingas: Capítulo 6.
+| Pattern em `hosts:` | Alvo |
+|---------------------|------|
+| `host.example.net` · `192.0.2.10` | Um host (IP só se estiver listado no inventário) |
+| `grupo` | Hosts do grupo (inclui filhos de `:children`) |
+| `all` · `'*'` | Todos |
+| `ungrouped` | Hosts sem grupo |
+| `'web*'` · `'*.example.net'` · `192.0.2.*` | Curinga (casa hosts, IPs **e** grupos) |
+| `a,b` | União (OU); `:` também separa, mas prefira `,` |
+| `a,&b` | Interseção (E) |
+| `'a,!b'` | Exclusão (NÃO) |
+
+- Aspas quando o pattern começa com `!`, `*` ou `&`.
+- A ordem dos itens não importa.
+- Conferir antes: `ansible-navigator run <pb>.yml --list-hosts`.
+- Restringir na execução: `--limit <pattern>` (ou `-l`).
 
 ---
 [Índice geral](../README.md)

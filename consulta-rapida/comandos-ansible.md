@@ -1,6 +1,6 @@
 # Comandos Ansible — consulta rápida
 
-Agrupados por tarefa. Cobertura atual: **Capítulos 1 a 3**. Ampliado a cada capítulo.
+Agrupados por tarefa. Cobertura atual: **Capítulos 1 a 6**. Ampliado a cada capítulo.
 
 ## Ferramentas e versões
 
@@ -51,7 +51,8 @@ Agrupados por tarefa. Cobertura atual: **Capítulos 1 a 3**. Ampliado a cada cap
 | Passo a passo | `ansible-navigator run <pb>.yml -m stdout --pae false --step` |
 | Começar em uma task | `ansible-navigator run <pb>.yml --start-at-task "<nome>"` |
 | Listar tasks | `ansible-navigator run <pb>.yml --list-tasks` |
-| Listar hosts por play (📘) | `ansible-navigator run <pb>.yml --list-hosts` |
+| Listar hosts por play | `ansible-navigator run <pb>.yml --list-hosts` |
+| Restringir hosts na execução | `ansible-navigator run <pb>.yml --limit <pattern>` (ou `-l`) |
 | Rever execução anterior | `ansible-navigator replay <pb>-artifact-<data>.json [-m stdout]` |
 | Comando ad hoc | `ansible <padrão> -m <fqcn> [-a '<args>'] [-i <inv>]` |
 | Ad hoc dentro do EE (📘) | `ansible-navigator exec -- ansible <padrão> -m <fqcn>` |

@@ -1,6 +1,6 @@
 # Troubleshooting — sintoma → causa → verificação
 
-Cobertura atual: **Capítulos 1 a 5** (ambiente, configuração, inventário, playbooks, conexão). Ampliado a cada capítulo.
+Cobertura atual: **Capítulos 1 a 6** (ambiente, configuração, inventário, playbooks, conexão). Ampliado a cada capítulo.
 
 ## Roteiro geral (do mais externo ao mais interno)
 
@@ -101,6 +101,18 @@ flowchart TD
 | Template não encontrado | Fora de `templates/` | Ajuste `src` |
 | Variável indefinida no template | Não definida para o host | Defina ou use `default(...)` |
 | Fact vazio no template | `gather_facts: false` | Colete facts |
+
+## Imports, includes e host patterns (Cap. 6)
+
+| Sintoma | Causa provável | Verificação / correção |
+|---------|----------------|------------------------|
+| Falha antes de começar citando arquivo importado | Arquivo inexistente ou com erro | Caminho relativo ao arquivo que importa; `--syntax-check` |
+| Erro com `import_playbook` | Usado dentro de um play | Só no nível superior |
+| Loop/variável dinâmica em `import_tasks` não funciona | Import é resolvido no parse | `include_tasks` |
+| Tasks não aparecem no `--list-tasks` | Arquivo incluído (dinâmico) | Esperado; use import se precisar |
+| Erro de YAML em `hosts:` | Pattern com `!`, `*`, `&` sem aspas | Aspas |
+| IP não casa | IP não listado no inventário | Liste o IP ou use o nome |
+| Curinga atinge hosts demais | Casa também grupos e IPs | `--list-hosts`; pattern mais específico |
 
 ## Development container e Git
 

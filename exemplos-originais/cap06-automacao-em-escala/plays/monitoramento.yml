@@ -1,0 +1,12 @@
+---
+# Play reutilizável: agente de métricas nos grupos de serviço
+- name: Instalar o agente de métricas
+  hosts: servicos
+  become: true
+
+  tasks:
+    - name: Importar a instalação do PCP
+      ansible.builtin.import_tasks: ../tasks/instalar_e_habilitar.yml
+      vars:
+        pacote: pcp
+        servico: pmcd

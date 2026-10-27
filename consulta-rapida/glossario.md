@@ -1,9 +1,11 @@
 # Glossário
 
-Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 5** e fundamentos.
+Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 6** e fundamentos.
 
 | Termo | Definição |
 |-------|-----------|
+| **`--limit` (`-l`)** | Opção que restringe os hosts atingidos em uma execução, sem editar o playbook |
+| **`--list-hosts`** | Opção que mostra os hosts casados por cada play, sem executar tasks |
 | **Ad hoc command** | Execução de uma única task pela linha de comando (`ansible <padrão> -m <módulo>`), sem playbook |
 | **Agentless** | Arquitetura sem agente residente nos managed hosts; o control node conecta, envia o módulo, executa e remove |
 | **Ansible (pacote comunitário)** | `ansible-core` + seleção de collections da comunidade, com ciclo de release próprio |
@@ -21,6 +23,7 @@ Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 5** e fundamentos
 | **`ansible_local`** | Chave de `ansible_facts` onde ficam os facts customizados de `/etc/ansible/facts.d/*.fact` |
 | **`ansible_managed`** | Variável especial com o texto (definido no `ansible.cfg`) que indica que um arquivo é gerenciado pelo Ansible |
 | **`ansible_user`** | Variável de inventário com o usuário de conexão; vence o `remote_user` do play e do `ansible.cfg` |
+| **Arquivo de tasks** | Arquivo YAML com uma lista de tasks (sem play), usado com `import_tasks`/`include_tasks` |
 | **Automation controller** | Componente do AAP (antigo Ansible Tower) para gerenciar e escalar automação entre equipes |
 | **Automation execution environment (EE)** | Imagem de container (base RHEL UBI) com `ansible-core`, Python e collections, onde os playbooks rodam |
 | **`become`** | Escalada de privilégio após conectar (padrão: `sudo` para `root`) |
@@ -49,6 +52,9 @@ Termos em ordem alfabética. Cobertura atual: **Capítulos 1 a 5** e fundamentos
 | **`hostvars`** | Variável mágica com as variáveis de todos os hosts do inventário |
 | **Idempotência** | Propriedade de produzir o mesmo resultado em execuções repetidas, sem mudanças se o estado já está correto |
 | **`ignore_errors`** | Palavra-chave de task que mantém a execução após a falha dela |
+| **`import_playbook`** | Módulo que importa os plays de outro playbook, no nível superior |
+| **`import_tasks`** | Módulo que importa tasks de forma estática, no parse do playbook |
+| **`include_tasks`** | Módulo que inclui tasks de forma dinâmica, quando a execução chega ao include |
 | **Infraestrutura como código (IaC)** | Descrever o estado desejado da infraestrutura em arquivos versionáveis aplicados por ferramenta |
 | **`inject_facts_as_vars`** | Opção do `ansible.cfg` que mantém a forma antiga `ansible_*` dos facts (padrão `true`) |
 | **Inventário dinâmico** | Inventário gerado em tempo de execução por um plug-in que consulta fonte externa |
